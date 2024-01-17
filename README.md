@@ -6,18 +6,3 @@
   <div class="info">This uses an api made by The Weather Channel. This website is designed from inspiration from here: https://dribbble.com/shots/20030403-Weather-Forecasting-Website </div>
   <div class="info">This Project was last updated 1/17/24.</div>
   <div class="info">To see the latest updates, go to "changelog.txt".</div>
-
-
-<style>
-  .title {
-    text-align: center;
-  }
-  .info {
-    text-align: center;
-    font-size: 17px;
-  }
-  .contributors {
-    text-align: center;
-    font-size: 17px;
-  }
-</style>
