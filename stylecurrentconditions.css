@@ -16,6 +16,7 @@ body {
     height: fit-content;
 }	
 .sidebar-name {
+    text-align: center;
    display: flex;
    width: 200px;	
 }
