@@ -9,5 +9,9 @@ body {
     background-color: navy;
     left: 0px;
     width: 54px;
-    height: 54px;;
+    height: 54px;
+}
+svg {
+    left: 0px;
+    width: 26%;
 }
