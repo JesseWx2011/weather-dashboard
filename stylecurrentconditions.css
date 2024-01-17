@@ -22,7 +22,7 @@ body {
 .sidebar-text {
     text-align: center;
     display: flex;
-   width: fit-cotent;	
+     width: fit-content;	
     padding-left: 60px;
 }
 img {
