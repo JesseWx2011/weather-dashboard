@@ -26,6 +26,11 @@ body {
      width: fit-content;	
     padding-left: 60px;
 }
+a {
+    text-underline-offset: 1100px;
+    color: white;
+    text-shadow: black;
+}
 img {
     display: flex;
     left: 0px;
