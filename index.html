@@ -1,20 +1,53 @@
 <html>
-    <head>
-        <script src="scriptcurrentconditions.js"></script>
-    <link rel="stylesheet" href="stylecurrentconditions.css">
-        <title class="title">Current Condititons for .</title>
-        <meta charset="UTF-8">
-        <meta name="authors" content="Jesse Hasty">
-    </head>
-    <div class="sidebar">
-        <div class="option">
-            <img src="locator.svg"></img>
-            <div class="sidebar-name"><a href="locations.html">Location List</a></div>
-        </div>
-<div class="divider" style="color: white;">----</div>	
-<div class="option">
-    <img src="locator.svg"></img>
-            <div class="sidebar-name"><a href="locations.html">Hourly Forecast</a></div>
+  <head>
+    <title id="title">Weather for Unknown</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylecurrentconditions.css" />
+    <script src="scriptcc.js"></script>
+    <meta name="authors" content="Jesse Hasty">
+  </head>
+    <body>
+        <div class="fullpage" align="center">
+        <div class="container">
+            <div class="currentconditions">
+                <div class="weatherinfo">
+                <h1 class="city" id="cityname">Unknown Location, Unknown State</h1>
+                <h1 class="temperature" id="temp">32°F</h3>
+                  <div id="icon"></div>
+                <h3 class="weathercond" style="color: black;" id="weather">Sunny</h3>
+                <div class="cards-container">
+                <div class="card">
+                  <div class="cardtitle" id="windtitle">Wind</div>
+                  <div class="value" id="windvalue">0 mph</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="uvtitle">UV Index</div>
+                  <div class="value" id="uvvalue">0</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="humtitle">Humidity</div>
+                  <div class="value" id="humvalue">100%</div>
+                </div>
+              </div>
+              <div class="cards-container">
+                <div class="card">
+                  <div class="cardtitle" id="pressuretitle">Pressure</div>
+                  <div class="value" id="pressurevalue">0 mph</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="dewtitle">Dew Point</div>
+                  <div class="value" id="dewvalue">0 mph</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="visbilitytitle">Visibility</div>
+                  <div class="valuevis" style="margin-bottom: 50px;" id="visibilityvalue">15 mi
+              
+                </div>
+                <div class="valuet" id="visibilitytext">Clear Skies</div>
+              </div>  
+</div>
+              </div>
+            </div>
         </div>
     </div>
-</html> 
+    </body>
