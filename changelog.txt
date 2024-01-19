@@ -2,3 +2,10 @@ V1.0:
 Added Sidebar
 Added Image Vector
 Added CSS File
+V1.0.0.1:
+Complete Redesign with current conditions
+Added Script File
+Added API that automatically detects current location
+Added Icons
+Added Interstate-Condensed Font
+Added Weather Cards
