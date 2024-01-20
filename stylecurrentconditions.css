@@ -35,6 +35,19 @@ body {
 }
 .city {
     text-align: center;
+    padding-left: 450px;
+}
+.cityn {
+    padding-left: 5px;
+    text-transform: capitalize;
+}
+.state {
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+.country {
+    text-transform: uppercase;
+    padding-left: 5px;
 }
 .cards-container {
     display: flex;
@@ -112,3 +125,31 @@ body {
 .deatiledinformation-mintoday {
     color: blue;
 }
+.search-container {
+    position: relative;
+    width: 400px;
+    height: 40px;
+  }
+  
+  #search-input {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  #search-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background-color: #ccc;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .fa-search {
+    color: #fff;
+  }
