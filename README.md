@@ -6,6 +6,7 @@
   <div class="info">This uses an api made by The Weather Channel.</div>
   <div class="info">This Project was last updated 1/20/24.</div>
   <div class="info">To see the latest updates, go to "changelog.txt".</div>
+  <div align="center">If you are wanting to use this on your website please credit me for the original design. Thank you :)</div>
 <img align="center" src="https://github-readme-stats.vercel.app/api?username=JesseWx2011&include_all_commits=true&count_private=true&show_icons=true&line_height=20&title_color=2B5BBD&icon_color=1124BB&text_color=A1A1A1&bg_color=0,000000,130F40" alt="my Github Stats"/>
 
 
