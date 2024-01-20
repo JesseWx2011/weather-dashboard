@@ -9,3 +9,17 @@ Added API that automatically detects current location
 Added Icons
 Added Interstate-Condensed Font
 Added Weather Cards
+V1.1:
+Updated Current Conditions
+Background Image Updated
+Added Forecast (Beta)
+Added Metric Units (Incomplete as of 1-20-2024)
+
+ To Be Added:
+ Updated Forecast
+ Search Bar
+ To be decided:
+  Nearby Cities Observations
+  Multilanguage Support
+  Extra Pages
+  Let me know what else to add :)
