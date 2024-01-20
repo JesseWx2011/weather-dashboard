@@ -1,5 +1,5 @@
 getWx();  
-const api_url = `https://api.aerisapi.com/conditions/washington,dc?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+const api_url = `https://api.aerisapi.com/conditions/:auto?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
   async function getWx() {   
       const responsee = await fetch(api_url);
       const data = await responsee.json(); 
