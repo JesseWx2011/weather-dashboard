@@ -75,7 +75,7 @@ body {
     align-content: center;
     margin-top: 130px;
     width: 1300px;
-    height: 500px;
+    height: fit-content;
     background-color: skyblue;
     display: flex;
 }
@@ -96,6 +96,19 @@ body {
     font-weight: 800;
 }
 .daycardtemp {
-    color: mediumaquamarine;
+    color: red;
     font-size: 23px;
+}
+.detailedinformationcontainer {
+    background-color: yellowgreen;
+    width: 1280px;
+    height: fit-content;
+    font-weight: 800;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.deatiledinformation-today {
+    color: red;
+}
+.deatiledinformation-mintoday {
+    color: blue;
 }
