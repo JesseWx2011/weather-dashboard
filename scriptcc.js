@@ -91,6 +91,15 @@ async function getForecast() {
     document.getElementById('temp6day').textContent = response[0].periods[6].maxTempF;
     document.getElementById('wxicon6').innerHTML = `<img src="${response[0].periods[6].icon}"></img>`;
     document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
-
+  // Detailed Information Container 
+  // Day 1 (Today/Tonight)
+  document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
+  document.getElementById('tempmintoday').innerHTML = `High Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
+  document.getElementById('fullforecast0').innerHTML = `It will be ${response[0].periods[0].weatherPrimary} Today (or Tonight) with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH} mph.`;
+  // Day 2 (Tommorow)
+  // Day 1 (Today/Tonight)
+  document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
+  document.getElementById('tempmintoday1').innerHTML = `High Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
+  document.getElementById('fullforecast1').innerHTML = `Tommrows Weather will be ${response[0].periods[1].weatherPrimary} with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH} mph.`
 }
 getForecast();
