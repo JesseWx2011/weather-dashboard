@@ -66,23 +66,31 @@ async function getForecast() {
     // Day 1
     document.getElementById('temp0day').textContent = response[0].periods[0].maxTempF;
     document.getElementById('wxicon0').innerHTML = `<img src="${response[0].periods[0].icon}"></img>`;
+    document.getElementById('weather0').textContent = response[0].periods[0].weatherPrimary;
     // Day 2
     document.getElementById('temp1day').textContent = response[0].periods[1].maxTempF;
     document.getElementById('wxicon1').innerHTML = `<img src="${response[0].periods[1].icon}"></img>`;
+    document.getElementById('weather1').textContent = response[0].periods[1].weatherPrimary;
     // Day 3
     document.getElementById('temp2day').textContent = response[0].periods[2].maxTempF;
     document.getElementById('wxicon2').innerHTML = `<img src="${response[0].periods[2].icon}"></img>`;
+    document.getElementById('weather2').textContent = response[0].periods[2].weatherPrimary;
     // Day 4
     document.getElementById('temp3day').textContent = response[0].periods[3].maxTempF;
     document.getElementById('wxicon3').innerHTML = `<img src="${response[0].periods[3].icon}"></img>`;
+    document.getElementById('weather3').textContent = response[0].periods[3].weatherPrimary;
     // Day 5
     document.getElementById('temp4day').textContent = response[0].periods[4].maxTempF;
     document.getElementById('wxicon4').innerHTML = `<img src="${response[0].periods[4].icon}"></img>`;
+    document.getElementById('weather4').textContent = response[0].periods[4].weatherPrimary;
     // Day 6
     document.getElementById('temp5day').textContent = response[0].periods[5].maxTempF;
     document.getElementById('wxicon5').innerHTML = `<img src="${response[0].periods[5].icon}"></img>`;
+    document.getElementById('weather5').textContent = response[0].periods[5].weatherPrimary;
     // Day 7
     document.getElementById('temp6day').textContent = response[0].periods[6].maxTempF;
     document.getElementById('wxicon6').innerHTML = `<img src="${response[0].periods[6].icon}"></img>`;
+    document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
+
 }
 getForecast();
