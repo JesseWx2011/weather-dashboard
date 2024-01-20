@@ -7,7 +7,7 @@ const api_url = `https://api.aerisapi.com/conditions/:auto?format=json&plimit=1&
       console.log(response);    
 
 
-       document.getElementById('cityname').innerHTML = `Weather for ${response[0].place.name}, ${response[0].place.state}, ${response[0].place.country}`;
+       document.getElementById('cityname').innerHTML = `Weather for <div class="cityn" style="display: flex;"> ${response[0].place.name}</div>, <div class="state" style="flex;">${response[0].place.state}</div>, <div class="country" style="display: flex;">${response[0].place.country}</div>`;
        document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
        document.getElementById('title').innerHTML = `Weather for ${response[0].place.name}, ${response[0].place.state}`
        document.getElementById('icon').innerHTML = `<img src="${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
@@ -52,7 +52,19 @@ uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
 } if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.25) {
     visibilitytext.innerHTML = `Extremely Dense Fog/Haze`
 }
-  }
+// Get City Weather Data Based off of the Searched city.
+
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+
+searchButton.addEventListener('click', function() {
+  // Process the search query here
+  const query = searchInput.value;
+  let api_url = `https://api.aerisapi.com/conditions/${query}?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`
+  console.log(api_url)
+  getWx();
+});
+}
    getWx();
 setInterval(getWx, 15000)
 getForecast(); 
@@ -97,7 +109,6 @@ async function getForecast() {
   document.getElementById('tempmintoday').innerHTML = `High Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
   document.getElementById('fullforecast0').innerHTML = `It will be ${response[0].periods[0].weatherPrimary} Today (or Tonight) with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH} mph.`;
   // Day 2 (Tommorow)
-  // Day 1 (Today/Tonight)
   document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
   document.getElementById('tempmintoday1').innerHTML = `High Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
   document.getElementById('fullforecast1').innerHTML = `Tommrows Weather will be ${response[0].periods[1].weatherPrimary} with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH} mph.`
