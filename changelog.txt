@@ -1,24 +1,27 @@
-V1.0:
+V1.0 (1-18-2024):
 Added Sidebar
 Added Image Vector
 Added CSS File
-V1.0.0.1:
+V1.0.0.1 (1-19-2024):
 Complete Redesign with current conditions
 Added Script File
 Added API that automatically detects current location
 Added Icons
 Added Interstate-Condensed Font
 Added Weather Cards
-V1.1:
+V1.1 (1-20-2024):
 Updated Current Conditions
 Background Image Updated
 Added Forecast (Beta)
 Added Metric Units (Incomplete as of 1-20-2024)
-V1.1.2:
+V1.1.2 (1-20-2024):
 Updated Forecast Including Deatiled Information
 Updated Metric Units for Forecast
+V1.2 (1-20-2024):
+Added Search Bar (Incomplete)
+V1.2 is the Latest Version.
  To Be Added:
- Search Bar
+Nothing at the Moment
  To be decided:
   Nearby Cities Observations
   Multilanguage Support
