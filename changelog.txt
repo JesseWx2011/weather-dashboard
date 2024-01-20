@@ -14,9 +14,10 @@ Updated Current Conditions
 Background Image Updated
 Added Forecast (Beta)
 Added Metric Units (Incomplete as of 1-20-2024)
-
+V1.1.2:
+Updated Forecast Including Deatiled Information
+Updated Metric Units for Forecast
  To Be Added:
- Updated Forecast
  Search Bar
  To be decided:
   Nearby Cities Observations
