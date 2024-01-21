@@ -24,9 +24,9 @@ Removed Search Bar
 Added a Configuration in scriptcc.js at the top. Go to README.md for more information and setup.
 V1.2.1 is the Latest Version.
  To Be Added:
-Nothing at the Moment
+  Extra Pages
+ Alerts
  To be decided:
   Nearby Cities Observations
   Multilanguage Support
-  Extra Pages
   Let me know what else to add :)
