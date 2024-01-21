@@ -1,5 +1,8 @@
+// Configuration Files
+city = `chicago,il` // :auto for your estimated location (default)
+// Types are zipcode, cityname, and geocode.
 getWx();  
-const api_url = `https://api.aerisapi.com/conditions/:auto?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
   async function getWx() {   
       const responsee = await fetch(api_url);
       const data = await responsee.json(); 
@@ -51,25 +54,15 @@ uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
     visibilitytext.innerHTML = `Very Dense Fog or Haze`
 } if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.25) {
     visibilitytext.innerHTML = `Extremely Dense Fog/Haze`
-}
-// Get City Weather Data Based off of the Searched city.
+  }
+ 
+  }
+getWx();
 
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-
-searchButton.addEventListener('click', function() {
-  // Process the search query here
-  const query = searchInput.value;
-  let api_url = `https://api.aerisapi.com/conditions/${query}?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`
-  console.log(api_url)
-  getWx();
-});
-}
-   getWx();
-setInterval(getWx, 15000)
-getForecast(); 
+  // Get The Weather Forecast based off of IP
+  getForecast(); 
 async function getForecast() {   
-    const forecast_url = `https://api.aerisapi.com/forecasts/:auto?limit=7&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+    const forecast_url = `https://api.aerisapi.com/forecasts/${city}?limit=7&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
     const responsee = await fetch(forecast_url);
     const data = await responsee.json(); 
     const {response} = data;
