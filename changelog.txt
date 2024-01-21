@@ -27,3 +27,6 @@ Nothing at the Moment
   Multilanguage Support
   Extra Pages
   Let me know what else to add :)
+V:1.2.1 (1-21-24):
+Removed Search Bar
+Added a Configuration in scriptcc.js at the top. Go to README.md for more information and setup.
