@@ -1,5 +1,5 @@
 // Configuration Files
-city = `chicago,il` // :auto for your estimated location (default)
+city = `:auto` // :auto for your estimated location (default)
 // Types are zipcode, cityname, and geocode.
 getWx();  
 const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
