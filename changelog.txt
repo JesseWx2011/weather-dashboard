@@ -19,7 +19,10 @@ Updated Forecast Including Deatiled Information
 Updated Metric Units for Forecast
 V1.2 (1-20-2024):
 Added Search Bar (Incomplete)
-V1.2 is the Latest Version.
+V:1.2.1 (1-21-24):
+Removed Search Bar
+Added a Configuration in scriptcc.js at the top. Go to README.md for more information and setup.
+V1.2.1 is the Latest Version.
  To Be Added:
 Nothing at the Moment
  To be decided:
@@ -27,6 +30,3 @@ Nothing at the Moment
   Multilanguage Support
   Extra Pages
   Let me know what else to add :)
-V:1.2.1 (1-21-24):
-Removed Search Bar
-Added a Configuration in scriptcc.js at the top. Go to README.md for more information and setup.
