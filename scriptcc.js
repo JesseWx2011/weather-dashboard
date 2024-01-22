@@ -9,7 +9,6 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
       const {response} = data;
       console.log(response);    
 
-
        document.getElementById('cityname').innerHTML = `Weather for <div class="cityn" style="display: flex;"> ${response[0].place.name}</div>, <div class="state" style="flex;">${response[0].place.state}</div>, <div class="country" style="display: flex;">${response[0].place.country}</div>`;
        document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
        document.getElementById('title').innerHTML = `Weather for ${response[0].place.name}, ${response[0].place.state}`
@@ -22,6 +21,9 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
        document.getElementById('pressurevalue').innerHTML = `${response[0].periods[0].pressureIN} inHg`;
        document.getElementById('dewvalue').innerHTML = `${response[0].periods[0].dewpointF}°F`;
        document.getElementById('visibilityvalue').innerHTML = `${response[0].periods[0].visibilityMI} mi`;
+       document.getElementById('snowdepthvalue').innerHTML = `${response[0].periods[0].snowDepthIN} in.`;
+       document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN} in./hr`;
+       document.getElementById('solarvalue').innerHTML =  `${response[0].periods[0].solradWM2} watts/m²`;
     
        // Function to get the UV Value
    if (response[0].periods[0].uvi <=1) {
