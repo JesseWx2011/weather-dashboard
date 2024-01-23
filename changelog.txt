@@ -29,8 +29,9 @@ V1.2.4.0.1 (1-23-2024):
 Added Missing Icon
 V1.2.4.1 (1-23-2024):
 Added Webpage Icon
-V1.2.4.1 is the Latest Version.
-
+V1.3 (1-23-2024):
+Add Alerts Function (In progress)
+V1.3 is the Latest Version.
  To Be Added:
   Extra Pages
  Alerts
