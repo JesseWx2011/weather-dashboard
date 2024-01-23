@@ -127,5 +127,6 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?query=sigp:1;sigp:3&c
       } if (response[0].error = null) {
           alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${city}.`
       }
+      setInterval(getAlert, 300000)
   }
 getAlert();
