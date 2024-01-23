@@ -4,7 +4,7 @@ city = `:auto` // :auto for your estimated location (default)
 client_id = `DZLMGEFxCvfbQRG7aSN3c`; // This is your client id from aeris weather. 
 client_secret = `N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt` // This is your client secret from aeris weather.
 getWx();  
-const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=${client_id}&client_secret=${client_secret}`;
   async function getWx() {   
       const responsee = await fetch(api_url);
       const data = await responsee.json(); 
