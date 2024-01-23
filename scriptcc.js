@@ -1,8 +1,10 @@
-// Configuration Files
+// Configuration Area
 city = `:auto` // :auto for your estimated location (default)
 // Types are zipcode, cityname, and geocode.
+client_id = `DZLMGEFxCvfbQRG7aSN3c`; // This is your client id from aeris weather. 
+client_secret = `N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt` // This is your client secret from aeris weather.
 getWx();  
-const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=DZLMGEFxCvfbQRG7aSN3c${client_id}&client_secret=${client_secret}`;
   async function getWx() {   
       const responsee = await fetch(api_url);
       const data = await responsee.json(); 
@@ -64,7 +66,7 @@ getWx();
   // Get The Weather Forecast based off of IP
   getForecast(); 
 async function getForecast() {   
-    const forecast_url = `https://api.aerisapi.com/forecasts/${city}?limit=7&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+    const forecast_url = `https://api.aerisapi.com/forecasts/${city}?limit=7&client_id=${client_id}&client_secret=${client_secret}`;
     const responsee = await fetch(forecast_url);
     const data = await responsee.json(); 
     const {response} = data;
@@ -109,3 +111,19 @@ async function getForecast() {
   document.getElementById('fullforecast1').innerHTML = `Tommrows Weather will be ${response[0].periods[1].weatherPrimary} with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH} mph.`
 }
 getForecast();
+// This is the function to get the alerts.
+getAlert();
+const alert_url = `https://api.aerisapi.com/alerts/${city}?query=sigp:1;sigp:3&client_id=${client_ids}&client_secret=${client_secret}`;
+  async function getWx() {   
+      const responsee = await fetch(alert_url);
+      const data = await responsee.json(); 
+      const {response} = data;
+      console.log(response);  
+      
+      document.getElementById('alerts').innerHTML = `<div id="alerts" class="alerts" style="background-color: #${response[0].details[0].color};">Alert: ${response[0].details[0].name} im effect.</div>`
+
+      if (error.code = warn_no_data) {
+        alerts.innerHTML = `No Alerts Active for ${city}`
+      }
+  }
+getAlert();
