@@ -14,7 +14,7 @@
 <img align="center" src="https://github-readme-stats.vercel.app/api?username=JesseWx2011&include_all_commits=true&count_private=true&show_icons=true&line_height=20&title_color=2B5BBD&icon_color=1124BB&text_color=A1A1A1&bg_color=0,000001,130F40" alt="my Github Stats"/>
 Go to <a href="https://drive.google.com/file/d/1Wft1JEjsMZ_UdUvqwI4yiDK1jXy4fm_-/view">here</a> for a demo. 
 
-<h1>Previews:</h1>
+<h1>Previews (Please Note these were taken on version 1.3.5)</h1>
 Apple iPad (10.9")
 <img src="Apple iPad 10.9 inch.png"></img>
 Apple iPhone (iPhone 14, 6.7")
