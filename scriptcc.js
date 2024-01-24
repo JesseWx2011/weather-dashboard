@@ -117,16 +117,11 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?query=sigp:1;sigp:3&c
   async function getAlert() {   
       const responsee = await fetch(alert_url);
       const data = await responsee.json(); 
-      const {error, response} = data;
+      const {response, error} = data;
       console.log(response, error);  
       
-      document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${city}.`
+      document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${city}.</div><div style="background-color: #${response[1].details.color};">${response[1].details.name} in effect for ${city}.</div><div style="background-color: #${response[2].details.color};">${response[2].details.name} in effect for ${city}.</div><div style="background-color: #${response[3].details.color};">${response[3].details.name} in effect for ${city}.</div><div style="background-color: #${response[3].details.color};">${response[3].details.name} in effect for ${city}.</div>`
 
-      if (error[0].code = warn_no_data) {
-        alerts.innerHTML = `No Alerts Active for ${city}`
-      } if (response[0].error = null) {
-          alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${city}.`
-      }
       setInterval(getAlert, 300000)
   }
 getAlert();
