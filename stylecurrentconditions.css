@@ -12,10 +12,10 @@
         background-color: beige;
     }
     .container {
-        background-image: url("https://images.unsplash.com/photo-1593539651148-13fb61a49325?w=1280&h=1100&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3VubnklMjBtb3VudGFpbnxlbnwwfHwwfHx8MA%3D%3D" );
+        background-image: url("https://images.unsplash.com/photo-1593539651148-13fb61a49325?w=1280&h=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3VubnklMjBtb3VudGFpbnxlbnwwfHwwfHx8MA%3D%3D" );
         opacity: 87%;
         width: 1288px;
-        height: 1100px; 
+        height: 1528px; 
         background-repeat: no-repeat;
         text-align: center;
     }
@@ -54,10 +54,10 @@
     }
     .card {
         background-color: white;
-        width: 250px;
+        width: 300px;
         border-radius: 10px;
         border-color: black;
-        margin-left: 100px;
+        margin-left: 80px;
         margin-top: 20px;
         height: 200px;
         color: black;

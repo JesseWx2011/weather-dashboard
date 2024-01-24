@@ -10,7 +10,8 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
       const data = await responsee.json(); 
       const {response} = data;
       console.log(response);    
-
+let lat = `${response[0].loc.lat}`
+let lon = `${response[0].loc.long}`
        document.getElementById('cityname').innerHTML = `Weather for <div class="cityn" style="display: flex;"> ${response[0].place.name}</div>, <div class="state" style="flex;">${response[0].place.state}</div>, <div class="country" style="display: flex;">${response[0].place.country}</div>`;
        document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
        document.getElementById('title').innerHTML = `Weather for ${response[0].place.name}, ${response[0].place.state}`
@@ -26,6 +27,8 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
        document.getElementById('snowdepthvalue').innerHTML = `${response[0].periods[0].snowDepthIN} in.`;
        document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN} in./hr`;
        document.getElementById('solarvalue').innerHTML =  `${response[0].periods[0].solradWM2} watts/m²`;
+       document.getElementById('radar').innerHTML = `<img style="margin-top: 100px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,roads,counties,interstates,rivers,radar,admin-dk/988x400/${lat},${lon},7/current.png"></img>`;
+       
     
        // Function to get the UV Value
    if (response[0].periods[0].uvi <=1) {
@@ -108,7 +111,7 @@ async function getForecast() {
   // Day 2 (Tommorow)
   document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
   document.getElementById('tempmintoday1').innerHTML = `High Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
-  document.getElementById('fullforecast1').innerHTML = `Tommrows Weather will be ${response[0].periods[1].weatherPrimary} with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH} mph.`
+  document.getElementById('fullforecast1').innerHTML = `Tommrows Weather will be ${response[0].periods[1].weatherPrimary} with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH * 1.6/0.8 - 0.00000000000001} mph.`
 }
 getForecast();
 // This is the function to get the alerts.
@@ -125,3 +128,6 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?query=sigp:1;sigp:3&c
       setInterval(getAlert, 300000)
   }
 getAlert();
+function getRadar() {
+}
+getRadar();
