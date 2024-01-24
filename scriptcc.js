@@ -17,7 +17,7 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
        document.getElementById('icon').innerHTML = `<img src="${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
        document.getElementById('weather').innerHTML = `${response[0].periods[0].weather}`
        document.getElementById('feelslike').innerHTML = `Feels Like ${response[0].periods[0].feelslikeF}°F (${response[0].periods[0].feelslikeC}°C)`
-       document.getElementById('windvalue').innerHTML = `${response[0].periods[0].windSpeedMPH} mph`;
+       document.getElementById('windvalue').innerHTML = ` ${response[0].periods[0].windDir} at ${response[0].periods[0].windSpeedMPH} mph`;
        document.getElementById('uvvalue').innerHTML = `${response[0].periods[0].uvi}`;
        document.getElementById('humvalue').innerHTML = `${response[0].periods[0].humidity}%`;
        document.getElementById('pressurevalue').innerHTML = `${response[0].periods[0].pressureIN} inHg`;
