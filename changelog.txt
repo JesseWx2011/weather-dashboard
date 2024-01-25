@@ -38,9 +38,13 @@ Added Wind Direction
 V1.3.5 (1-24-2024):
 Added Radar.
 Increased the width of the cards.
-V1.3.5 is the Latest Version.
+V1.4  (1-23-2024):
+Added Alerts Page.
+Removed Multiple Alerts Function.
+Added Linking Page in conjunction to an active
+V1.4 is the Latest Version.
  To Be Added:
-  Extra Pages
+Nothing At the moment.
  Alerts
  To be decided:
   Nearby Cities Observations
