@@ -1,0 +1,83 @@
+<html>
+    <head>
+    <title>Alerts for .</title>
+    <meta name="authors" content="Jesse Hasty">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+</head>
+<bodY>
+    <div>
+        <div class="alertcard">
+        <div  align="center">
+            <div class="contents">
+                <h1 id="alerttitle" class="alertname">No Alert</h1>
+            <p id="fullmessage" class="message">               There Dosen't seem to be an alert at this time. </p>
+            <p id="severity" class="severe">Severity Level 1 - Minor Requirments Neccesary.</p>
+            <p id="alerttype" class="type">Type: Other</p>
+        </div>
+        </div>
+        </div>
+    </div>
+</bodY>
+</html>
+<style>
+    .alertcard {
+        display: flex;
+        background-color: grey;
+        width: 820px;
+        height: 670px;
+        margin-left: 255px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-color: black;
+        border-radius: 11px;
+    }
+    .contents {
+        text-align: center;
+    }
+    .alertname {
+        font-weight: 900;
+        text-transform: lowercase;
+    }
+    .message {
+        font-weight: 900;
+}
+.type {
+    text-transform: capitalize;
+}
+</style>
+<script>
+    // Configuration Area
+city = `tupelo,ms` // :auto for your estimated location (default)
+// Types are zipcode, cityname, and geocode.
+client_id = `DZLMGEFxCvfbQRG7aSN3c`; // This is your client id from aeris weather. 
+client_secret = `N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt` // This is your client secret from aeris weather.
+    getAlert();
+const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id}&client_secret=${client_secret}`;
+  async function getAlert() {   
+      const responsee = await fetch(alert_url);
+      const data = await responsee.json(); 
+      const {response, error} = data;
+      console.log(response, error);  
+
+      document.getElementById('fullmessage').innerHTML = `${response[0].details.body}`;
+      document.getElementById('alerttitle').innerHTML = `${response[0].details.name}`;
+      document.getElementById('severity').innerHTML = `${response[0].details.priority - 99}` ;
+      document.getElementById('alerttype').innerHTML = `Type: ${response[0].details.cat}`
+
+      if (response[0].details.priority = 0) {
+        otherthing = `No Action Needed.`
+      } if (response[0].details.priority = 1) {
+        otherthing = `Minor Requirements Neccesary.`
+      } if (response[0].details.priority = 2) {
+        otherthing = `Some Attention Needed.`
+      } if (response[0].details.priority = 3) {
+        otherthing = `Action Needed, Listen to instructions.`
+      } if (response[0].details.priority = 4) {
+        otherthing = `Extreme Danger, Life-threatning situation.`
+      } else if (response[0].details.priority = 5) {
+        otherthing = `Extreme Emergency, pontential mass-casualty situation.`
+      }
+   }
+  getAlert();
+</script>

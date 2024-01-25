@@ -1,5 +1,5 @@
 // Configuration Area
-city = `:auto` // :auto for your estimated location (default)
+city = `covington,la` // :auto for your estimated location (default)
 // Types are zipcode, cityname, and geocode.
 client_id = `DZLMGEFxCvfbQRG7aSN3c`; // This is your client id from aeris weather. 
 client_secret = `N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt` // This is your client secret from aeris weather.
@@ -116,15 +116,14 @@ async function getForecast() {
 getForecast();
 // This is the function to get the alerts.
 getAlert();
-const alert_url = `https://api.aerisapi.com/alerts/${city}?query=sigp:1;sigp:3&client_id=${client_id}&client_secret=${client_secret}`;
+const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id}&client_secret=${client_secret}`;
   async function getAlert() {   
       const responsee = await fetch(alert_url);
       const data = await responsee.json(); 
       const {response, error} = data;
       console.log(response, error);  
       
-      document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${city}.</div><div style="background-color: #${response[1].details.color};">${response[1].details.name} in effect for ${city}.</div><div style="background-color: #${response[2].details.color};">${response[2].details.name} in effect for ${city}.</div>`
-
+      document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${city}.<a href="alertdetail.html">Click Here for more information on alerts</a></div>`
       setInterval(getAlert, 300000)
   }
 getAlert();
