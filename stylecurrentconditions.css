@@ -120,6 +120,9 @@
         color: red;
         font-size: 23px;
     }
+    .daycardlow {
+        color: blue;
+    }
     .detailedinformationcontainer {
         background-color: yellowgreen;
         width: 1280px;
@@ -137,4 +140,22 @@
         position: relative;
         width: 400px;
         height: 40px;
+    }
+    .bottomnavbar {
+            display: flex;
+            height: 70px;
+        margin-top: 670px;
+        background-color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .linkbutton {
+        background-color: grey;
+        height: fit-content;
+        width: 80px;
+        border-radius: 8px;
+        font-weight: 900;
+    }
+    a {
+        text-underline-offset: 999px;
+        color: white;
     }

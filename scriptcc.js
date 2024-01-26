@@ -62,7 +62,6 @@ uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
 } if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.25) {
     visibilitytext.innerHTML = `Extremely Dense Fog/Haze`
   }
- 
   }
 getWx();
 
@@ -77,37 +76,44 @@ async function getForecast() {
     
     // Day 1
     document.getElementById('temp0day').textContent = response[0].periods[0].maxTempF;
+    document.getElementById('templow0day').textContent = response[0].periods[0].minTempF;
     document.getElementById('wxicon0').innerHTML = `<img src="${response[0].periods[0].icon}"></img>`;
     document.getElementById('weather0').textContent = response[0].periods[0].weatherPrimary;
     // Day 2
     document.getElementById('temp1day').textContent = response[0].periods[1].maxTempF;
+    document.getElementById('templow1day').textContent = response[0].periods[1].minTempF;
     document.getElementById('wxicon1').innerHTML = `<img src="${response[0].periods[1].icon}"></img>`;
     document.getElementById('weather1').textContent = response[0].periods[1].weatherPrimary;
     // Day 3
     document.getElementById('temp2day').textContent = response[0].periods[2].maxTempF;
+    document.getElementById('templow2day').textContent = response[0].periods[2].minTempF;
     document.getElementById('wxicon2').innerHTML = `<img src="${response[0].periods[2].icon}"></img>`;
     document.getElementById('weather2').textContent = response[0].periods[2].weatherPrimary;
     // Day 4
     document.getElementById('temp3day').textContent = response[0].periods[3].maxTempF;
+    document.getElementById('templow3day').textContent = response[0].periods[3].minTempF;
     document.getElementById('wxicon3').innerHTML = `<img src="${response[0].periods[3].icon}"></img>`;
     document.getElementById('weather3').textContent = response[0].periods[3].weatherPrimary;
     // Day 5
     document.getElementById('temp4day').textContent = response[0].periods[4].maxTempF;
+    document.getElementById('templow4day').textContent = response[0].periods[4].minTempF;
     document.getElementById('wxicon4').innerHTML = `<img src="${response[0].periods[4].icon}"></img>`;
     document.getElementById('weather4').textContent = response[0].periods[4].weatherPrimary;
     // Day 6
     document.getElementById('temp5day').textContent = response[0].periods[5].maxTempF;
+    document.getElementById('templow5day').textContent = response[0].periods[5].minTempF;
     document.getElementById('wxicon5').innerHTML = `<img src="${response[0].periods[5].icon}"></img>`;
     document.getElementById('weather5').textContent = response[0].periods[5].weatherPrimary;
     // Day 7
     document.getElementById('temp6day').textContent = response[0].periods[6].maxTempF;
+    document.getElementById('templow6day').textContent = response[0].periods[1].minTempF;
     document.getElementById('wxicon6').innerHTML = `<img src="${response[0].periods[6].icon}"></img>`;
     document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
   // Detailed Information Container 
   // Day 1 (Today/Tonight)
   document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
   document.getElementById('tempmintoday').innerHTML = `High Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
-  document.getElementById('fullforecast0').innerHTML = `It will be ${response[0].periods[0].weatherPrimary} Today (or Tonight) with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH * 2 + 3 / 3 - 9} mph.`;
+  document.getElementById('fullforecast0').innerHTML = `The Weather Today (or Tonight) will be ${response[0].periods[0].weatherPrimary} with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH * 2 + 3 / 3 - 9} mph.`;
   // Day 2 (Tommorow)
   document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
   document.getElementById('tempmintoday1').innerHTML = `High Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
@@ -123,7 +129,11 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id
       const {response, error} = data;
       console.log(response, error);  
       
-      document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${city}.<a href="alertdetail.html">Click Here for more information on alerts</a></div>`
+      document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html">Click Here for more information on alerts</a></div>`
       setInterval(getAlert, 300000)
   }
+
 getAlert();
+// Configuration Area
+function getSearchQuery() {
+}
