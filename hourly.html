@@ -45,12 +45,12 @@ if (hour0 <=11) {
     document.getElementById('celcius');
 
     document.addEventListener("click", function() {
-        temp0.innerHTML = `${response[0].periods[0].avgTempF - 32*5/9 - 0.22222222222222}°C`
-        temp1.innerHTML = `${response[0].periods[1].avgTempF - 32*5/9 - 0.22222222222222}°C`
-        temp2.innerHTML = `${response[0].periods[2].avgTempF - 32*5/9 - 0.22222222222222}°C`
-        wind0.innerHTML = `${response[0].periods[0].windDir} ${response[0].periods[0].windSpeedMinMPH *1.60934}km/h`;
-        wind1.innerHTML = `${response[0].periods[1].windDir} ${response[0].periods[1].windSpeedMinMPH *1.60934}km/h`;
-        wind2.innerHTML = `${response[0].periods[2].windDir} ${response[0].periods[2].windSpeedMinMPH *1.60934}km/h`
+        temp0.innerHTML = `${response[0].periods[0].avgTempC}°C`
+        temp1.innerHTML = `${response[0].periods[1].avgTempC}°C`
+        temp2.innerHTML = `${response[0].periods[2].avgTempC}°C`
+        wind0.innerHTML = `${response[0].periods[0].windDir} ${response[0].periods[0].windSpeedMinKPH}km/h`;
+        wind1.innerHTML = `${response[0].periods[1].windDir} ${response[0].periods[1].windSpeedMinKPH}km/h`;
+        wind2.innerHTML = `${response[0].periods[2].windDir} ${response[0].periods[2].windSpeedMinKPH}km/h`
 
 
 
