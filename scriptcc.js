@@ -62,6 +62,20 @@ uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
 } if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.25) {
     visibilitytext.innerHTML = `Extremely Dense Fog/Haze`
   }
+
+  const searchInput = document.getElementById('searchInput');
+  const searchButton = document.getElementById('searchButton');
+  
+  searchButton.addEventListener('click', function() {
+    const searchTerm = searchInput.value;
+ api_url = `https://api.aerisapi.com/conditions/${searchTerm}?format=json&plimit=1&filter=1min&client_id=${client_id}&client_secret=${client_secret}`
+console.log(api_url);
+ getWx.update();
+  });
+
+ searchButton.onClick() == {
+ city:  `${searchTerm}`
+}
   }
 getWx();
 
@@ -132,8 +146,4 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id
       document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html">Click Here for more information on alerts</a></div>`
       setInterval(getAlert, 300000)
   }
-
 getAlert();
-// Configuration Area
-function getSearchQuery() {
-}
