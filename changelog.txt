@@ -44,11 +44,13 @@ Removed Multiple Alerts Function.
 Added Linking Page in conjunction to an active
 V1.4.1 (1-26-2024):
 Added Low Temp
-V1.4.1 is the Latest Version.
+V1.4.8 (1-28-2024)
+Added Hourly Forecast
+Extra Pages setout on homepage
+V1.4.8 is the Latest Version.
  To Be Added:
-Nothing At the moment.
- Alerts
- To be decided:
+Diffrent Layout based off of device (such as an iPhone, iPad, Chromebook, etc.)
+To be decided:
   Nearby Cities Observations
   Multilanguage Support
   Let me know what else to add :)
