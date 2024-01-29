@@ -6,7 +6,7 @@
   <div class="info">This uses an api made by Aeris Weather.</div>
   <div class="info">This Project was last updated 1/29/24.</div>
   <div class="info">To see the latest updates, go to "changelog.txt".</div>
-  <div align="center">If you are wanting to use this on your website please credit me for the original design. Thank you :)</div>
+  <div align="center">If you are wanting to use this on your website please credit me for the original design. Thank you :). Also note that if the forecasts aren't working, the api key may have reached the limit for requests.</div>
    <div align="center">
      <h1>Configuration </h1>
      <h3>When you download the zip file, go to scriptcc.js once extracted. (I suggest you extract the files into a folder, since the icons are not in a folder.) When you go to scriptcc.js, you will see a configuration for the city to be set. You can set the city to a city (as usual), a zipcode, or geocode. (The comma must be close when inserting the longitude. Example: 33.85,-83.68)</h3>
