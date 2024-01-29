@@ -1,9 +1,9 @@
 
 // Configuration Area
-city = `london,uk` // :auto for your estimated location (default)
+city = `:auto` // :auto for your estimated location (default)
 // Types are zipcode, cityname, and geocode.
-client_id = `DZLMGEFxCvfbQRG7aSN3c`; // This is your client id from aeris weather. 
-client_secret = `N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt` // This is your client secret from aeris weather.
+client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
+client_secret = `sFA4Gfz8s8brxUUHoZTQ3iZIRy6YSwLhf1wJQzDi` // This is your client secret from aeris weather.
 // End of Configs
 
 // Get Params
