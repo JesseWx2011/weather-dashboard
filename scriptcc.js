@@ -7,22 +7,21 @@ client_secret = `sFA4Gfz8s8brxUUHoZTQ3iZIRy6YSwLhf1wJQzDi` // This is your clien
 // End of Configs
 
 // Get Params
+ // Function for Parameters
+ console.log(`URL:`, window.location);
 
-console.log(`URL:`, window.location);
-
-const values = window.location.search;
-console.log(values);
-
+ const values = window.location.search;
+ console.log(values);
  
-const parameters = new URLSearchParams(values);
-const newcity = parameters.get('city');
-
-console.log(newcity);
-
-var city  = newcity;
-
-
-fetch(`https://api.aerisapi.com/conditions/${newcity}?format=json&plimit=1&filter=1min&client_id=${client_id}&client_secret=${client_secret}`)
+  
+ const parameters = new URLSearchParams(values);
+ const newcity = parameters.get('city');
+ 
+ console.log(newcity);
+ 
+ var city  = newcity;
+ 
+ 
 
 
 // Start of GetWx function
