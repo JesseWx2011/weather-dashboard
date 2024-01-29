@@ -54,10 +54,15 @@ if (hour0 <=11) {
 
 
 
-        celcius.innerHTML = `<button>Reload to change to imperial</button>`
+        celcius.innerHTML = `<button class="pressedbutton" id="pressedbutton">Click the reload icon to change back to Imperial Units</button>`
 
-    })
+    });
+
+
   }
+  function reDirect() {
+    location.replace("index.html")
+}
   getHourly();
 </script>   
 <html>
@@ -97,12 +102,14 @@ if (hour0 <=11) {
                 <div class="temp" id="temp2">32</div>
                 <div class="wind" id="wind2">Wind: 0mph</div>
                </div>
+               <button onclick="reDirect()" id="homepage" href="index.html">Homepage</button>
     </div>
 </div>
     </body>
 </html>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
     body {
         background-color: transparent;
         display: flex;
@@ -139,5 +146,17 @@ text-align: center;
        img {
         display: flex;
         margin-left: 190px;
+       }
+       button {
+        border-radius: 9px;
+        border-color: transparent;
+        background-color: rgb(12, 183, 46);
+        font-family: Poppins;
+        font-weight: 700;
+        cursor: pointer;
+       }
+       .pressedbutton {
+        cursor: none;
+     width: 82.48px;
        }
 </style>
