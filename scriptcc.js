@@ -1,6 +1,6 @@
 
 // Configuration Area
-city = `london,uk` // :auto for your estimated location (default)
+city = `:auto` // :auto for your estimated location (default)
 // Types are zipcode, cityname, and geocode.
 client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
 client_secret = `sFA4Gfz8s8brxUUHoZTQ3iZIRy6YSwLhf1wJQzDi` // This is your client secret from aeris weather.
@@ -13,6 +13,7 @@ console.log(`URL:`, window.location);
 const values = window.location.search;
 console.log(values);
 
+ 
 const parameters = new URLSearchParams(values);
 const newcity = parameters.get('city');
 
@@ -20,7 +21,10 @@ console.log(newcity);
 
 var city  = newcity;
 
+
 fetch(`https://api.aerisapi.com/conditions/${newcity}?format=json&plimit=1&filter=1min&client_id=${client_id}&client_secret=${client_secret}`)
+
+
 // Start of GetWx function
 getWx();  
 const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=${client_id}&client_secret=${client_secret}`;
