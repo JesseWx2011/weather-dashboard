@@ -1,6 +1,6 @@
 
 // Configuration Area
-city = `:auto` // :auto for your estimated location (default)
+city = `london,uk` // :auto for your estimated location (default)
 // Types are zipcode, cityname, and geocode.
 client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
 client_secret = `sFA4Gfz8s8brxUUHoZTQ3iZIRy6YSwLhf1wJQzDi` // This is your client secret from aeris weather.
@@ -81,7 +81,8 @@ uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
 } if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.25) {
     visibilitytext.innerHTML = `Extremely Dense Fog/Haze`
   }
-  
+  console.log(error)
+  cityname.innerHTML = `Error: ${error.description}`
   // End of GetWx Function
 }
 getWx();
