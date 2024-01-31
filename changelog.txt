@@ -50,7 +50,9 @@ Extra Pages setout on homepage
 V1.5 (1-29-2024):
 Search Bar Function (example: lansing,mi or moscow,ru)
 Button and Search Bar have deceration
-V1.5 is the Latest Version.
+v1.5.6 (1-31-2024):
+Add Interactive Map (Aeris Weather Wizards code)
+V1.5.6 is the Latest Version.
  To Be Added:
 Diffrent Layout based off of device (such as an iPhone, iPad, Chromebook, etc.)
 Interavtive Map (On a seperate page)
