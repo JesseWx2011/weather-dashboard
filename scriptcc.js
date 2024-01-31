@@ -49,7 +49,196 @@ let lon = `${response[0].loc.long}`
        document.getElementById('snowdepthvalue').innerHTML = `${response[0].periods[0].snowDepthIN} in.`;
        document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN} in./hr`;
        document.getElementById('solarvalue').innerHTML =  `${response[0].periods[0].solradWM2} watts/m²`;
-       document.getElementById('radar').innerHTML = `<img src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,roads,counties,interstates,rivers,radar,admin-dk/988x400/${lat},${lon},7/current.png"></img>`;
+       document.getElementById('radar').innerHTML = `<!DOCTYPE html>
+       <html>
+       <head>
+           <meta charset="UTF-8">
+           <script defer src="https://cdn.aerisapi.com/sdk/js/1.8.0/aerisweather.min.js"></script>
+           <link rel="stylesheet" href="https://cdn.aerisapi.com/sdk/js/1.8.0/aerisweather.css">
+           <style>
+                #map {
+                   height: 400px;
+                   width: 988px;
+                   margin: 30px auto;
+                 }
+             </style>
+       </head>
+       <body>		
+           
+       <div id="map"></div>	
+       
+       <script>	 
+       window.addEventListener('load', () => { 
+               
+           const aeris = new AerisWeather('${client_id}', '${client_secret}');	
+           const utils = aeris.utils;
+       
+           aeris.apps().then((apps) => {
+               const app = new apps.InteractiveMapApp(document.getElementById('map'), {
+                   map: {
+                       strategy: "leaflet",
+                       zoom: 8,
+                       center: {
+                           lat: ${lat},
+                           lon: ${lon}
+                       },
+                       timeline: {
+                           from: 21600,
+                           to: 21600
+                       }
+                   },
+                   panels: {
+                       layers: {
+                           buttons: [{
+                                   title: "Satellite - Visible",
+                                   value: "satellite-visible"
+                               },{
+                                   title: "Flat Dark",
+                                   value: "flat-dk"
+                               },{
+                                   title: "Admin - City Names - Dark",
+                                   value: "admin-cities-dk"
+                               },{
+                                   title: "Interstates",
+                                   value: "interstates"
+                               },{
+                                   title: "County Lines",
+                                   value: "counties"
+                               }],
+                           enabled: true,
+                           toggleable: false,
+                           position: {
+                               pin: "topright",
+                               translate: {
+                                   x: -10,
+                                   y: 10
+                               }
+                           }
+                       },
+                       timeline: {
+                           enabled: true,
+                           toggleable: false,
+                           position: {
+                               pin: "bottom",
+                               translate: {
+                                   x: 0,
+                                   y: -10
+                               }
+                           }
+                       },
+                       search: {
+                           enabled: false,
+                           toggleable: false,
+                           position: {
+                               pin: "top",
+                               translate: {
+                                   x: 0,
+                                   y: 10
+                               }
+                           }
+                       },
+                       legends: {
+                           enabled: false,
+                           toggleable: true,
+                           position: {
+                               pin: "bottomright",
+                               translate: {
+                                   x: -10,
+                                   y: -10
+                               }
+                           }
+                       },
+                       info: {
+                           enabled: true,
+                           position: {
+                               pin: "topleft",
+                               translate: {
+                                   x: 10,
+                                   y: 10
+                               }
+                           },
+                           metric: false
+                       }
+                   }
+               });
+               
+               app.on('ready', () => {
+                   // configure views for local weather info panel
+                   app.panels.info.setContentView('localweather', {
+                       views: [{
+                               renderer: "alerts"
+                           },{
+                               renderer: "place"
+                           },{
+                               renderer: "obs"
+                           },{
+                               renderer: "units"
+                           },{
+                               renderer: "hazards"
+                           },{
+                               renderer: "forecast"
+                           }]
+                   });
+               
+                   // show info panel for location when map is clicked
+                   app.map.on('click', (e) => {
+                       app.showInfoAtCoord(e.data.coord, 'localweather', 'Local Weather');
+                   });
+       
+                   // select initial layers
+                   app.map.addLayers(['flat-dk', 'admin-cities-dk', 'interstates', 'counties']);
+                   // load in MapsGL sdk and set up relevant layer controls
+                   aeris.mapsgl(app, {
+                       version: '1.3.2',
+                       layers: [{
+                               title: "Radar",
+                               value: "radar"
+                           },{
+                               title: "Forecast Radar",
+                               value: "fradar"
+                           },{
+                               title: "Alerts",
+                               value: "alerts"
+                           },{
+                               title: "Feels Like",
+                               value: "feels-like"
+                           },{
+                               title: "Heat Index",
+                               value: "heat-index"
+                           },{
+                               title: "Wind Chill",
+                               value: "wind-chill"
+                           },{
+                               title: "Lightning Strikes",
+                               value: "lightning-strikes"
+                           },{
+                               title: "Storm Reports",
+                               value: "stormreports"
+                           },{
+                               title: "Convective Outlook",
+                               value: "convective"
+                           },{
+                               title: "Forecast Feels Like",
+                               value: "ffeels-like"
+                           }]
+                   }).then(({controller, mapsgl }) => {
+                       controller.addDataInspectorControl({ event: 'move'});
+                       
+                       app.getPanel('layers').select(['radar', 'lightning-strikes']);
+                   
+                   });
+       
+                   // start playing the map animation
+                   app.map.timeline.play();
+               });
+               
+               
+           });			
+       });
+       </script>	
+       
+       </body>
+       </html>`;
        
     
        // Function to get the UV Value
@@ -167,4 +356,4 @@ searchButton.addEventListener("click", function() {
     window.location = `./?city=${searchInput.value}`
 });
 }
-getSearch()
+getSearch();
