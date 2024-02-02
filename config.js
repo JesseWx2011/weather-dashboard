@@ -2,3 +2,7 @@ var city = `:auto` // :auto for your estimated location (default). City format m
 // Types are zipcode, cityname, and geocode.
 var client_id = `DZLMGEFxCvfbQRG7aSN3c`; // This is your client id from aeris weather. 
 var client_secret = `N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt` // This is your client secret from aeris weather.
+
+// Ignore this
+file0 = `index.html`
+variable0 = `city`
