@@ -1,12 +1,29 @@
+<script>
+    // Get Params
+
+// Function for Parameters
+console.log(`URL:`, window.location);
+
+const values = window.location.search;
+console.log(values);
+
+ 
+const parameters = new URLSearchParams(values);
+const newcity = parameters.get('city');
+
+console.log(newcity);
+
+var city  = newcity;
+</script>
 <html>
     <head>
-    <title>Alerts for .</title>
+    <title id="title">Alerts for .</title>
     <meta name="authors" content="Jesse Hasty">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 </head>
-<body>
+<bodY>
     <div>
         <div class="alertcard">
         <div  align="center">
@@ -15,11 +32,12 @@
             <p id="fullmessage" class="message">               There Dosen't seem to be an alert at this time. </p>
             <p id="severity" class="severe">Severity Level 1 - Minor Requirments Neccesary.</p>
             <p id="alerttype" class="type">Type: Other</p>
+            <div id="extra"></div>
         </div>
         </div>
         </div>
     </div>
-</body>
+</bodY>
 </html>
 <style>
     .alertcard {
@@ -47,13 +65,8 @@
 }
 </style>
 <script>
-    // Configuration Area
-city = `:auto` // :auto for your estimated location (default)
-// Types are zipcode, cityname, and geocode.
-client_id = `DZLMGEFxCvfbQRG7aSN3c`; // This is your client id from aeris weather. 
-client_secret = `N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt` // This is your client secret from aeris weather.
-    getAlert();
-const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id}&client_secret=${client_secret}`;
+getAlert();
+const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
   async function getAlert() {   
       const responsee = await fetch(alert_url);
       const data = await responsee.json(); 
@@ -62,22 +75,24 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id
 
       document.getElementById('fullmessage').innerHTML = `${response[0].details.body}`;
       document.getElementById('alerttitle').innerHTML = `${response[0].details.name}`;
-      document.getElementById('severity').innerHTML = `${response[0].details.priority - 99}` ;
-      document.getElementById('alerttype').innerHTML = `Type: ${response[0].details.cat}`
+      document.getElementById('severity').innerHTML = `${response[0].details.priority} - ${otherthing}` ;
+      document.getElementById('alerttype').innerHTML = `Type: ${response[0].details.cat}.`;
+      document.getElementById('title').innerHTML = `Alerts for ${response[0].place.name}, ${response[0].place.state}.`;
+      document.getElementById('extra').innerHTML = `There may be more alerts active for this spot. Visit <a href="https://forecast.weather.gov/showsigwx.php?warnzone=${response[0].details.loc}&warncounty=${response[0].details.loc}&firewxzone=${response[0].details.loc}&local_place1=${response[0].place.name}%20${response[0].place.state}&product1=all&lat=${response[0].loc.lat}&lon=${response[0].loc.long}">This Website.</a>`
 
       if (response[0].details.priority = 0) {
-        otherthing = `No Action Needed.`
-      } if (response[0].details.priority = 1) {
-        otherthing = `Minor Requirements Neccesary.`
-      } if (response[0].details.priority = 2) {
-        otherthing = `Some Attention Needed.`
-      } if (response[0].details.priority = 3) {
-        otherthing = `Action Needed, Listen to instructions.`
-      } if (response[0].details.priority = 4) {
-        otherthing = `Extreme Danger, Life-threatning situation.`
+        var otherthing = `No Action Needed.`
+      } else if (response[0].details.priority = 1) {
+        var otherthing = `Minor Requirements Neccesary.`
+      } else if (response[0].details.priority = 2) {
+        var otherthing = `Some Attention Needed.`
+      } else if (response[0].details.priority = 3) {
+        var otherthing = `Action Needed, Listen to instructions.`
+      } else if (response[0].details.priority = 4) {
+       var otherthing = `Extreme Danger, Life-threatning situation.`
       } else if (response[0].details.priority = 5) {
-        otherthing = `Extreme Emergency, pontential mass-casualty situation.`
-      }
-   }
-  getAlert();
+      var otherthing = `Extreme Emergency, pontential mass-casualty situation.`
+      } 
+    }
+      getAlert();
 </script>

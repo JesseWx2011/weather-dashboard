@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="stylecurrentconditions.css" />
     <script src="config.js"></script>
     <script src="scriptcc.js"></script>
+    <script src="notify.js"></script>
     <meta name="authors" content="Jesse Hasty">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -16,10 +17,13 @@
             <div class="currentconditions">
                 <div class="weatherinfo">
                   <div align="center">
+                    <!-- The Time of the observation -->
+                    <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
                       <!-- Current Conditions Section -->
                     <div class="search-container">
                       <input type="text" class="inputcontainer" placeholder="Search for a City." id="searchInput">
                       <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
+                      <ul class="list" id="citylist"></ul>
                       <a style="display: flex; margin-left: 100px; color:hsl(from color h s l)" href="citylist.html">Click me for a list of cities</a>
                       </div>
                 <h1 class="city" style="display: flex;" id="cityname">The Location your searched for is invalid.</h1></div>
@@ -60,6 +64,7 @@
                 <div class="valuet" id="visibilitytext">Clear Skies</div>
               </div>
               </div>
+              <button id="notificationbutton" class="button">Notify me on alerts</button>
               <div class="cards-container">
                 <div class="card">
                   <div class="cardtitle" id="rainrtitle">Rain Rate</div>
@@ -174,4 +179,22 @@
     </html>
   
     <script>
+    getDate() 
+async function getDate() {
+  const d = new Date();
+  var hour = d.getHours();
+  var minute = d.getMinutes();
+  var day = d.getDate();
+  var month = d.getMonth() + 1;
+  var year  = d.getFullYear()
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+var newmonth = months[d.getDate()];
+if (minute <10) {
+  var minute = `0${minute}`
+}
+document.getElementById('time').innerHTML = `${month}/${day}/${year} ${hour}:${minute}`
+}
+getDate();
+setInterval(getTime, 1000)
     </script>
+
