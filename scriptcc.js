@@ -23,7 +23,7 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
      console.log(response);    
 let lat = `${response[0].loc.lat}`
 let lon = `${response[0].loc.long}`
-      document.getElementById('cityname').innerHTML = `Weather for <div class="cityn" style="display: flex;"> ${response[0].place.name}</div>, <div class="state" style="flex;">${response[0].place.state}</div>, <div class="country" style="display: flex;">${response[0].place.country}</div>`;
+      document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${response[0].place.name}, ${response[0].place.state}, ${response[0].place.country}</div>`;
       document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
       document.getElementById('title').innerHTML = `Weather for ${response[0].place.name}, ${response[0].place.state}`
       document.getElementById('icon').innerHTML = `<img src="${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
