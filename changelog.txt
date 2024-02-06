@@ -57,6 +57,7 @@ Updated the alerts link, so if an alert is issued, it goes directly to the alert
 Slight bug fixes.
 V1.5.9 (2-06-2024):
 City Text is in the center.
+Increased zoom of radar.
 V1.5.9 is the Latest Version.
  To Be Added:
 Nothing at the moment
