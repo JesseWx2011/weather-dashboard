@@ -52,13 +52,14 @@ Search Bar Function (example: lansing,mi or moscow,ru)
 Button and Search Bar have deceration
 v1.5.6 (Created 1-31-2024, Modified 2-2-2024):
 Added city list, so you can quickly find cities.
-V1.5.8 (2-05-2024)
+V1.5.8 (2-05-2024):
 Updated the alerts link, so if an alert is issued, it goes directly to the alert with the city.
 Slight bug fixes.
-V1.5.8 is the Latest Version.
+V1.5.9 (2-06-2024):
+City Text is in the center.
+V1.5.9 is the Latest Version.
  To Be Added:
 Nothing at the moment
 To be decided:
-  Nearby Cities Observations
   Multilanguage Support
   Let me know what else to add :)
