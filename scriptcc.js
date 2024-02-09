@@ -73,9 +73,6 @@ uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
 } if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.25) {
    visibilitytext.innerHTML = `Extremely Dense Fog/Haze`
  }
- console.log(error)
- cityname.innerHTML = `Error: ${error.description}`
- // End of GetWx Function
 }
 getWx();
 
@@ -127,11 +124,11 @@ async function getForecast() {
  // Day 1 (Today/Tonight)
  document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
  document.getElementById('tempmintoday').innerHTML = `High Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
- document.getElementById('fullforecast0').innerHTML = `The Weather Today (or Tonight) will be ${response[0].periods[0].weatherPrimary} with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH * 2 + 3 / 3 - 9} mph.`;
+ document.getElementById('fullforecast0').innerHTML = `${response[0].periods[0].weatherPrimary}, with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH * 2 + 3 / 3 - 9} mph.`;
  // Day 2 (Tommorow)
  document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
  document.getElementById('tempmintoday1').innerHTML = `High Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
- document.getElementById('fullforecast1').innerHTML = `Tommrows Weather will be ${response[0].periods[1].weatherPrimary} with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH * 2 + 3 / 3 - 9} mph.`
+ document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weatherPrimary}, with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH * 2 + 3 / 3 - 9} mph.`
 }
 getForecast();
 // This is the function to get the alerts.
@@ -161,9 +158,6 @@ searchButton.addEventListener("click", function() {
 });
 }
 getSearch();
-
-
-
 
 
 

@@ -21,7 +21,7 @@
                     <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
                       <!-- Current Conditions Section -->
                     <div class="search-container">
-                      <input type="text" class="inputcontainer" placeholder="Search for a City." id="searchInput">
+                      <input type="text" class="inputcontainer" placeholder="Search for a City. Do :auto for your estimated location" id="searchInput">
                       <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
                       <ul class="list" id="citylist"></ul>
                       <a style="display: flex; margin-left: 100px; color:hsl(from color h s l)" href="citylist.html">Click me for a list of cities</a>
@@ -64,7 +64,6 @@
                 <div class="valuet" id="visibilitytext">Clear Skies</div>
               </div>
               </div>
-              <button id="notificationbutton" class="button">Notify me on alerts</button>
               <div class="cards-container">
                 <div class="card">
                   <div class="cardtitle" id="rainrtitle">Rain Rate</div>
@@ -156,11 +155,11 @@
                 </div>
     </div>             
     <div class="detailedinformationcontainer">
-      <div class="informationintro">Detailed Information for Today/Tonight:</div>
+      <div class="informationintro" id="infointro0">Detailed Information for Today/Tonight:</div>
       <div class="deatiledinformation-today" id="temptoday">High Temperature: 32°F (0°C)</div>
       <div class="deatiledinformation-mintoday" id="tempmintoday">Low Temperature: 32°F (0°C)</div>
       <div class="deatiledinformation-detailed" id="fullforecast0">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
-      <div class="informationintro">Detailed Information for Day 2:</div>
+      <div class="informationintro" id="infointro1">Detailed Information for Day 2:</div>
       <div class="deatiledinformation-today" id="temptoday1">High Temperature: 32°F (0°C)</div>
       <div class="deatiledinformation-mintoday" id="tempmintoday1">Low Temperature: 32°F (0°C)</div>
       <div class="deatiledinformation-detailed" id="fullforecast1">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
@@ -186,13 +185,41 @@ async function getDate() {
   var minute = d.getMinutes();
   var day = d.getDate();
   var month = d.getMonth() + 1;
+  var dayofweek = d.getDay();
   var year  = d.getFullYear()
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var newmonth = months[d.getDate()];
+var currentweekday = weekdays[d.getDay()];
+console.log(currentweekday);
+
+var day1 = weekdays[d.getDay()];
+var day2 = weekdays[d.getDay() + 1];
+var day3 = weekdays[d.getDay() + 2];
+var day4 = weekdays[d.getDay() + 3];
+var day5 = weekdays[d.getDay() + 4];
+var day6 = weekdays[d.getDay() + 5];
+var day7 = weekdays[d.getDay() + 6];
+
+console.log(day3)
 if (minute <10) {
-  var minute = `0${minute}`
+  var minute = `0${minute}`;
 }
-document.getElementById('time').innerHTML = `${month}/${day}/${year} ${hour}:${minute}`
+document.getElementById('time').innerHTML = `${month}/${day}/${year} ${hour}:${minute}`;
+// Day Names
+document.getElementById('dayname0').innerHTML = `${day1}`;
+document.getElementById('dayname1').innerHTML = `${day2}`;
+document.getElementById('dayname2').innerHTML = `${day3}`;
+document.getElementById('dayname3').innerHTML = `${day4}`;
+document.getElementById('dayname4').innerHTML = `${day5}`;
+document.getElementById('dayname5').innerHTML = `${day6}`;
+document.getElementById('dayname6').innerHTML = `${day7}`;
+// Forecast Intros
+document.getElementById('infointro0').innerHTML = `Detailed Information for ${day1}`;
+document.getElementById('infointro1').innerHTML = `Detailed Information for ${day2}`
+
+
+
 }
 getDate();
 setInterval(getTime, 1000)
