@@ -1,3 +1,4 @@
+
 // Get Params
 
 // Function for Parameters
@@ -21,8 +22,13 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
      const data = await responsee.json(); 
      const {response} = data;
      console.log(response);    
-let lat = `${response[0].loc.lat}`
-let lon = `${response[0].loc.long}`
+var lat = `${response[0].loc.lat}`;
+var lon = `${response[0].loc.long}`;
+let cordinates = {
+   "lat": `${lat}`,
+   "lon": `${lon}` 
+}
+console.log(cordinates)
       document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${response[0].place.name}, ${response[0].place.state}, ${response[0].place.country}</div>`;
       document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
       document.getElementById('title').innerHTML = `Weather for ${response[0].place.name}, ${response[0].place.state}`
@@ -137,12 +143,17 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id
  async function getAlert() {   
      const responsee = await fetch(alert_url);
      const data = await responsee.json(); 
-     const {response, error} = data;
-     console.log(response, error);  
-     
-     document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${response[0].place.name},${response[0].place.state}">Click Here for more information on alerts</a></div>`
+     const {response} = data;
+        console.log(response)     
+     document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
      setInterval(getAlert, 300000)
-
+   
+if (response[1].details.name !== "undefined") {
+   alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div><div style="background-color: #${response[1].details.color};">Alert: ${response[1].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.</div>`
+} else {
+  alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`   
+}
+       
    }
 getAlert();
 function getSearch() {
@@ -156,29 +167,5 @@ searchButton.addEventListener("click", function() {
 
 
 });
-}
+};
 getSearch();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
