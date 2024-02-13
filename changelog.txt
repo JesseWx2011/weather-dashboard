@@ -63,7 +63,9 @@ Day Names (Monday, Wednesday, etc.) added.
 Minor Bug fixes.
 V1.6.1 (2-11-2024):
 Multiple Alerts Function Returned, with an improved alert function (At the moment, it only functions for 2 alerts, and only works for the main page.)
-V1.6.1 is the Latest Version.
+v1.6.7 (2-13-2024):
+Remove Elements based off of device width
+V1.6.7 is the Latest Version.
  To Be Added:
 Threats (Similar to Alerts, but a bit of extra description.)
 Day Planner
