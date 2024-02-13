@@ -1,3 +1,4 @@
+
 <html>
   <head>
     <title id="title">Weather-Storm</title>
@@ -5,8 +6,11 @@
     <link rel="stylesheet" href="stylecurrentconditions.css" />
     <script src="config.js"></script>
     <script src="scriptcc.js"></script>
-    <script src="notify.js"></script>
     <meta name="authors" content="Jesse Hasty">
+    <meta name='viewport' content='width=device-width; content='width = 425; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes; target-densitydpi=160dpi'>
+    <meta name="apple-mobile-web-app-title" content="Weather-Storm">
+<meta name='apple-mobile-web-app-capable' content='yes'>
+<meta name='apple-touch-fullscreen' content='yes'>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -32,22 +36,22 @@
 <img src="loading.svg"></img>
 </div>
                 <h3 class="weathercond" style="color: black;" id="weather">Sunny</h3>
-                <div class="cards-container">
-                <div class="card">
+                <div class="cards-container" id="cardr1">
+                <div class="card" id="windcard">
                   <div class="cardtitle" id="windtitle">Wind</div>
                   <div class="value" style="margin-top: 50px;" id="windvalue">0 mph</div>
                   <div class="valuet" style="margin-top: 25px;" id="feelslike"></div>
                 </div>
-                <div class="card">
+                <div class="card" id="uvcard">
                   <div class="cardtitle" id="uvtitle">UV Index</div>
                   <div class="value" id="uvvalue">0</div>
                 </div>
-                <div class="card">
+                <div class="card" id="humiditycard">
                   <div class="cardtitle" id="humtitle">Humidity</div>
                   <div class="value" id="humvalue">100%</div>
                 </div>
               </div>
-              <div class="cards-container">
+              <div class="cards-container" id="cardr2">
                 <div class="card">
                   <div class="cardtitle" id="pressuretitle">Pressure</div>
                   <div class="value" id="pressurevalue">0 mph</div>
@@ -64,7 +68,7 @@
                 <div class="valuet" id="visibilitytext">Clear Skies</div>
               </div>
               </div>
-              <div class="cards-container">
+              <div class="cards-container" id="cardr3">
                 <div class="card">
                   <div class="cardtitle" id="rainrtitle">Rain Rate</div>
                   <div class="value" id="rainrvalue">0 in./hr</div>
@@ -165,7 +169,7 @@
       <div class="deatiledinformation-detailed" id="fullforecast1">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
     </div>
       </div>
-      <div class="bottomnavbar">
+      <div class="bottomnavbar" id="bottombar">
         <a href="hourly.html"  class="linkbutton">Hourly Forecast</a>
         <a href="widgetholder.html"  class="linkbutton" style="margin-left: 310px">Widgets</a>
         <a href="hourly.html" class="linkbutton" style="margin-left: 310px">Day Planner</a>
@@ -222,6 +226,19 @@ document.getElementById('infointro1').innerHTML = `Detailed Information for ${da
 
 }
 getDate();
+async function ChangeWidth() {
+   var dimension = `${screen.width}`
+console.log(dimension)
+const row1 = document.getElementById('cardr2')
+const row2 = document.getElementById('cardr3')
+const nav = document.getElementById('bottombar')
+    if (dimension >=425) {
+     row1.remove()
+     row2.remove()
+     nav.remove()
+    }
+}
+ChangeWidth()
 setInterval(getTime, 1000)
     </script>
 
