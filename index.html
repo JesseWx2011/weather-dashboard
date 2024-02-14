@@ -195,7 +195,6 @@ async function getDate() {
   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var newmonth = months[d.getDate()];
 var currentweekday = weekdays[d.getDay()];
-console.log(currentweekday);
 
 var day1 = weekdays[d.getDay()];
 var day2 = weekdays[d.getDay() + 1];
@@ -227,18 +226,18 @@ document.getElementById('infointro1').innerHTML = `Detailed Information for ${da
 }
 getDate();
 async function ChangeWidth() {
-   var dimension = `${screen.width}`
+   var dimension = screen.width
 console.log(dimension)
 const row1 = document.getElementById('cardr2')
 const row2 = document.getElementById('cardr3')
 const nav = document.getElementById('bottombar')
-    if (dimension >=425) {
+    if (dimension <=425) {
      row1.remove()
      row2.remove()
      nav.remove()
     }
 }
 ChangeWidth()
-setInterval(getTime, 1000)
+setInterval(getTime, 5000)
     </script>
 
