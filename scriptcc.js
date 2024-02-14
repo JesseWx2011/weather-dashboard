@@ -42,7 +42,7 @@ console.log(cordinates)
       document.getElementById('dewvalue').innerHTML = `${response[0].periods[0].dewpointF}°F`;
       document.getElementById('visibilityvalue').innerHTML = `${response[0].periods[0].visibilityMI} mi`;
       document.getElementById('snowdepthvalue').innerHTML = `${response[0].periods[0].snowDepthIN} in.`;
-      document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN -    0.0000000000000001} in./hr`;
+      document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN} in./hr`;
       document.getElementById('solarvalue').innerHTML =  `${response[0].periods[0].solradWM2} watts/m²`;
             document.getElementById('radar').innerHTML = `<img src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,roads,counties,interstates,rivers,radar,admin-dk/988x400/${lat},${lon},8/current.png"></img>`;
       
