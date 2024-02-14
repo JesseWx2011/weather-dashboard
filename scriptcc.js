@@ -1,171 +1,244 @@
 
-// Get Params
+<html>
+  <head>
+    <title id="title">Weather-Storm</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylecurrentconditions.css" />
+    <script src="config.js"></script>
+    <script src="scriptcc.js"></script>
+    <meta name="authors" content="Jesse Hasty">
+    <meta name='viewport' content='width=device-width; content='width = 425; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes; target-densitydpi=160dpi'>
+    <meta name="apple-mobile-web-app-title" content="Weather-Storm">
+<meta name='apple-mobile-web-app-capable' content='yes'>
+<meta name='apple-touch-fullscreen' content='yes'>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  </head>
+    <body>
+        <div class="fullpage" align="center">
+        <div class="container">
+            <div class="currentconditions">
+                <div class="weatherinfo">
+                  <div align="center">
+                    <!-- The Time of the observation -->
+                    <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
+                      <!-- Current Conditions Section -->
+                    <div class="search-container">
+                      <input type="text" class="inputcontainer" placeholder="Search for a City. Do :auto for your estimated location" id="searchInput">
+                      <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
+                      <ul class="list" id="citylist"></ul>
+                      <a style="display: flex; margin-left: 100px; color:hsl(from color h s l)" href="citylist.html">Click me for a list of cities</a>
+                      </div>
+                <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
+                <h1 class="temperature" id="temp">32°F</h3>
+                  <div id="icon">
+<img src="loading.svg"></img>
+</div>
+                <h3 class="weathercond" style="color: black;" id="weather">Sunny</h3>
+                <div class="cards-container" id="cardr1">
+                <div class="card" id="windcard">
+                  <div class="cardtitle" id="windtitle">Wind</div>
+                  <div class="value" style="margin-top: 50px;" id="windvalue">0 mph</div>
+                  <div class="valuet" style="margin-top: 25px;" id="feelslike"></div>
+                </div>
+                <div class="card" id="uvcard">
+                  <div class="cardtitle" id="uvtitle">UV Index</div>
+                  <div class="value" id="uvvalue">0</div>
+                </div>
+                <div class="card" id="humiditycard">
+                  <div class="cardtitle" id="humtitle">Humidity</div>
+                  <div class="value" id="humvalue">100%</div>
+                </div>
+              </div>
+              <div class="cards-container" id="cardr2">
+                <div class="card">
+                  <div class="cardtitle" id="pressuretitle">Pressure</div>
+                  <div class="value" id="pressurevalue">0 mph</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="dewtitle">Dew Point</div>
+                  <div class="value" id="dewvalue">0 mph</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="visbilitytitle">Visibility</div>
+                  <div class="valuevis" style="margin-bottom: 50px;" id="visibilityvalue">15 mi
+              
+                </div>
+                <div class="valuet" id="visibilitytext">Clear Skies</div>
+              </div>
+              </div>
+              <div class="cards-container" id="cardr3">
+                <div class="card">
+                  <div class="cardtitle" id="rainrtitle">Rain Rate</div>
+                  <div class="value" id="rainrvalue">0 in./hr</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="snowdtitle">Snow Depth</div>
+                  <div class="value" id="snowdepthvalue">0 in</div>
+                </div>
+                <div class="card">
+                  <div class="cardtitle" id="solartitle">Solar Radiation</div>
+                  <div class="value" id="solarvalue">0 watts/m²</div>
+                </div>
+              </div>
+              </div>
+              <div id="alerts" class="alerts">No Alerts, Enjoy your day :)</div>
+              <div id="radar">
+              </div>
+              <div class="daycontainer">
+                <div class="daycard">
+                  <!-- Day 1 -->
+                  <div class="daycardname" id="dayname0">Day 1</div>
+                  <div class="weathericon" id="wxicon0">
+                    <img src="sunny.png"></img>
+                  </div>
+                  <div class="weathername" id="weather0">Sunny</div>
+                  <div class="daycardtemp" id="temp0day">32</div>
+                  <div class="daycardlow" id="templow0day">32</div>
+                </div>
+                                    <!-- Day 2 -->
+            <div class="daycard">
+              <div class="daycardname" id="dayname1">Day 2</div>
+              <div class="weathericon" id="wxicon1">
+                <img src="sunny.png"></img>
+              </div>
+              <div class="weathername" id="weather1">Sunny</div>
+              <div class="daycardtemp" id="temp1day">32</div>
+              <div class="daycardlow" id="templow1day">32</div>
+            </div>
+                                <!-- Day 3 -->
+        <div class="daycard">
+          <div class="daycardname" id="dayname2">Day 3</div>
+          <div class="weathericon" id="wxicon2">
+            <img src="sunny.png"></img>
+          </div>
+          <div class="weathername" id="weather2">Sunny</div>
+          <div class="daycardtemp" id="temp2day">32</div>
+          <div class="daycardlow" id="templow2day">32</div>
+        </div>
+                            <!-- Day 4 -->
+          <div class="daycard">
+            <div class="daycardname" id="dayname3">Day 4</div>
+            <div class="weathericon" id="wxicon3">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather3">Sunny</div>
+            <div class="daycardtemp" id="temp3day">32</div>                
+            <div class="daycardlow" id="templow3day">32</div>
+          </div>
+                                        <!-- Day 5 -->
+            <div class="daycard">
+              <div class="daycardname" id="dayname4">Day 5</div>
+              <div class="weathericon" id="wxicon4">
+                <img src="sunny.png"></img>
+              </div>
+              <div class="weathername" id="weather4">Sunny</div>
+              <div class="daycardtemp" id="temp4day">32</div>                  
+              <div class="daycardlow" id="templow4day">32</div>
+            </div>        
+              <div class="daycard">
+                   <!-- Day 5 -->
+                <div class="daycardname" id="dayname5">Day 6</div>
+                <div class="weathericon" id="wxicon5">
+                  <img src="sunny.png"></img>
+                </div>
+                <div class="weathername" id="weather5">Sunny</div>
+                <div class="daycardtemp" id="temp5day">32</div>
+                <div class="daycardlow" id="templow5day">32</div>
+              </div>
+                                            <!-- Day 6 -->
+                <div class="daycard">
+                  <div class="daycardname" id="dayname6">Day 7</div>
+                  <div class="weathericon" id="wxicon6">
+                    <img src="sunny.png"></img>
+                  </div>
+                  <div class="weathername" id="weather6">Sunny</div>
+                  <div class="daycardtemp" id="temp6day">32</div>
+                  <div class="daycardlow" id="templow6day">32</div>
+                </div>
+    </div>             
+    <div class="detailedinformationcontainer">
+      <div class="informationintro" id="infointro0">Detailed Information for Today/Tonight:</div>
+      <div class="deatiledinformation-today" id="temptoday">High Temperature: 32°F (0°C)</div>
+      <div class="deatiledinformation-mintoday" id="tempmintoday">Low Temperature: 32°F (0°C)</div>
+      <div class="deatiledinformation-detailed" id="fullforecast0">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
+      <div class="informationintro" id="infointro1">Detailed Information for Day 2:</div>
+      <div class="deatiledinformation-today" id="temptoday1">High Temperature: 32°F (0°C)</div>
+      <div class="deatiledinformation-mintoday" id="tempmintoday1">Low Temperature: 32°F (0°C)</div>
+      <div class="deatiledinformation-detailed" id="fullforecast1">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
+    </div>
+      </div>
+      <div class="bottomnavbar" id="bottombar">
+        <a href="hourly.html"  class="linkbutton">Hourly Forecast</a>
+        <a href="widgetholder.html"  class="linkbutton" style="margin-left: 310px">Widgets</a>
+        <a href="hourly.html" class="linkbutton" style="margin-left: 310px">Day Planner</a>
+      </div>   
+            </div>      
+        </div>
+      </div>
+    </div>
+    </body>
+    </html>
+  
+    <script>
+    getDate() 
+async function getDate() {
+  const d = new Date();
+  var hour = d.getHours();
+  var minute = d.getMinutes();
+  var day = d.getDate();
+  var month = d.getMonth() + 1;
+  var dayofweek = d.getDay();
+  var year  = d.getFullYear()
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var newmonth = months[d.getDate()];
+var currentweekday = weekdays[d.getDay()];
+console.log(currentweekday);
 
-// Function for Parameters
-console.log(`URL:`, window.location);
+var day1 = weekdays[d.getDay()];
+var day2 = weekdays[d.getDay() + 1];
+var day3 = weekdays[d.getDay() + 2];
+var day4 = weekdays[d.getDay() + 3];
+var day5 = weekdays[d.getDay() + 4];
+var day6 = weekdays[d.getDay() + 5];
+var day7 = weekdays[d.getDay() + 6];
 
-const values = window.location.search;
-console.log(values);
-
- 
-const parameters = new URLSearchParams(values);
-const newcity = parameters.get('city');
-
-console.log(newcity);
-
-var city  = newcity;
-// Start of GetWx function
-getWx();  
-const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=${client_id}&client_secret=${client_secret}`;
- async function getWx() {   
-     const responsee = await fetch(api_url);
-     const data = await responsee.json(); 
-     const {response} = data;
-     console.log(response);    
-var lat = `${response[0].loc.lat}`;
-var lon = `${response[0].loc.long}`;
-let cordinates = {
-   "lat": `${lat}`,
-   "lon": `${lon}` 
+console.log(day3)
+if (minute <10) {
+  var minute = `0${minute}`;
 }
-console.log(cordinates)
-      document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${response[0].place.name}, ${response[0].place.state}, ${response[0].place.country}</div>`;
-      document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
-      document.getElementById('title').innerHTML = `Weather for ${response[0].place.name}, ${response[0].place.state}`
-      document.getElementById('icon').innerHTML = `<img src="${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
-      document.getElementById('weather').innerHTML = `${response[0].periods[0].weather}`
-      document.getElementById('feelslike').innerHTML = `Feels Like ${response[0].periods[0].feelslikeF}°F (${response[0].periods[0].feelslikeC}°C)`
-      document.getElementById('windvalue').innerHTML = ` ${response[0].periods[0].windDir} at ${response[0].periods[0].windSpeedMPH} mph`;
-      document.getElementById('uvvalue').innerHTML = `${response[0].periods[0].uvi}`;
-      document.getElementById('humvalue').innerHTML = `${response[0].periods[0].humidity}%`;
-      document.getElementById('pressurevalue').innerHTML = `${response[0].periods[0].pressureIN} inHg`;
-      document.getElementById('dewvalue').innerHTML = `${response[0].periods[0].dewpointF}°F`;
-      document.getElementById('visibilityvalue').innerHTML = `${response[0].periods[0].visibilityMI} mi`;
-      document.getElementById('snowdepthvalue').innerHTML = `${response[0].periods[0].snowDepthIN} in.`;
-      document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN} in./hr`;
-      document.getElementById('solarvalue').innerHTML =  `${response[0].periods[0].solradWM2} watts/m²`;
-            document.getElementById('radar').innerHTML = `<img src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,roads,counties,interstates,rivers,radar,admin-dk/988x400/${lat},${lon},8/current.png"></img>`;
-      
-   
-      // Function to get the UV Value
-  if (response[0].periods[0].uvi <=1) {
-   uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very Low`
-} if (response[0].periods[0].uvi >= 1) {
-   uvvalue.innerHTML = `${response[0].periods[0].uvi} - Low`
-} if (response[0].periods[0].uvi >= 3) {
-uvvalue.innerHTML = `${response[0].periods[0].uvi} - Medium`
-} if (response[0].periods[0].uvi >= 6) {
-uvvalue.innerHTML = `${response[0].periods[0].uvi} - High`
-} if (response[0].periods[0].uvi >= 8) {
-uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
-} if (response[0].periods[0].uvi > 11) {
-   uvvalue.innerHTML = `${response[0].periods[0].uvi} - Extreme`
-   }
- // Function to get the visibility
- if (visibilityvalue = response[0].periods[0].visibilityMI >= 15) {
-  visibilitytext.innerHTML = `Clear Skies`;
- } if (visibilityvalue = response[0].periods[0].visibilityMI <= 10) {
-   visibilitytext.innerHTML = `Nearly Clear Skies`
-} if (visibilityvalue = response[0].periods[0].visibilityMI <= 7.5) {
-   visibilitytext.innerHTML = `Near Clear Skies with patchy haze`
-} if (visibilityvalue = response[0].periods[0].visibilityMI <= 3.5) {
-   visibilitytext.innerHTML = `Patchy Fog or Haze`
-} if (visibilityvalue = response[0].periods[0].visibilityMI <= 1.5) {
-   visibilitytext.innerHTML = `Blowing Snow, Blowing Dust, Fog, Snowfall, or Haze`
-} if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.875) {
-   visibilitytext.innerHTML = `Fog or Haze`
-} if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.5) {
-   visibilitytext.innerHTML = `Very Dense Fog or Haze`
-} if (visibilityvalue = response[0].periods[0].visibilityMI <= 0.25) {
-   visibilitytext.innerHTML = `Extremely Dense Fog/Haze`
- }
+document.getElementById('time').innerHTML = `${month}/${day}/${year} ${hour}:${minute}`;
+// Day Names
+document.getElementById('dayname0').innerHTML = `${day1}`;
+document.getElementById('dayname1').innerHTML = `${day2}`;
+document.getElementById('dayname2').innerHTML = `${day3}`;
+document.getElementById('dayname3').innerHTML = `${day4}`;
+document.getElementById('dayname4').innerHTML = `${day5}`;
+document.getElementById('dayname5').innerHTML = `${day6}`;
+document.getElementById('dayname6').innerHTML = `${day7}`;
+// Forecast Intros
+document.getElementById('infointro0').innerHTML = `Detailed Information for ${day1}`;
+document.getElementById('infointro1').innerHTML = `Detailed Information for ${day2}`
+
+
+
 }
-getWx();
-
- // Get The Weather Forecast based off of IP
- getForecast(); 
-async function getForecast() {   
-   const forecast_url = `https://api.aerisapi.com/forecasts/${city}?limit=7&client_id=${client_id}&client_secret=${client_secret}`;
-   const responsee = await fetch(forecast_url);
-   const data = await responsee.json(); 
-   const {response} = data;
-   console.log(response);    
-   
-   // Day 1
-   document.getElementById('temp0day').textContent = response[0].periods[0].maxTempF;
-   document.getElementById('templow0day').textContent = response[0].periods[0].minTempF;
-   document.getElementById('wxicon0').innerHTML = `<img src="${response[0].periods[0].icon}"></img>`;
-   document.getElementById('weather0').textContent = response[0].periods[0].weatherPrimary;
-   // Day 2
-   document.getElementById('temp1day').textContent = response[0].periods[1].maxTempF;
-   document.getElementById('templow1day').textContent = response[0].periods[1].minTempF;
-   document.getElementById('wxicon1').innerHTML = `<img src="${response[0].periods[1].icon}"></img>`;
-   document.getElementById('weather1').textContent = response[0].periods[1].weatherPrimary;
-   // Day 3
-   document.getElementById('temp2day').textContent = response[0].periods[2].maxTempF;
-   document.getElementById('templow2day').textContent = response[0].periods[2].minTempF;
-   document.getElementById('wxicon2').innerHTML = `<img src="${response[0].periods[2].icon}"></img>`;
-   document.getElementById('weather2').textContent = response[0].periods[2].weatherPrimary;
-   // Day 4
-   document.getElementById('temp3day').textContent = response[0].periods[3].maxTempF;
-   document.getElementById('templow3day').textContent = response[0].periods[3].minTempF;
-   document.getElementById('wxicon3').innerHTML = `<img src="${response[0].periods[3].icon}"></img>`;
-   document.getElementById('weather3').textContent = response[0].periods[3].weatherPrimary;
-   // Day 5
-   document.getElementById('temp4day').textContent = response[0].periods[4].maxTempF;
-   document.getElementById('templow4day').textContent = response[0].periods[4].minTempF;
-   document.getElementById('wxicon4').innerHTML = `<img src="${response[0].periods[4].icon}"></img>`;
-   document.getElementById('weather4').textContent = response[0].periods[4].weatherPrimary;
-   // Day 6
-   document.getElementById('temp5day').textContent = response[0].periods[5].maxTempF;
-   document.getElementById('templow5day').textContent = response[0].periods[5].minTempF;
-   document.getElementById('wxicon5').innerHTML = `<img src="${response[0].periods[5].icon}"></img>`;
-   document.getElementById('weather5').textContent = response[0].periods[5].weatherPrimary;
-   // Day 7
-   document.getElementById('temp6day').textContent = response[0].periods[6].maxTempF;
-   document.getElementById('templow6day').textContent = response[0].periods[1].minTempF;
-   document.getElementById('wxicon6').innerHTML = `<img src="${response[0].periods[6].icon}"></img>`;
-   document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
- // Detailed Information Container 
- // Day 1 (Today/Tonight)
- document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
- document.getElementById('tempmintoday').innerHTML = `High Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
- document.getElementById('fullforecast0').innerHTML = `${response[0].periods[0].weatherPrimary}, with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH * 2 + 3 / 3 - 9} mph.`;
- // Day 2 (Tommorow)
- document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
- document.getElementById('tempmintoday1').innerHTML = `High Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
- document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weatherPrimary}, with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH * 2 + 3 / 3 - 9} mph.`
+getDate();
+async function ChangeWidth() {
+   var dimension = screen.width
+console.log(dimension)
+const row1 = document.getElementById('cardr2')
+const row2 = document.getElementById('cardr3')
+const nav = document.getElementById('bottombar')
+    if (dimension <=425) {
+     row1.remove()
+     row2.remove()
+     nav.remove()
+    }
 }
-getForecast();
-// This is the function to get the alerts.
-getAlert();
-const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id}&client_secret=${client_secret}`;
- async function getAlert() {   
-     const responsee = await fetch(alert_url);
-     const data = await responsee.json(); 
-     const {response} = data;
-        console.log(response)     
-     document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
-     setInterval(getAlert, 300000)
-   
-if (response[1].details.name !== "undefined") {
-   alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div><div style="background-color: #${response[1].details.color};">Alert: ${response[1].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.</div>`
-} else {
-  alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`   
-}
-       
-   }
-getAlert();
-function getSearch() {
-   document.getElementById('searchButton')
-   document.getElementById('searchInput');
+ChangeWidth()
+setInterval(getTime, 1000)
+    </script>
 
-searchButton.addEventListener("click", function() {
-
-   window.location = `./?city=${searchInput.value}`
-   event.preventDefault();
-
-
-});
-};
-getSearch();
