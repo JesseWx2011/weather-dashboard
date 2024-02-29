@@ -29,11 +29,13 @@ var city  = newcity;
         <div  align="center">
             <div class="contents">
                 <h1 id="alerttitle" class="alertname">No Alert</h1>
-            <p id="fullmessage" class="message">               There Dosen't seem to be an alert at this time. </p>
-            <p id="severity" class="severe">Severity Level 1 - Minor Requirments Neccesary.</p>
+            <p id="fullmessage" class="message">There Dosen't seem to be an alert at this time. </p>
+            <p id="severity"></p>
             <p id="alerttype" class="type">Type: Other</p>
             <div id="extra"></div>
         </div>
+        <div class="contents" id="contents2">
+    </div>
         </div>
         </div>
     </div>
@@ -44,7 +46,7 @@ var city  = newcity;
         display: flex;
         background-color: grey;
         width: 820px;
-        height: 670px;
+        height: fit-content;
         margin-left: 255px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         border-color: black;
@@ -80,19 +82,45 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=DZLMGEFxCvf
       document.getElementById('title').innerHTML = `Alerts for ${response[0].place.name}, ${response[0].place.state}.`;
       document.getElementById('extra').innerHTML = `There may be more alerts active for this spot. Visit <a href="https://forecast.weather.gov/showsigwx.php?warnzone=${response[0].details.loc}&warncounty=${response[0].details.loc}&firewxzone=${response[0].details.loc}&local_place1=${response[0].place.name}%20${response[0].place.state}&product1=all&lat=${response[0].loc.lat}&lon=${response[0].loc.long}">This Website.</a>`
 
-      if (response[0].details.priority = 0) {
+        var urgency = `${response[0].details.priority}`
+      if (urgency = "0") {
         var otherthing = `No Action Needed.`
-      } else if (response[0].details.priority = 1) {
+      } if (urgency = "1") {
         var otherthing = `Minor Requirements Neccesary.`
-      } else if (response[0].details.priority = 2) {
+      } if (urgency = "2") {
         var otherthing = `Some Attention Needed.`
-      } else if (response[0].details.priority = 3) {
+      } if (urgency = "3") {
         var otherthing = `Action Needed, Listen to instructions.`
-      } else if (response[0].details.priority = 4) {
+      } if (urgency = "4") {
        var otherthing = `Extreme Danger, Life-threatning situation.`
-      } else if (response[0].details.priority = 5) {
+      } if (urgency = "5") {
       var otherthing = `Extreme Emergency, pontential mass-casualty situation.`
-      } 
+      } if (urgency <= "6") {
+        var otherthing = "Unknown"
+      }       if (response[1].details.priority = 0) {
+        var otherthing1 = `No Action Needed.`
+      } if (response[1].details.priority = 1) {
+        var otherthing1 = `Minor Requirements Neccesary.`
+      } if (response[1].details.priority = 2) {
+        var otherthing1 = `Some Attention Needed.`
+      } if (response[1].details.priority = 3) {
+        var otherthing1 = `Action Needed, Listen to instructions.`
+      } if (response[1].details.priority = 4) {
+       var otherthing1 = `Extreme Danger, Life-threatning situation.`
+      } if (response[1].details.priority = 5) {
+      var otherthing1 = `Extreme Emergency, pontential mass-casualty situation.`
+      } if (response[1].details.priority >= 6) {
+        var otherthing1 = "Unknown"
+      }
+      if (response[1].details.name !== "undefined") {
+        contents2.innerHTML = `            <h1 id="alerttitle" class="alertname">${response[1].details.name}</h1>
+        <p id="fullmessage" class="message">${response[1].details.body} </p>
+        <p id="severity" class="severe">${response[1].details.priority} - ${otherthing1}</p>
+        <p id="alerttype" class="type">Type: ${response[1].details.cat}</p>
+        <div id="extra"></div>`
+} else {
+console.log('no other alerts..')
+}
     }
       getAlert();
 </script>
