@@ -42,7 +42,7 @@ console.log(cordinates)
       document.getElementById('dewvalue').innerHTML = `${response[0].periods[0].dewpointF}°F`;
       document.getElementById('visibilityvalue').innerHTML = `${response[0].periods[0].visibilityMI} mi`;
       document.getElementById('snowdepthvalue').innerHTML = `${response[0].periods[0].snowDepthIN} in.`;
-      document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN} in./hr`;
+      document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN}in./hr`;
       document.getElementById('solarvalue').innerHTML =  `${response[0].periods[0].solradWM2} watts/m²`;
             document.getElementById('radar').innerHTML = `<img src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,roads,counties,interstates,rivers,radar,admin-dk/988x400/${lat},${lon},8/current.png"></img>`;
       
@@ -96,36 +96,44 @@ async function getForecast() {
    document.getElementById('templow0day').textContent = response[0].periods[0].minTempF;
    document.getElementById('wxicon0').innerHTML = `<img src="${response[0].periods[0].icon}"></img>`;
    document.getElementById('weather0').textContent = response[0].periods[0].weatherPrimary;
+   document.getElementById('cloudcover0').innerHTML = `${response[0].periods[0].sky}% Cloud Cover`
    // Day 2
    document.getElementById('temp1day').textContent = response[0].periods[1].maxTempF;
    document.getElementById('templow1day').textContent = response[0].periods[1].minTempF;
    document.getElementById('wxicon1').innerHTML = `<img src="${response[0].periods[1].icon}"></img>`;
    document.getElementById('weather1').textContent = response[0].periods[1].weatherPrimary;
+   document.getElementById('cloudcover1').innerHTML = `${response[0].periods[1].sky}% Cloud Cover`
    // Day 3
    document.getElementById('temp2day').textContent = response[0].periods[2].maxTempF;
    document.getElementById('templow2day').textContent = response[0].periods[2].minTempF;
    document.getElementById('wxicon2').innerHTML = `<img src="${response[0].periods[2].icon}"></img>`;
    document.getElementById('weather2').textContent = response[0].periods[2].weatherPrimary;
+   document.getElementById('cloudcover2').innerHTML = `${response[0].periods[2].sky}% Cloud Cover`
    // Day 4
    document.getElementById('temp3day').textContent = response[0].periods[3].maxTempF;
    document.getElementById('templow3day').textContent = response[0].periods[3].minTempF;
    document.getElementById('wxicon3').innerHTML = `<img src="${response[0].periods[3].icon}"></img>`;
    document.getElementById('weather3').textContent = response[0].periods[3].weatherPrimary;
+   document.getElementById('cloudcover3').innerHTML = `${response[0].periods[3].sky}% Cloud Cover`
    // Day 5
    document.getElementById('temp4day').textContent = response[0].periods[4].maxTempF;
    document.getElementById('templow4day').textContent = response[0].periods[4].minTempF;
    document.getElementById('wxicon4').innerHTML = `<img src="${response[0].periods[4].icon}"></img>`;
    document.getElementById('weather4').textContent = response[0].periods[4].weatherPrimary;
+   document.getElementById('cloudcover4').innerHTML = `${response[0].periods[4].sky}% Cloud Cover`
    // Day 6
    document.getElementById('temp5day').textContent = response[0].periods[5].maxTempF;
    document.getElementById('templow5day').textContent = response[0].periods[5].minTempF;
    document.getElementById('wxicon5').innerHTML = `<img src="${response[0].periods[5].icon}"></img>`;
    document.getElementById('weather5').textContent = response[0].periods[5].weatherPrimary;
+   document.getElementById('cloudcover5').innerHTML = `${response[0].periods[5].sky}% Cloud Cover`
    // Day 7
    document.getElementById('temp6day').textContent = response[0].periods[6].maxTempF;
    document.getElementById('templow6day').textContent = response[0].periods[1].minTempF;
    document.getElementById('wxicon6').innerHTML = `<img src="${response[0].periods[6].icon}"></img>`;
-   document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
+   document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;  
+   document.getElementById('cloudcover6').innerHTML = `${response[0].periods[6].sky}% Cloud Cover`
+
 
    // Extra information for ice, rain, snow, or sleet accumulation.
    if (response[0].periods[0].iceaccumIN !== 0) {
@@ -136,20 +144,24 @@ async function getForecast() {
    var   accumulation0 = `Rain Accumulation around ${response[0].periods[0].precipIN} in.`
    } if (response[0].periods[1].precipIN !== 0) {
     var accumulation1 = `Rain Accumulation around ${response[0].periods[1].precipIN} in.`
-   } if (response[0].periods[0].snowIN !== 0) {
+   } if (response[0].periods[0].snowIN !== 0.01) {
       accumulation0 = `Snow Accumulation around ${response[0].periods[0].snowIN} in.`
    } if (response[0].periods[1].snowIN !== 0) {
     var  accumulation1 = `Snow Accumulation around ${response[0].periods[1].snowIN} in.`
+   } if (accumulation0 = "undenfined") {
+      var accumulation0 = ""
+   } if (accumulation1 = "undenfined") {
+      var accumulation1 = ""
    }
  // Detailed Information Container 
  // Day 1 (Today/Tonight)
  document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
  document.getElementById('tempmintoday').innerHTML = `High Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
- document.getElementById('fullforecast0').innerHTML = `${response[0].periods[0].weatherPrimary}, with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeed80mMPH} to ${response[0].periods[0].windGustMPH} mph with peak gusts around ${response[0].periods[0].windGustMPH * 2 + 3 / 3 - 9} mph. ${accumulation0}`;
+ document.getElementById('fullforecast0').innerHTML = `${response[0].periods[0].weatherPrimary}, with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeedMinMPH} to ${response[0].periods[0].windSpeedMinMPH * 2} mph with peak gusts around ${response[0].periods[0].windGustMPH} mph. ${accumulation0}`;
  // Day 2 (Tommorow)
  document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
  document.getElementById('tempmintoday1').innerHTML = `High Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
- document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weatherPrimary}, with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeed80mMPH} to ${response[0].periods[1].windGustMPH} mph with peak gusts around ${response[0].periods[1].windGustMPH * 2 + 3 / 3 - 9} mph. ${accumulation1}`
+ document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weatherPrimary}, with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeedMinMPH} to ${response[0].periods[1].windSpeedMinMPH * 2} mph with peak gusts around ${response[0].periods[1].windGustMPH} mph. ${accumulation1}`
 }
 getForecast();
 // This is the function to get the alerts.
@@ -182,5 +194,8 @@ searchButton.addEventListener("click", function() {
 
 
 });
-};
+ searchInput.addEventListener("input", function() {
+   window.location = `./?city=${searchInput.value}`
+ })
+}
 getSearch();
