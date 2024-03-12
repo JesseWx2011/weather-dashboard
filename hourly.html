@@ -1,7 +1,23 @@
+
 <script>
-    city = `:auto`
+    
+// Get Params
+
+// Function for Parameters
+console.log(`URL:`, window.location);
+
+const values = window.location.search;
+console.log(values);
+
+ 
+const parameters = new URLSearchParams(values);
+const newcity = parameters.get('city');
+
+console.log(newcity);
+
+var city  = newcity;
 getHourly();  
-const api_url = `https://api.aerisapi.com/forecasts/${city}?format=json&filter=1hr&limit=3&fields=&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+const api_url = `https://api.aerisapi.com/forecasts/${city}?format=json&filter=1hr&limit=3&fields=&client_id=wgE96YE3scTQLKjnqiMsv&client_secret=sFA4Gfz8s8brxUUHoZTQ3iZIRy6YSwLhf1wJQzDi`;
   async function getHourly() {   
       const responsee = await fetch(api_url);
       const data = await responsee.json(); 
@@ -37,9 +53,9 @@ if (hour0 <=11) {
     hour2.innerHTML = `${hour0 + 1}:00 AM`;
     hour3.innerHTML = `${hour0 + 2}:00 AM`
 } if (hour0 >=12) {
-    hour1.innerHTML = `${hour0}:00 PM`
-    hour2.innerHTML = `${hour0 + 1}:00 PM`;
-    hour3.innerHTML = `${hour0 + 2}:00 PM`
+    hour1.innerHTML = `${hour0 - 12}:00 PM`
+    hour2.innerHTML = `${hour0 + 1 - 12}:00 PM`;
+    hour3.innerHTML = `${hour0 + 2 - 12}:00 PM`
 }
 
     document.getElementById('celcius');
@@ -54,15 +70,15 @@ if (hour0 <=11) {
 
 
 
-        celcius.innerHTML = `<button class="pressedbutton" id="pressedbutton">Click the reload icon to change back to Imperial Units</button>`
+        celcius.innerHTML = `<button class="pressedbutton" style="position: absolute; width: 365px;" id="pressedbutton">Reload the page to change back to Imperial Units</button>`
 
     });
 
 
   }
   function reDirect() {
-    location.replace("index.html")
-}
+    location.replace(`index.html?city=${newcity}`)
+};
   getHourly();
 </script>   
 <html>
@@ -71,6 +87,7 @@ if (hour0 <=11) {
         <meta name="authors" content="Jesse Hasty">
         <title id="title">Hourly Forecast for .</title>
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <script src="config.js"></script>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     </head>
