@@ -15,9 +15,11 @@
 Go to <a href="https://drive.google.com/file/d/1Wft1JEjsMZ_UdUvqwI4yiDK1jXy4fm_-/view">here</a> for a demo. 
 
 <h1>Previews (Please Note these were taken on version 1.3.5)</h1>
+<div align="center">
 Apple iPad (10.9")
 <img src="Apple iPad 10.9 inch.png"></img>
 Apple iPhone (iPhone 14, 6.7")
 <img src="Apple iPhone (iPhone 14) 6.7 inch.png"></img>
 Laptop (14")
 <img src="Laptop (14 inch).png"></img>
+</div>
