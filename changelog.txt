@@ -68,10 +68,20 @@ Remove Elements based off of device width
 V1.6.9 (2-29-2024):
 Added Cloud Cover
 Fixed Alert Priority Level.
-V1.6.9 is the Latest Version.
+V1.7 (3-12-2024, Major Update.):
+Added another day to the forecast section.
+Fixed redirect to the homepage, so that it's the same city.
+Added more metric units.
+Radar Removed. (There were multiple issues with the radar, so it had to be removed, but will eventually return.)
+Fixed wind range.
+Icon Fix.
+City List Removed.
+V1.7 is the Latest Version.
  To Be Added:
 Threats (Similar to Alerts, but a bit of extra description.)
 Day Planner
+Animated Icon
 To be decided:
-Nothing at the moment
+Tides Forecast
+Bible Verse of the Day 
 Let me know what else to add :)
