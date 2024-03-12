@@ -24,11 +24,9 @@
                     <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
                       <!-- Current Conditions Section -->
                     <div class="search-container">
-                      <input type="text" class="inputcontainer" placeholder="Search for a City. Do :auto for your estimated location" id="searchInput">
+                      <input class="inputcontainer" placeholder="Search for a City. Do :auto for your estimated location" id="searchInput">
                       <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
-                      <ul class="list" id="citylist"></ul>
-                      <a style="display: flex; margin-left: 100px; color:hsl(from color h s l)" href="citylist.html">Click me for a list of cities</a>
-                      </div>
+                    </div>
                 <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
                 <h1 class="temperature" id="temp">32°F</h3>
                   <div id="icon">
@@ -39,7 +37,10 @@
                 <div class="card" id="windcard">
                   <div class="cardtitle" id="windtitle">Wind</div>
                   <div class="value" style="margin-top: 50px;" id="windvalue">0 mph</div>
+                  <div class="valuet" style="margin-top: 20px;" id="windmetric">0 km/h<div>
                   <div class="valuet" style="margin-top: 25px;" id="feelslike"></div>
+                </div>
+                </div>
                 </div>
                 <div class="card" id="uvcard">
                   <div class="cardtitle" id="uvtitle">UV Index</div>
@@ -83,8 +84,6 @@
               </div>
               </div>
               <div id="alerts" class="alerts">No Alerts, Enjoy your day :)</div>
-              <div id="radar">
-              </div>
               <div class="daycontainer">
                 <div class="daycard">
                   <!-- Day 1 -->
@@ -173,11 +172,15 @@
       <div class="deatiledinformation-today" id="temptoday1">High Temperature: 32°F (0°C)</div>
       <div class="deatiledinformation-mintoday" id="tempmintoday1">Low Temperature: 32°F (0°C)</div>
       <div class="deatiledinformation-detailed" id="fullforecast1">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
+      <div class="informationintro" id="infointro2">Detailed Information for Day 3:</div>
+      <div class="deatiledinformation-today" id="temptoday2">High Temperature: 32°F (0°C)</div>
+      <div class="deatiledinformation-mintoday" id="tempmintoday2">Low Temperature: 32°F (0°C)</div>
+      <div class="deatiledinformation-detailed" id="fullforecast2">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
     </div>
       </div>
       <div class="bottomnavbar" id="bottombar">
-        <a href="hourly.html"  class="linkbutton">Hourly Forecast</a>
-        <a href="widgetholder.html"  class="linkbutton" style="margin-left: 310px">Widgets</a>
+        <button onclick="hourlycity()" id="hourlybutton" class="linkbutton">Hourly Forecast</button>
+        <button href="widgetholder.html"  class="linkbutton" style="margin-left: 310px">Widgets</button>
       </div>   
             </div>      
         </div>
@@ -185,8 +188,8 @@
     </div>
     </body>
     </html>
-  
-    <script>
+  <!-- dates.js -->
+  <script>
     getDate() 
 async function getDate() {
   const d = new Date();
@@ -223,8 +226,9 @@ document.getElementById('dayname4').innerHTML = `${day5}`;
 document.getElementById('dayname5').innerHTML = `${day6}`;
 document.getElementById('dayname6').innerHTML = `${day7}`;
 // Forecast Intros
-document.getElementById('infointro0').innerHTML = `Detailed Information for ${day1}`;
-document.getElementById('infointro1').innerHTML = `Detailed Information for ${day2}`
+document.getElementById('infointro0').innerHTML = `Forecast for ${day1}`;
+document.getElementById('infointro1').innerHTML = `Forecast for ${day2}`
+document.getElementById("infointro2").innerHTML = `Forecast for ${day3}`
 
 
 
@@ -244,5 +248,13 @@ const nav = document.getElementById('bottombar')
 }
 ChangeWidth()
 setInterval(getTime, 5000)
-    </script>
-
+</script>
+<script>
+function hourlycity() {
+ const hbutton = document.getElementById("hourlybutton") 
+ hbutton.addEventListener("click", function() {
+  location.replace(`./hourly.html?city=${city}`)
+ })
+}
+hourlycity();
+</script>
