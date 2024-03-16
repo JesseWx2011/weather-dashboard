@@ -76,7 +76,12 @@ Radar Removed. (There were multiple issues with the radar, so it had to be remov
 Fixed wind range.
 Icon Fix.
 City List Removed.
-V1.7 is the Latest Version.
+V2.0 (3-16-2024):
+Radar Added Back In (With Improvements)
+Extra Metric Units
+Push Notifications Added
+Bug Fixes
+V2.0 is the Latest Version.
  To Be Added:
 Threats (Similar to Alerts, but a bit of extra description.)
 Day Planner
