@@ -4,7 +4,7 @@
     Contibutors: 
     No Other Contributors :/</div> 
   <div class="info">This uses an api made by Aeris Weather.</div>
-  <div class="info">This Project was last updated 3/12/24.</div>
+  <div class="info">This Project was last updated 3/16/24.</div>
   <div class="info">To see the latest updates, go to "changelog.txt".</div>
   <div align="center">If you are wanting to use this on your website please credit me for the original design. Thank you :). Also note that if the forecasts aren't working, the api key may have reached the limit for requests.</div>
    <div align="center">
