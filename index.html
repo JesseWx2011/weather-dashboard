@@ -1,10 +1,13 @@
+
 <html>
   <head>
     <title id="title">Weather-Storm</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylecurrentconditions.css" />
-    <script src="config.js"></script>
-    <script src="scriptcc.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript" src="scriptcc.js"></script>
+    <script type="text/javascript" src="notification.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <meta name="authors" content="Jesse Hasty">
     <meta name='viewport' content='width=device-width; content='width = 425; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes; target-densitydpi=160dpi'>
     <meta name="apple-mobile-web-app-title" content="Weather-Storm">
@@ -22,11 +25,13 @@
                   <div align="center">
                     <!-- The Time of the observation -->
                     <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
+                    <button id="notificationbutton">Click here for notifications for your location.</button>
+                    <noscript>You need to enable JavaScript for this web page to work.</noscript>
                       <!-- Current Conditions Section -->
-                    <div class="search-container">
-                      <input class="inputcontainer" placeholder="Search for a City. Do :auto for your estimated location" id="searchInput">
-                      <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
-                    </div>
+                      <div class="search-container">
+                        <input class="inputcontainer" placeholder="Search for a City. Do :auto for your estimated location" id="searchInput">
+                        <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
+                      </div>
                 <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
                 <h1 class="temperature" id="temp">32°F</h3>
                   <div id="icon">
@@ -62,9 +67,7 @@
                 </div>
                 <div class="card">
                   <div class="cardtitle" id="visbilitytitle">Visibility</div>
-                  <div class="valuevis" style="margin-bottom: 50px;" id="visibilityvalue">15 mi
-              
-                </div>
+                  <div class="valuevis" style="margin-bottom: 50px;" id="visibilityvalue">15 mi</div>
                 <div class="valuet" id="visibilitytext">Clear Skies</div>
               </div>
               </div>
@@ -84,6 +87,9 @@
               </div>
               </div>
               <div id="alerts" class="alerts">No Alerts, Enjoy your day :)</div>
+              <div class="radarcontainer" id="radarimage">
+             <h1 style="position: absolute; margin-top: 78px; margin-left: 550px;">Radar Unavaliable</h1>
+              </div>
               <div class="daycontainer">
                 <div class="daycard">
                   <!-- Day 1 -->
@@ -177,6 +183,9 @@
       <div class="deatiledinformation-mintoday" id="tempmintoday2">Low Temperature: 32°F (0°C)</div>
       <div class="deatiledinformation-detailed" id="fullforecast2">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
     </div>
+    <div style="display: none;" id="alertaudio">
+      </audio>  
+     </div>
       </div>
       <div class="bottomnavbar" id="bottombar">
         <button onclick="hourlycity()" id="hourlybutton" class="linkbutton">Hourly Forecast</button>
