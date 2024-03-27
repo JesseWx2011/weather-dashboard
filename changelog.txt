@@ -81,7 +81,14 @@ Radar Added Back In (With Improvements)
 Extra Metric Units
 Push Notifications Added
 Bug Fixes
-V2.0 is the Latest Version.
+V2.1 Build 1 (3-27-2024)
+Removed Function on mobile to where it says that web notifications are not supported.
+Added Lightning Map to where the closest strike was.
+Removed Peak Gusts on Forecasts. (Becuase it was sometimes saying this for example: Winds E at 11 to 24 mph with peak gusts around 21 mph.)
+Fixed Visibility Caption
+Unusual Rain Rate Feature Fixed to where it stays in the box.
+UV Feature (This feature is when if the UV is greater than 5, it will tell you to put on sunscreen when outdoors.)
+V2.1 Build 1 is the Latest Version.
  To Be Added:
 Threats (Similar to Alerts, but a bit of extra description.)
 Day Planner
