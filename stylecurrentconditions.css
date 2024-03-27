@@ -87,6 +87,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 900;
     font-size: 30px;
+    word-wrap: break-word;
     margin-top: 73px;
 }
 
@@ -269,4 +270,19 @@ body {
 a {
     text-underline-offset: 999px;
     color: white;
+}
+/* Lightning.html */
+.mapbox {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 813px;
+    height: 550px;
+    background-color: white;
+    margin-left: 312px;
+}
+.lightningoverlay {
+    position: absolute;
+    margin-top: -277px;
+    width: 107px;
+    margin-left: -112px;
 }
