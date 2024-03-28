@@ -26,11 +26,10 @@
                   <div align="center">
                     <!-- The Time of the observation -->
                     <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
-                    <button id="notificationbutton">Click here for notifications for your location.</button>
                     <noscript>You need to enable JavaScript for this web page to work.</noscript>
                       <!-- Current Conditions Section -->
                       <div class="search-container">
-                        <input class="inputcontainer" placeholder="Search for a City. Do :auto for your estimated location" id="searchInput">
+                        <input class="inputcontainer" placeholder="Press the Search button or press enter" id="searchInput">
                         <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
                       </div>
                 <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
@@ -39,6 +38,7 @@
 <img src="loading.svg"></img>
 </div>
                 <h3 class="weathercond" style="color: black;" id="weather">Sunny</h3>
+                <button class="linkbutton" style="width: 250px;" onclick="helpbutton()">Need Help? Click Here.</button>
                 <div class="cards-container" id="cardr1">
                 <div class="card" id="windcard">
                   <div class="cardtitle" id="windtitle">Wind</div>
@@ -190,7 +190,7 @@
      </div>
       </div>
       <div class="bottomnavbar" id="bottombar">
-       <a href="lightning.html"><button class="linkbutton" id="lightningbutton" style="margin-right: 145px; word-wrap: break-word; width: 200px;">Closest Lightning Strike</button></a>
+   <button onclick="lightningredirect()" class="linkbutton" id="lightningbutton" style="margin-right: 145px; word-wrap: break-word; width: 200px;">Closest Lightning Strike</button>
         <button onclick="hourlycity()" id="hourlybutton" class="linkbutton">Hourly Forecast</button>
        <a href="fullextended.html"><button class="linkbutton" style="margin-left: 250px;">Full Forecast</button></a>
       </div>   
@@ -269,4 +269,23 @@ function hourlycity() {
  })
 }
 hourlycity();
+</script>
+<script>
+    $(function () {
+      $(document).keyup(function (e) {
+         console.log(e.keyCode);
+      const key = e.keyCode
+      if (key === 13) {
+const searchForm =   document.getElementById('searchInput');
+   window.location = `./index.html?city=${searchInput.value}`
+
+    
+  }
+})
+})
+</script>
+<script>
+ function helpbutton() {
+    window.location = `./help.html?city=${city}`
+  }
 </script>
