@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Deluge - instructions</title>
+        <meta charset="UTF-8" />
+        <meta name="authors" content="Jesse Hasty" />
+        <meta name="keywords" content="Deluge Instructions, Weather App Instructions" />
+        <meta name='viewport' content='width=device-width; content='width = 425; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes; target-densitydpi=160dpi'>
+        <meta name="apple-mobile-web-app-title" content="Weather-Storm">
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="stylesheet" href="stylecurrentconditions.css">
+    </head>
+    <body class="helpbody">
+        <h1 class="helpheader">Need Help? Here you go!</h1>
+        <h2>I. Search Bar</h2>
+        <p>Acceptable Keywords:</p>
+        <li>A US Zip Code. Example: 10012 (For New York, NY)</li>
+        <li>A Canadian Zip Code. Example: V0J2J1 (For New Hazelton, BC)</li>
+        <li>A Place. Example: Omaha, NE, or Paris, FR</li>
+        <li>Latitude and Longitude. Example: 38.44,-83.19</li>
+        <li>User's IP. Example: :auto</li>
+        <li>USA NOAA Public Alert Zone. Example: GAZ033, or zone:GAZ033 (For North Fulton County, GA)</li>
+        <li>Canadian Location Code. Example: 029100 (For Churchill Falls, NL). Go to <a style="color: grey;" href="https://www.canada.ca/en/environment-climate-change/services/weatheradio/specific-area-message-encoding/forecast-regions.html">Here </a>to find your location code.</li>
+        <li>A 4 Digit Airport Code. Example: KJFK, or UUEE (For John F. Kennedy Airport in New York, NY, and Moscow Sheremetyevo Alexander S. Pushkin International Airport in Moscow, RU)</li>
+        <h2>II. Conditions</h2>
+        <p>Conditions are updated about every minute, and the following weather details are provided:</p>
+        <li>Current temperature in fahrenheit and celcius</li>
+        <li>The Feels Like Temperature</li>
+        <li>Relative Humidity</li>
+        <li>Dew Point</li>
+        <li>UV Index</li>
+        <li>Wind in miles per hour and kilometers per hour</li>
+        <li>Visibility</li>
+        <li>Barometric Pressure</li>
+        <li>Rain Rate</li>
+        <li>Snow Depth</li>
+        <li>Solar Radiation in watts per meter squared.</li>
+        <p>You will also see a radar with satalite imagery, lightning strikes, global radar, and city names.</p>
+        <h2>III. Forecasts</h2>
+        <p>The Forecasts Provide up to 7 days ahead with the cloud cover, high temperature, and low temperature.</p>
+        <p>The Detailed Forecasts provide up to 3 days with high temperature, and low temperature in fahrenheit and celcius, and a weather phrase stating the weather conditions, the max UV index, and the wind.</p>
+      <h2>IV. Closest Lightning Stike</h2>
+      <p>The Following is Provided:</p>
+      <li>A Caption Stating the closest lightning strike.</li>
+      <li>A map showing where that lightning struck.</li>
+      <p>You may also see a note for if nothing is displayed.</p>
+      <h2>V. Hourly Forecast</h2>
+      <p>The Following is Provided:</p>
+      <li>Up to 3 hours in depth of what the weather will be like, and the temperature.</li>
+      <li>A button switching over to metric units.</li>
+      <h2>VI. Errors</h2>
+      <li>Error Type 1: Maximum API Calls Daily:</li>
+      <p>This means that the amount of searches made daily hit the max, so you may have to wait until the next day.</p>
+      <li>Error Type 2: Incorrect Search:</li>
+      <p>If this occurs, please make sure you typed in your city correctly.</p>
+      <li>Error Type 3: Content not displaying:</li>
+      <p>This means that some of the content could not be displayed. Open a new tab, and copy & paste the web page you were on before.</p>
+      <button onclick="homebutton()" class="linkbutton" style="width: 190px">Return to homepage</button>
+     </body>
+</html>
+<script>
+    console.log(`URL:`, window.location);
+
+const values = window.location.search;
+console.log(values);
+
+
+const parameters = new URLSearchParams(values);
+const newcity = parameters.get('city');
+
+console.log(newcity);
+
+var city = newcity
+
+    function homebutton() {
+        window.location = `index.html?city=${city}`
+    }
+</script>

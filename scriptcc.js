@@ -1,3 +1,15 @@
+navigator.geolocation.getCurrentPosition(function(location) {
+   console.log(location.coords.latitude);
+   console.log(location.coords.longitude);
+   console.log(location.coords.accuracy);
+   var newlocs = {
+     nlat: location.coords.latitude,
+     nlon: location.coords.longitude,
+   }
+   console.log(newlocs)
+ });
+
+
 // Get Params
 
 // Function for Parameters
@@ -12,7 +24,7 @@ const newcity = parameters.get('city');
 
 console.log(newcity);
 
-var city = newcity;
+var city = newcity
 
 // Start of GetWx function
 getWx();
@@ -51,7 +63,7 @@ var client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your c
    document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN}in./hr`;
    document.getElementById('solarvalue').innerHTML = `${response[0].periods[0].solradWM2} watts/m²`;
    document.getElementById("windmetric").innerHTML = `${response[0].periods[0].windSpeedKPH} km/h</div>`;
-   document.getElementById("radarimage").innerHTML = `<img style="width: 617px; margin-left: 282px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,satellite-geocolor,radar,lightning-flash-5m-icons,counties,roads,interstates,admin-cities-dk/1280x878/${city},8/current.png"/>`
+   document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,satellite-geocolor,radar,lightning-flash-5m-icons,counties,roads,interstates,admin-cities-dk/1280x878/${city},8/current.png"/>`
 // Function to get the UV Value
    if (response[0].periods[0].uvi < 1) {
       uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very Low`
@@ -224,3 +236,7 @@ const searchForm =   document.getElementById('searchInput');
    })
 }
 getSearch();
+function lightningredirect() {
+   window.location = `./lightning.html?city=${city}`
+}
+lightningredirect()

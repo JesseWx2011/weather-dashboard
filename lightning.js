@@ -29,6 +29,10 @@ async function litening() {
     document.getElementById('caption').innerHTML = `Closest Lightning strike to ${city}`
     document.getElementById("caption").style.textTransform = "capitalize"
     document.getElementById("lightninglocator").innerHTML = `<img style="width: 707px;margin-left: 0px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,radar,counties,roads,interstates,admin-cities-dk/1500x878/${locs.lat},${locs.lon},11/current.png"/>`
+    document.getElementById("lightning").innerHTML = `Lightning Struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} from ${city}`;
 
 }  
 litening()
+function homepagelite() {
+  window.location = `./index.html?city=${city}`
+}

@@ -32,7 +32,7 @@ body {
 }
 
 .searchbar {
-    width: fit-content;
+    width: 550px;
 }
 
 .temperature {
@@ -243,6 +243,8 @@ body {
 }
 
 .inputcontainer {
+    width: 259px;
+    text-align: center;
     border-radius: 9px;
     background-color: rgb(17, 3, 122);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -276,13 +278,22 @@ a {
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 813px;
-    height: 550px;
+    height: 610px;
     background-color: white;
     margin-left: 312px;
 }
 .lightningoverlay {
     position: absolute;
-    margin-top: -277px;
+    margin-top: -274px;
     width: 107px;
-    margin-left: -112px;
+    margin-left: -191px;
 }
+/* help.html */
+.helpbody {
+    text-align: center;
+    font-family: Kanit;
+}
+  .helpheader {
+    text-align: center;
+    font-family: Kanit;
+  }
