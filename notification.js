@@ -24,12 +24,12 @@ async function litening() {
         });
         setTimeout(() => { notification.close() }, 5000);
         alertaudio.innerHTML = `<audio controls autoplay><source src="${liteningaudio}"></audio>` 
-   alert("Lightning Alert", {
-    body: `Lightning struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} of this Location in ${city}.`,
-    icon: "lightning.svg",
-   })
-      }};  
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        alert(`Lightning struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} of this Location in ${city}.`)
+        }
 
 litening()
+}
+}
 }
 notifyMe()
