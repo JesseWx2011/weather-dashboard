@@ -88,11 +88,18 @@ Removed Peak Gusts on Forecasts. (Becuase it was sometimes saying this for examp
 Fixed Visibility Caption
 Unusual Rain Rate Feature Fixed to where it stays in the box.
 UV Feature (This feature is when if the UV is greater than 5, it will tell you to put on sunscreen when outdoors.)
-V2.1 Build 1 is the Latest Version.
+V2.1 Build 2 (3-28-2024):
+Added A guide for the website just below the weather info
+Added Weather Alerts for mobile.
+Edited the placeholder for the search bar.
+You can now press enter to search for a city.
+Fixed Positioning of the lightning icon on the closest lightning strike page.
+Minor Fixes for the Visibility Caption.
+V2.1 Build 2 is the Latest Version.
  To Be Added:
 Threats (Similar to Alerts, but a bit of extra description.)
 Day Planner
-Animated Icon
+Animated Icons
 To be decided:
 Tides Forecast
 Bible Verse of the Day 
