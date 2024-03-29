@@ -101,6 +101,7 @@ Notifications now appear on mobile.
 Fixed Rainrate issue.
 Fixed Positioning of Extended Forecast Section on homepage.
 Nearest Lightning Strike Button now only appears when lightning struck within 25 miles of the queried location.
+Added Realtime Updates Button (Updates Every Minute.)
 V2.2 Build 1 is the Latest Version.
  To Be Added:
 Animated Icons
