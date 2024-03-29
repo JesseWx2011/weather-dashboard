@@ -1,15 +1,3 @@
-navigator.geolocation.getCurrentPosition(function(location) {
-   console.log(location.coords.latitude);
-   console.log(location.coords.longitude);
-   console.log(location.coords.accuracy);
-   var newlocs = {
-     nlat: location.coords.latitude,
-     nlon: location.coords.longitude,
-   }
-   console.log(newlocs)
- });
-
-
 // Get Params
 
 // Function for Parameters
@@ -32,7 +20,7 @@ const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=
 async function getWx() {
    const responsee = await fetch(api_url);
    const data = await responsee.json();
-   const {response} = data;
+   const { response } = data;
    console.log(data);
    var lat = `${response[0].loc.lat}`;
    var lon = `${response[0].loc.long}`;
@@ -43,12 +31,13 @@ async function getWx() {
    function error() {
       if (error.code = "maxhits_daily") {
          var client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
-var client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your client secret from aeris weather.
+         var client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your client secret from aeris weather.
       }
    }
    error()
    console.log(cordinates)
-   document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${response[0].place.name}, ${response[0].place.state}, ${response[0].place.country}</div>`;
+   const rainr = (response[0].periods[0].precipRateIN ).toFixed(3)
+   document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${city}</div>`;
    document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
    document.getElementById('title').innerHTML = `Deluge - Weather for ${response[0].place.name}, ${response[0].place.state}`
    document.getElementById('icon').innerHTML = `<img src="${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
@@ -60,11 +49,11 @@ var client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your c
    document.getElementById('dewvalue').innerHTML = `${response[0].periods[0].dewpointF}°F`;
    document.getElementById('visibilityvalue').innerHTML = `${response[0].periods[0].visibilityMI} mi`;
    document.getElementById('snowdepthvalue').innerHTML = `${response[0].periods[0].snowDepthIN} in.`;
-   document.getElementById('rainrvalue').innerHTML = `${response[0].periods[0].precipRateIN}in./hr`;
+   document.getElementById('rainrvalue').innerHTML = `${rainr} in./hr`;
    document.getElementById('solarvalue').innerHTML = `${response[0].periods[0].solradWM2} watts/m²`;
    document.getElementById("windmetric").innerHTML = `${response[0].periods[0].windSpeedKPH} km/h</div>`;
    document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,satellite-geocolor,radar,lightning-flash-5m-icons,counties,roads,interstates,admin-cities-dk/1280x878/${city},8/current.png"/>`
-// Function to get the UV Value
+   // Function to get the UV Value
    if (response[0].periods[0].uvi < 1) {
       uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very Low`
    } if (response[0].periods[0].uvi >= 1) {
@@ -80,31 +69,31 @@ var client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your c
    }
    // Function to get the visibility
    function visibility() {
-     var visibility = response[0].periods[0].visibilityMI
-   if (visibility === 9.942) {
-      visibilitytext.innerHTML = "Clear Skies";
-      visibilityvalue.innerHTML = `10 mi`
-   } if (visibility <= 7.5) {
-      visibilitytext.innerHTML = "Light Haze, Patchy Clouds"
-   } if (visibility <= 2.485) {
-      visibilitytext.innerHTML = "Haze"
-    } if (visibility <= 1.24) {
-      visibilitytext.innerHTML = `Thin Fog`
-   } if (visibility <= 0.621) {
-      visibilitytext.innerHTML = `Light Fog`
-   } if (visibility <= 0.310) {
-      visibilitytext.innerHTML = `Moderate Fog`
-   } if (visibility <= 0.124274) {
-      visibilitytext.innerHTML = `Thick Fog`
-   } if (visibility < 0.031) {
-      visibilitytext.innerHTML = `Extremely Dense Fog`
-}
+      var visibility = response[0].periods[0].visibilityMI
+      if (visibility === 9.942) {
+         visibilitytext.innerHTML = "Clear Skies";
+         visibilityvalue.innerHTML = `10 mi`
+      } if (visibility <= 7.5) {
+         visibilitytext.innerHTML = "Light Haze, Patchy Clouds"
+      } if (visibility <= 2.485) {
+         visibilitytext.innerHTML = "Haze"
+      } if (visibility <= 1.24) {
+         visibilitytext.innerHTML = `Thin Fog`
+      } if (visibility <= 0.621) {
+         visibilitytext.innerHTML = `Light Fog`
+      } if (visibility <= 0.310) {
+         visibilitytext.innerHTML = `Moderate Fog`
+      } if (visibility <= 0.124274) {
+         visibilitytext.innerHTML = `Thick Fog`
+      } if (visibility < 0.031) {
+         visibilitytext.innerHTML = `Extremely Dense Fog`
+      }
    }
    visibility()
-// Function for UV
+   // Function for UV
    if (response[0].periods[0].uvi >= 5) {
       uvvaluedesc.innerHTML = "Put on Sunscreen when outdoors."
-   } 
+   }
    document.getElementById('feelslike').innerHTML = `Feels Like ${response[0].periods[0].feelslikeF}°F (${response[0].periods[0].feelslikeC}°C)`;
 }
 getWx();
@@ -162,30 +151,31 @@ async function getForecast() {
 
 
    // Extra information for ice, rain, snow, or sleet accumulation.
-   if (response[0].periods[0].iceaccumIN !== 0) {
-      var accumulation0 = `Ice Accumulation around ${response[0].periods[0].iceaccumIN} in.`
-      var chanceof = `Chance of Precipiation ${100 - response[0].periods[0].sky}.`
-   } if (response[0].periods[1].iceaccumIN !== 0) {
-      var accumulation1 = `Ice Accumulation around ${response[0].periods[1].iceaccumIN} in.`
-      var chanceof1 = `Chance of Precipiation ${100 - response[0].periods[0].sky}.`
-   } if (response[0].periods[0].precipIN !== 0) {
-      var accumulation0 = `Rain Accumulation around ${response[0].periods[0].precipIN} in.`
-      var chanceof = `Chance of Rain ${100 - response[0].periods[0].sky}.`
-   } if (response[0].periods[1].precipIN !== 0) {
-      var accumulation1 = `Rain Accumulation around ${response[0].periods[1].precipIN} in.`
-      var chanceof1 = `Chance of Precipiation ${100 - response[0].periods[1].sky}.`
-   } if (response[0].periods[0].snowIN !== 0) {
-      accumulation0 = `Snow Accumulation around ${response[0].periods[0].snowIN} in.`
-      var chanceof = `Chance of Snow ${100 - response[0].periods[0].sky}.`
-   } if (response[0].periods[1].snowIN !== 0) {
-      var accumulation1 = `Snow Accumulation around ${response[0].periods[1].snowIN} in.`
-      var chanceof1 = `Chance of Snow ${100 - response[0].periods[1].sky}.`
-   } if (accumulation0 = "undenfined") {
+   if (accumulation0 === undefined) {
       var accumulation0 = ""
       var chanceof = ""
-   } if (accumulation1 = "undenfined") {
+   } if (accumulation1 === undefined) {
       var accumulation1 = ""
       var chanceof1 = ""
+   }
+   if (response[0].periods[0].iceaccumIN !== 0) {
+      var accumulation0 = `Ice Accumulation around ${response[0].periods[0].iceaccumIN} in.`
+      var chanceof = `Chance of Precipiation ${ response[0].periods[0].sky}%.`
+   } if (response[0].periods[1].iceaccumIN !== 0) {
+      var accumulation1 = `Ice Accumulation around ${response[0].periods[1].iceaccumIN} in.`
+      var chanceof1 = `Chance of Precipiation ${ response[0].periods[0].sky}%.`
+   } if (response[0].periods[0].precipIN !== 0) {
+      var accumulation0 = `Rain Accumulation around ${response[0].periods[0].precipIN} in.`
+      var chanceof = `Chance of Rain ${ response[0].periods[0].sky}%.`
+   } if (response[0].periods[1].precipIN !== 0) {
+      var accumulation1 = `Rain Accumulation around ${response[0].periods[1].precipIN} in.`
+      var chanceof1 = `Chance of Precipiation ${ response[0].periods[1].sky}%.`
+   } if (response[0].periods[0].snowIN !== 0) {
+      accumulation0 = `Snow Accumulation around ${response[0].periods[0].snowIN} in.`
+      var chanceof = `Chance of Snow ${ response[0].periods[0].sky}%.`
+   } if (response[0].periods[1].snowIN !== 0) {
+      var accumulation1 = `Snow Accumulation around ${response[0].periods[1].snowIN} in.`
+      var chanceof1 = `Chance of Snow ${ response[0].periods[1].sky}%.`
    }
    console.log(chanceof)
    // Detailed Information Container 
@@ -224,8 +214,8 @@ async function getAlert() {
 }
 getAlert();
 function getSearch() {
-const search =  document.getElementById('searchButton')
-const searchForm =   document.getElementById('searchInput');
+   const search = document.getElementById('searchButton')
+   const searchForm = document.getElementById('searchInput');
    searchButton.addEventListener("click", function () {
       window.location = `./index.html?city=${searchInput.value}`
 
@@ -240,3 +230,12 @@ function lightningredirect() {
    window.location = `./lightning.html?city=${city}`
 }
 lightningredirect()
+function updateveryminute() {
+   setInterval(getWx, 60000)
+   document.getElementById("linkd").innerHTML = `Change to archived updates.`
+   document.getElementById("linkd").id = "changeme"
+
+   changeme.addEventListener("click", function() {
+      window.location = `./index.html?city=${city}`
+   })
+}
