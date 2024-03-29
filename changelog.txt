@@ -95,10 +95,14 @@ Edited the placeholder for the search bar.
 You can now press enter to search for a city.
 Fixed Positioning of the lightning icon on the closest lightning strike page.
 Minor Fixes for the Visibility Caption.
-V2.1 Build 2 is the Latest Version.
+V2.2 Build 1 (3-29-2024):
+The city displays diffrently on homepage.
+Notifications now appear on mobile.
+Fixed Rainrate issue.
+Fixed Positioning of Extended Forecast Section on homepage.
+Nearest Lightning Strike Button now only appears when lightning struck within 25 miles of the queried location.
+V2.2 Build 1 is the Latest Version.
  To Be Added:
-Threats (Similar to Alerts, but a bit of extra description.)
-Day Planner
 Animated Icons
 To be decided:
 Tides Forecast
