@@ -1,0 +1,256 @@
+<html>
+    <head>
+        <title id="extendedtitle">Deluge - Extended Forecast - Unknown Location</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="stylecurrentconditions.css" />
+        <script type="text/javascript" src="config.js"></script>
+        <script type="text/javascript" src="fullextended.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <meta name="authors" content="Jesse Hasty">
+        <meta name='viewport' content='width=device-width; content='width = 425; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes; target-densitydpi=160dpi'>
+        <meta name="apple-mobile-web-app-title" content="Weather-Storm">
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    </head>
+    <body>
+        <h1 id="titleextended" class="extended-forecast-title">Extended Forecast - Unknown Location</h1>
+        <div align="center">
+        <button onclick="homepage()" class="linkbutton" id="homepage" style="width: 250px;">Back to homepage.</button>
+    </div>
+        <div class="daycontainer-extended">
+            <div class="daycard">
+              <!-- Day 1 -->
+              <div class="daycardname" id="dayname0">Day 1</div>
+              <div class="weathericon" id="wxicon0">
+                <img src="sunny.png"></img>
+              </div>
+              <div class="weathername" id="weather0">Sunny</div>
+              <div class="daycardtemp" id="temp0day">32</div>
+              <div class="daycardlow" id="templow0day">32</div>
+              <div class="cloudcover" id="cloudcover0">0% Cloud Cover</div>
+              <div class="wind" id="wind0">Wind N at 0 mph</div>
+            </div>
+                                <!-- Day 2 -->
+        <div class="daycard">
+          <div class="daycardname" id="dayname1">Day 2</div>
+          <div class="weathericon" id="wxicon1">
+            <img src="sunny.png"></img>
+          </div>
+          <div class="weathername" id="weather1">Sunny</div>
+          <div class="daycardtemp" id="temp1day">32</div>
+          <div class="daycardlow" id="templow1day">32</div>
+          <div class="cloudcover" id="cloudcover1">0% Cloud Cover</div>
+          <div class="wind" id="wind1">Wind N at 0 mph</div>
+        </div>
+                            <!-- Day 3 -->
+    <div class="daycard">
+      <div class="daycardname" id="dayname2">Day 3</div>
+      <div class="weathericon" id="wxicon2">
+        <img src="sunny.png"></img>
+      </div>
+      <div class="weathername" id="weather2">Sunny</div>
+      <div class="daycardtemp" id="temp2day">32</div>
+      <div class="daycardlow" id="templow2day">32</div>
+      <div class="cloudcover" id="cloudcover2">0% Cloud Cover</div>
+      <div class="wind" id="wind2">Wind N at 0 mph</div>
+    </div>
+                        <!-- Day 4 -->
+      <div class="daycard">
+        <div class="daycardname" id="dayname3">Day 4</div>
+        <div class="weathericon" id="wxicon3">
+          <img src="sunny.png"></img>
+        </div>
+        <div class="weathername" id="weather3">Sunny</div>
+        <div class="daycardtemp" id="temp3day">32</div>                
+        <div class="daycardlow" id="templow3day">32</div>
+        <div class="cloudcover" id="cloudcover3">0% Cloud Cover</div>
+        <div class="wind" id="wind3">Wind N at 0 mph</div>
+      </div>
+                                    <!-- Day 5 -->
+        <div class="daycard">
+          <div class="daycardname" id="dayname4">Day 5</div>
+          <div class="weathericon" id="wxicon4">
+            <img src="sunny.png"></img>
+          </div>
+          <div class="weathername" id="weather4">Sunny</div>
+          <div class="daycardtemp" id="temp4day">32</div>                  
+          <div class="daycardlow" id="templow4day">32</div>
+          <div class="cloudcover" id="cloudcover4">0% Cloud Cover</div>
+          <div class="wind" id="wind4">Wind N at 0 mph</div>
+        </div>        
+          <div class="daycard">
+               <!-- Day 5 -->
+            <div class="daycardname" id="dayname5">Day 6</div>
+            <div class="weathericon" id="wxicon5">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather5">Sunny</div>
+            <div class="daycardtemp" id="temp5day">32</div>
+            <div class="daycardlow" id="templow5day">32</div>
+            <div class="cloudcover" id="cloudcover5">0% Cloud Cover</div>
+            <div class="wind" id="wind5">Wind N at 0 mph</div>
+          </div>
+                                        <!-- Day 6 -->
+            <div class="daycard">
+              <div class="daycardname" id="dayname6">Day 7</div>
+              <div class="weathericon" id="wxicon6">
+                <img src="sunny.png"></img>
+              </div>
+              <div class="weathername" id="weather6">Sunny</div>
+              <div class="daycardtemp" id="temp6day">32</div>
+              <div class="daycardlow" id="templow6day">32</div>
+              <div class="cloudcover" id="cloudcover6">0% Cloud Cover</div>
+              <div class="wind" id="wind6">Wind N at 0 mph</div>
+            </div>
+</div>         
+<div class="daycontainer-extended" style="position: absolute; margin-top: -15px;">
+    <div class="daycard">
+      <!-- Day 7 -->
+      <div class="daycardname" id="dayname7">Day 7</div>
+      <div class="weathericon" id="wxicon7">
+        <img src="sunny.png"></img>
+      </div>
+      <div class="weathername" id="weather7">Sunny</div>
+      <div class="daycardtemp" id="temp7day">32</div>
+      <div class="daycardlow" id="templow7day">32</div>
+      <div class="cloudcover" id="cloudcover7">0% Cloud Cover</div>
+      <div class="wind" id="wind7">Wind N at 0 mph</div>
+
+    </div>
+                        <!-- Day 8 -->
+<div class="daycard">
+  <div class="daycardname" id="dayname8">Day 8</div>
+  <div class="weathericon" id="wxicon8">
+    <img src="sunny.png"></img>
+  </div>
+  <div class="weathername" id="weather8">Sunny</div>
+  <div class="daycardtemp" id="temp8day">32</div>
+  <div class="daycardlow" id="templow8day">32</div>
+  <div class="cloudcover" id="cloudcover8">0% Cloud Cover</div>
+  <div class="wind" id="wind8">Wind N at 0 mph</div>
+</div>
+                    <!-- Day 9 -->
+<div class="daycard">
+<div class="daycardname" id="dayname9">Day 9</div>
+<div class="weathericon" id="wxicon9">
+<img src="sunny.png"></img>
+</div>
+<div class="weathername" id="weather9">Sunny</div>
+<div class="daycardtemp" id="temp9day">32</div>
+<div class="daycardlow" id="templow9day">32</div>
+<div class="cloudcover" id="cloudcover9">0% Cloud Cover</div>
+<div class="wind" id="wind9">Wind N at 0 mph</div>
+</div>
+                <!-- Day 10 -->
+<div class="daycard">
+<div class="daycardname" id="dayname10">Day 10</div>
+<div class="weathericon" id="wxicon10">
+  <img src="sunny.png"></img>
+</div>
+<div class="weathername" id="weather10">Sunny</div>
+<div class="daycardtemp" id="temp10day">32</div>                
+<div class="daycardlow" id="templow10day">32</div>
+<div class="cloudcover" id="cloudcover10">0% Cloud Cover</div>
+<div class="wind" id="wind10">Wind N at 0 mph</div>
+</div>
+                            <!-- Day 11 -->
+<div class="daycard">
+  <div class="daycardname" id="dayname11">Day 11</div>
+  <div class="weathericon" id="wxicon11">
+    <img src="sunny.png"></img>
+  </div>
+  <div class="weathername" id="weather11">Sunny</div>
+  <div class="daycardtemp" id="temp11day">32</div>                  
+  <div class="daycardlow" id="templow11day">32</div>
+  <div class="cloudcover" id="cloudcover11">0% Cloud Cover</div>
+  <div class="wind" id="wind11">Wind N at 0 mph</div>
+</div>        
+  <div class="daycard">
+       <!-- Day 12 -->
+    <div class="daycardname" id="dayname12">Day 12</div>
+    <div class="weathericon" id="wxicon12">
+      <img src="sunny.png"></img>
+    </div>
+    <div class="weathername" id="weather12">Sunny</div>
+    <div class="daycardtemp" id="temp12day">32</div>
+    <div class="daycardlow" id="templow12day">32</div>
+    <div class="cloudcover" id="cloudcover12">0% Cloud Cover</div>
+    <div class="wind" id="wind12">Wind N at 0 mph</div>
+  </div>
+                                <!-- Day 13 -->
+    <div class="daycard">
+      <div class="daycardname" id="dayname13">Day 13</div>
+      <div class="weathericon" id="wxicon13">
+        <img src="sunny.png"></img>
+      </div>
+      <div class="weathername" id="weather13">Sunny</div>
+      <div class="daycardtemp" id="temp13day">32</div>
+      <div class="daycardlow" id="templow13day">32</div>
+      <div class="cloudcover" id="cloudcover13">0% Cloud Cover</div>
+      <div class="wind" id="wind13">Wind N at 0 mph</div>
+    </div>
+</div>             
+    </body>
+</html>
+<script>
+        getDate() 
+async function getDate() {
+  const d = new Date();
+  var hour = d.getHours();
+  var minute = d.getMinutes();
+  var day = d.getDate();
+  var month = d.getMonth() + 1;
+  var dayofweek = d.getDay();
+  var year  = d.getFullYear()
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var newmonth = months[d.getDate()];
+var currentweekday = weekdays[d.getDay()];
+
+var day1 = weekdays[d.getDay()];
+var day2 = weekdays[d.getDay() + 1];
+var day3 = weekdays[d.getDay() + 2];
+var day4 = weekdays[d.getDay() + 3];
+var day5 = weekdays[d.getDay() + 4];
+var day6 = weekdays[d.getDay() + 5];
+var day7 = weekdays[d.getDay() + 6];
+var day8 = weekdays[d.getDay() + 7];
+var day9 = weekdays[d.getDay() + 8];
+var day10 = weekdays[d.getDay() + 9];
+var day11 = weekdays[d.getDay() + 10];
+var day12 = weekdays[d.getDay() + 11];
+var day13 = weekdays[d.getDay() + 12];
+var day14 = weekdays[d.getDay() + 13];
+// Day Names
+document.getElementById('dayname0').innerHTML = `${day1}`;
+document.getElementById('dayname1').innerHTML = `${day2}`;
+document.getElementById('dayname2').innerHTML = `${day3}`;
+document.getElementById('dayname3').innerHTML = `${day4}`;
+document.getElementById('dayname4').innerHTML = `${day5}`;
+document.getElementById('dayname5').innerHTML = `${day6}`;
+document.getElementById('dayname6').innerHTML = day7
+document.getElementById('dayname7').innerHTML = `Next ${day8}`;
+document.getElementById('dayname8').innerHTML = `Next ${day9}`;
+document.getElementById('dayname9').innerHTML = `Next ${day10}`;
+document.getElementById('dayname10').innerHTML = `Next ${day11}`;
+document.getElementById('dayname11').innerHTML = `Next ${day12}`;
+document.getElementById('dayname12').innerHTML = `Next ${day13}`;
+document.getElementById('dayname13').innerHTML = `Next ${day7}`
+// Forecast Intros
+
+
+
+}
+getDate();
+</script>
+<script>
+    document.getElementById("homepage")
+    homepage.addEventListener("click", function() {
+        window.location = `./index.html?city=${city}`
+
+    })
+homepage()
+</script>

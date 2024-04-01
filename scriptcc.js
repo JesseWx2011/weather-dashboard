@@ -113,29 +113,29 @@ async function severeweather() {
    const responsee = await fetch(severe);
    const data = await responsee.json();
    const {response} = data;
-   console.log(data);
 
 riskphrase = ""
    var risktype = response[0].details.risk.type
- if (risktype === "marginal", "slight", "enhanced", "moderate",  "high") {
+ if (risktype === "marginal", "slight", "enhanced") {
    riskphrase = "Severe Thunedrstorms Possible."
+ }
+ if (risktype === "moderate",  "high") {
+   riskphrase = "Dangerous Thunderstorms Likely."
  }
    if (risktype === "general") {
       riskphrase = "Isolated Instances of Lightning."
    } 
 
-console.log(riskphrase)
 }
 severeweather()
 setTimeout(severeweather, 2000)
 // Get The Weather Forecast based off of IP
 getForecast();
 async function getForecast() {
-   const forecast_url = `https://api.aerisapi.com/forecasts/${city}?limit=7&client_id=${client_id}&client_secret=${client_secret}`;
+   const forecast_url = `https://api.aerisapi.com/forecasts/${city}?limit=30&client_id=${client_id}&client_secret=${client_secret}`;
    const responsee = await fetch(forecast_url);
    const data = await responsee.json();
    const { response } = data;
-   console.log(data);
    // Day 1
    document.getElementById('temp0day').textContent = response[0].periods[0].maxTempF;
    document.getElementById('templow0day').textContent = response[0].periods[0].minTempF;
@@ -174,7 +174,7 @@ async function getForecast() {
    document.getElementById('cloudcover5').innerHTML = `${response[0].periods[5].sky}% Cloud Cover`
    // Day 7
    document.getElementById('temp6day').textContent = response[0].periods[6].maxTempF;
-   document.getElementById('templow6day').textContent = response[0].periods[1].minTempF;
+   document.getElementById('templow6day').textContent = response[0].periods[6].minTempF;
    document.getElementById('wxicon6').innerHTML = `<img src="${response[0].periods[6].icon}"></img>`;
    document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
    document.getElementById('cloudcover6').innerHTML = `${response[0].periods[6].sky}% Cloud Cover`
@@ -219,7 +219,7 @@ async function getForecast() {
    if (response[0].periods[2].precipIN !== 0) {
       var accumulation2 = `Rain Accumulation around ${response[0].periods[2].precipIN} in.`
       var chanceof2 = `Chance of Precipiation ${ response[0].periods[2].sky}%.`
-   }
+   }  
    console.log(chanceof)
    // Detailed Information Container 
    // Day 1 (Today/Tonight)
@@ -245,7 +245,6 @@ async function getAlert() {
    const responsee = await fetch(alert_url);
    const data = await responsee.json();
    const { response } = data;
-   console.log(response)
    document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
    setInterval(getAlert, 300000)
 
@@ -277,11 +276,15 @@ lightningredirect()
 document.getElementById('searchInput').onkeyup = searchDropDown;
 
 function updateveryminute() {
-   setInterval(getWx, 60000)
+   setInterval(getWx, 30000)
    document.getElementById("linkd").innerHTML = `Change to archived updates.`
    document.getElementById("linkd").id = "changeme"
 
    changeme.addEventListener("click", function() {
       window.location = `./index.html?city=${city}`
    })
+}
+updateveryminute()
+function extendedforecast() {
+   window.location = `./fullextended.html?city=${city}`
 }
