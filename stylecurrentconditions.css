@@ -301,3 +301,22 @@ a {
     text-align: center;
     font-family: Kanit;
   }
+/* fullextended.html */
+.extended-forecast-title {
+    text-align: center;
+    font-family: Poppins;
+}
+.daycontainer-extended {
+    align-content: center;
+    margin-top: 123px;
+    width: 1300px;
+    height: fit-content;
+    font-family: Kanit, bold;
+    text-align: center;
+    display: flex;
+}
+.wind {
+    color: black;
+    word-wrap: normal;
+    font-weight: 700;
+}
