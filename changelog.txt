@@ -102,7 +102,14 @@ Fixed Rainrate issue.
 Fixed Positioning of Extended Forecast Section on homepage.
 Nearest Lightning Strike Button now only appears when lightning struck within 25 miles of the queried location.
 Added Realtime Updates Button (Updates Every Minute.)
-V2.2 Build 1 is the Latest Version.
+V2.2 Build 2 (4-1-2024): No, this is not an April Fools Joke.
+Fixed Lightning Button Not Showing.
+Severe Weather Note shows when Severe Weather is Forecast.
+Added Precipitation forecast to Day 3 (Mainly the chance and accumulation.)
+Fixed Weather Condition on Cards going over the card itself.
+Adjusteded the lightning icon on the lightning page (again..)
+Dropdown Results! (Just don't press enter twice.)
+V2.2 Build 2 is the Latest Version.
  To Be Added:
 Animated Icons
 To be decided:
