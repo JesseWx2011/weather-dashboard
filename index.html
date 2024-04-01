@@ -30,7 +30,8 @@
                     <noscript>You need to enable JavaScript for this web page to work.</noscript>
                       <!-- Current Conditions Section -->
                       <div class="search-container">
-                        <input class="inputcontainer" placeholder="Press the Search button or press enter" id="searchInput">
+                        <input list="cities" class="inputcontainer" placeholder="Press the Search button or press enter" id="searchInput">
+                        <datalist id="cities"></datalist>
                         <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
                       </div>
                 <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
@@ -289,4 +290,126 @@ const searchForm =   document.getElementById('searchInput');
  function helpbutton() {
     window.location = `./help.html?city=${city}`
   }
+</script>
+<script>
+  var cities = [
+   "New York, NY",
+   "Washington, DC",
+   "Crystal City, VA",
+   "Paris, FR",
+   "Miami, FL",
+   "Moscow, RU",
+   "Pensacola, FL",
+   "Sydney, AU",
+   "Mobile, AL",
+   "Hattiesburg, MS",
+   "Jacksonville, FL",
+   "Savannah, GA",
+   "Columbus, GA",
+   "Oxford, MS",
+   "Las Vegas, NV",
+   "Boston, MA",
+   "Portland, OR",
+   "Oklahoma City, OK",
+   "Everglades City, FL",
+   "Navarre, FL",
+   "Seattle, WA",
+   "Tampa, FL",
+   "Sarasota, FL",
+   "Dayton, OH",
+   "El Reno, OK",
+   "Bismarck, ND",
+   "Lansing, MI",
+   "Reno, NV",
+   "Ely, NV",
+   "Topeka, KS",
+   "Kansas City, KS",
+   "Columbia, MO",
+   "Liberty, MO",
+   "Thomson, GA",
+   "Baltimore, MD",
+   "Bangor, ME",
+   "Buffalo, NY",
+   "Utica, NY",
+   "Harrisburg, PA",
+   "Dover, DE",
+   "Salisbury, MD",
+   "Norfolk, VA",
+   "Raleigh, NC",
+   "Asheville, NC",
+   "Paducah, KY",
+   "Louisville, KY",
+   "Jackson, MS",
+   "Lincoln, NE",
+   "Omaha, NE",
+    "Des Moines, IA",
+    "Rolling Fork, MS",
+    "Smithville, MS",
+    "Clarksville, TN",
+    "Springfield, TN",
+    "Springfield, MO",
+    "Biloxi, MS",
+    "Tyler, TX",
+    "El Paso, TX",
+    "Roswell, NM",
+    "Albuquerque, NM",
+    "Mammoth Lakes, CA",
+    "Fresno, CA",
+    "Manila, Philippines",
+    "Tokyo, Japan",
+    "Ord, NE",
+    "Zanesville, OH",
+    "Pittsburgh, PA",
+    "Fort Wayne, IN",
+    "State College, PA",
+    "Clarksburg, WV",
+    "Charleston, WV",
+    "Parkersburg, IA",
+    "Cedar Rapids, IA",
+    "Duluth, MN",
+    "Beckley, WV",
+    "Rapid City, SD",
+    "Pentagon City, VA",
+    "Ashburn, VA",
+    "Washington Monument, DC",
+    "9/11 Memorial, NY",
+    "Islip, NY",
+    "Shanksville, PA",
+    "Honolulu, HI",
+    "Hilo, HI",
+    "Bowling Green, KY",
+    "Knoxville, TN",
+    "Beale AFB, CA",
+    "San Francisco, CA",
+    "Carson City, NV",
+    "Redding, CA",
+    "San Jose, CA",
+    "TWC Headquarters, GA",
+    "Augusta, GA",
+    "Beaufort, SC",
+    "Orangeburg, SC",
+    "Coulmbia, SC",
+    "Tuscaloosa, AL",
+    "Hackleburg, AL",
+    "Tupelo, MS",
+    "Concord, NH",
+    "Portland, ME",
+    "Salt Lake City, UT",
+    "Denver, CO",
+    "Valentine, NE"
+ ];
+
+ for (var key in cities) {
+   var optionElement = document.createElement("option");
+   optionElement.value = cities[key];
+   document.getElementById("cities").appendChild(optionElement);
+ }
+  if (city === "9/11 Memorial, NY") {
+    window.location = './index.html?city=40.71158535262827,-74.01331599219237'
+    cityname.innerHTML = `9/11 Memorial`
+  } if (city === "TWC Headquarters, GA") {
+    window.location = './index.html?city=Cumberland, GA'
+  }
+</script>
+<script>
 </script>

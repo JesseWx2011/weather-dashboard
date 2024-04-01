@@ -34,7 +34,10 @@ body {
 .searchbar {
     width: 550px;
 }
-
+option {
+    font-family: Kanit;
+    background-color: wheat;
+}
 .temperature {
     font-size: 44px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -122,6 +125,7 @@ body {
 
 .daycard {
     width: 120px;
+    word-wrap: break-word;
     margin-top: 22px;
     border-radius: 10px;
     margin-left: 50px;
@@ -286,7 +290,7 @@ a {
     position: absolute;
     margin-top: -274px;
     width: 107px;
-    margin-left: -191px;
+    margin-left: -171px;
 }
 /* help.html */
 .helpbody {
