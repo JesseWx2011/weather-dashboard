@@ -109,10 +109,16 @@ Added Precipitation forecast to Day 3 (Mainly the chance and accumulation.)
 Fixed Weather Condition on Cards going over the card itself.
 Adjusteded the lightning icon on the lightning page (again..)
 Dropdown Results! (Just don't press enter twice.)
-V2.2 Build 2 is the Latest Version.
+V2.3 (4-2-2024), Major Update:
+More Dropdown Results, about 300 more.
+Notifications send when browser is closed (Updates every 2 minutes, and sends for the last selected location.)
+Improved Weather Map.
+Added another lightning map.
+Added Wind Gusts.
+Removed priority from alerts section.
+V2.3 is the Latest Version.
  To Be Added:
 Animated Icons
 To be decided:
-Tides Forecast
 Bible Verse of the Day 
 Let me know what else to add :)
