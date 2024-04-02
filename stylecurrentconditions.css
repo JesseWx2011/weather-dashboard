@@ -282,7 +282,8 @@ a {
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 813px;
-    height: 610px;
+    height: 1100px;
+    display: none;
     background-color: white;
     margin-left: 312px;
 }
@@ -319,4 +320,14 @@ a {
     color: black;
     word-wrap: normal;
     font-weight: 700;
+}
+.loadingbox {
+    position: absolute;
+    width: 1500px;
+    height: 850px;
+    background-color: rgb(182, 182, 243);
+}
+.loadingmessage {
+    font-family: Kanit;
+    margin-left: 650px;
 }
