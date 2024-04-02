@@ -4,13 +4,11 @@
 console.log(`URL:`, window.location);
 
 const values = window.location.search;
-console.log(values);
 
 
 const parameters = new URLSearchParams(values);
 const newcity = parameters.get('city');
 
-console.log(newcity);
 
 var city = newcity
 getForecastFull();
@@ -19,8 +17,8 @@ async function getForecastFull() {
    const responsee = await fetch(forecast_url);
    const data = await responsee.json();
    const { response } = data;
-   console.log(data);
-   document.getElementById("titleextended").innerHTML = `Extended Forecast for ${city}`
+   console.log(data)
+   document.getElementById("titleextended").innerHTML = `Extended Forecast for ${response[0].place.name}, ${response[0].place.state}`
    // Day 1
    document.getElementById('temp0day').textContent = response[0].periods[0].maxTempF;
    document.getElementById('templow0day').textContent = response[0].periods[0].minTempF;

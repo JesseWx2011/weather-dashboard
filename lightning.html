@@ -16,11 +16,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
       </head>
       <body id="body">
+        <div class="loadingbox" id="loadingboxm">
+            <h1 class="loadingmessage">Loading..</h1>
+        </div>
         <div id="box" class="mapbox">
             <h1 class="boxheader">Map:</h1>
             <p id="caption">Closest Lightning Strike to .</p>
             <p id="lightning">There was no Lightning Strike within 25 miles of the selected location.</p>
-            <div id="lightninglocator"></div>
+            <img class="lightningoverlay" src="lightning.svg" style="margin-top: 148px; position: absolute;  margin-left: -48px;">
+            <div id="lightninglocator" style="margin-top: 30px;"></div>
+            <div id="zoomedimage"></div>
         <button onclick="homepagelite()" class="linkbutton" style="width: 250px; font-family: Kanit; font-size: 17px;">Return to the homepage</button>
             <img class="lightningoverlay" src="lightning.svg">
         </div>

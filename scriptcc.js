@@ -1,16 +1,12 @@
 // Get Params
 
 // Function for Parameters
-console.log(`URL:`, window.location);
 
 const values = window.location.search;
-console.log(values);
-
 
 const parameters = new URLSearchParams(values);
 const newcity = parameters.get('city');
 
-console.log(newcity);
 
 var city = newcity
 
@@ -23,6 +19,7 @@ async function getWx() {
    const {response} = data;
    var lat = `${response[0].loc.lat}`;
    var lon = `${response[0].loc.long}`;
+   console.log(data)
    let cordinates = {
       "lat": `${lat}`,
       "lon": `${lon}`
@@ -52,7 +49,8 @@ async function getWx() {
    document.getElementById('rainrvalue').innerHTML = `${rainr} in./hr`;
    document.getElementById('solarvalue').innerHTML = `${response[0].periods[0].solradWM2} watts/m²`;
    document.getElementById("windmetric").innerHTML = `${response[0].periods[0].windSpeedKPH} km/h</div>`;
-   document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,satellite-geocolor,radar,lightning-flash-5m-icons,counties,roads,interstates,admin-cities-dk/1280x878/${city},8/current.png"/>`
+   document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,satellite,radar,alerts-warnings-outlines,counties,lightning-strikes-15m-icons,roads,interstates,rivers,admin-cities-dk/1280x878/${city},9/current.png"/>`
+   document.getElementById("windgust").innerHTML  = `Gusts to ${response[0].periods[0].windGustMPH} mph`
    // Function to get the UV Value
    if (response[0].periods[0].uvi < 1) {
       uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very Low`
@@ -113,18 +111,19 @@ async function severeweather() {
    const responsee = await fetch(severe);
    const data = await responsee.json();
    const {response} = data;
-
+// Placeholder for if no matches for the if statements. 
 riskphrase = ""
    var risktype = response[0].details.risk.type
- if (risktype === "marginal", "slight", "enhanced") {
-   riskphrase = "Severe Thunedrstorms Possible."
- }
- if (risktype === "moderate",  "high") {
-   riskphrase = "Dangerous Thunderstorms Likely."
- }
    if (risktype === "general") {
       riskphrase = "Isolated Instances of Lightning."
    } 
+   // Use "|" instead of ","
+ if (risktype === "marginal" | "slight" | "enhanced") {
+   riskphrase = "Severe Thunedrstorms Possible."
+ }
+ if (risktype === "moderate" | "high") {
+   riskphrase = "Dangerous Thunderstorms Likely."
+ }
 
 }
 severeweather()
@@ -220,7 +219,6 @@ async function getForecast() {
       var accumulation2 = `Rain Accumulation around ${response[0].periods[2].precipIN} in.`
       var chanceof2 = `Chance of Precipiation ${ response[0].periods[2].sky}%.`
    }  
-   console.log(chanceof)
    // Detailed Information Container 
    // Day 1 (Today/Tonight)
    document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
@@ -246,7 +244,6 @@ async function getAlert() {
    const data = await responsee.json();
    const { response } = data;
    document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
-   setInterval(getAlert, 300000)
 
    if (response[1].details.name !== "undefined") {
       alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div><div style="background-color: #${response[1].details.color};">Alert: ${response[1].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.</div>`
@@ -256,6 +253,8 @@ async function getAlert() {
 
 }
 getAlert();
+setInterval(getAlert, 60000)
+
 function getSearch() {
    const search = document.getElementById('searchButton')
    const searchForm = document.getElementById('searchInput');
@@ -276,7 +275,7 @@ lightningredirect()
 document.getElementById('searchInput').onkeyup = searchDropDown;
 
 function updateveryminute() {
-   setInterval(getWx, 30000)
+   setInterval(getWx, 10000)
    document.getElementById("linkd").innerHTML = `Change to archived updates.`
    document.getElementById("linkd").id = "changeme"
 
