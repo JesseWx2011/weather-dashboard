@@ -9,6 +9,7 @@ const newcity = parameters.get('city');
 
 
 var city = newcity
+ 
 
 // Start of GetWx function
 getWx();
@@ -28,8 +29,7 @@ async function getWx() {
       if (error.code === "maxhits_daily") {
          var client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
          var client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your client secret from aeris weather.
-      }
-   }
+      }};
    error()
 // This is stuff for the logs.
 
@@ -85,8 +85,7 @@ async function getWx() {
          visibilitytext.innerHTML = `Thick Fog`
       } if (visibility < 0.031) {
          visibilitytext.innerHTML = `Extremely Dense Fog`
-      }
-   }
+      };}
    visibility()
    // Just get city name if it is set to :auto
 function correctcity() {
@@ -94,9 +93,7 @@ if (city === `:auto`) {
    document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${response[0].place.name}, ${response[0].place.state}</div>`;
 } else {
    document.getElementById('cityname').innerHTML = `<div class="city" style="position: relative;">Weather for ${response[0].place.name}, ${response[0].place.state}</div>`;
-
-}
-}
+}};
 correctcity()
    // Function for UV
    if (response[0].periods[0].uvi >= 5) {
@@ -105,6 +102,9 @@ correctcity()
    document.getElementById('feelslike').innerHTML = `Feels Like ${response[0].periods[0].feelslikeF}°F (${response[0].periods[0].feelslikeC}°C)`;
 }
 getWx();
+
+
+
 severeweather()
 const severe = `https://data.api.xweather.com/convective/outlook/${city}?client_id=${client_id}&client_secret=${client_secret}`;
 async function severeweather() {

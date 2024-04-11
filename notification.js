@@ -33,3 +33,31 @@ function notifyMe() {
   litening()
 }
 notifyMe()
+alerts();
+const wxalerts = `https://data.api.xweather.com/alerts/${city}?client_id=${client_id}&client_secret=${client_secret}`
+async function alerts() {
+ const responsee = await fetch(wxalerts)
+ const data = await responsee.json()
+ const {response} = data;
+ console.log(data)
+
+  alert = response[0].details.name
+  starttimeold = response[0].timestamps.beginsISO
+  endtimeold = response[0].timestamps.expiresISO
+  tz = response[0].profile.tz
+ starttime = new Date(starttimeold).toLocaleString("en-US", {timeStyle: "short", timeZone: tz, });
+ endtime = new Date(endtimeold).toLocaleString("en-US", {timeStyle: "short", timeZone: tz, });
+  console.log(starttime)
+  if (alert !== null) {
+     alertnotificaton = new Notification("Weather Alert:", {
+      body: `${alert} in effect from ${starttime} and ending at ${endtime}`,
+      icon: "alert.svg",
+    })};
+    // Redirect to a web page when notification is clicked  
+    alertnotificaton.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.open(`./alertdetail.html?city=${city}`, "_blank");
+
+    })
+} 
+alerts();

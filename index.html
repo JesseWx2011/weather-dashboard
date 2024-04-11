@@ -31,7 +31,7 @@
                       <!-- Current Conditions Section -->
                       <div class="search-container">
                         <input list="cities" class="inputcontainer" placeholder="Press the Search button or press enter" id="searchInput">
-                        <datalist id="cities"></datalist>
+                        <datalist id="cities"></datalist> 
                         <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
                       </div>
                 <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
@@ -227,7 +227,6 @@ var day5 = weekdays[d.getDay() + 4];
 var day6 = weekdays[d.getDay() + 5];
 var day7 = weekdays[d.getDay() + 6];
 
-console.log(day3)
 if (minute <10) {
   var minute = `0${minute}`;
 }
@@ -251,7 +250,6 @@ document.getElementById("infointro2").innerHTML = `Forecast for ${day3}`
 getDate();
 async function ChangeWidth() {
    var dimension = screen.width
-console.log(dimension)
 const row1 = document.getElementById('cardr2')
 const row2 = document.getElementById('cardr3')
 const nav = document.getElementById('bottombar')
@@ -276,7 +274,6 @@ hourlycity();
 <script>
     $(function () {
       $(document).keyup(function (e) {
-         console.log(e.keyCode);
       const key = e.keyCode
       if (key === 13) {
 const searchForm =   document.getElementById('searchInput');
@@ -636,6 +633,4 @@ const searchForm =   document.getElementById('searchInput');
   } if (city === "TWC Headquarters, GA") {
     window.location = './index.html?city=Cumberland, GA'
   }
-</script>
-<script>
 </script>
