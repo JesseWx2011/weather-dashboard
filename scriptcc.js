@@ -21,17 +21,18 @@ async function getWx() {
    var lat = `${response[0].loc.lat}`;
    var lon = `${response[0].loc.long}`;
    console.log(data)
-   let cordinates = {
+    cordinates = {
       "lat": `${lat}`,
       "lon": `${lon}`
    }
    function error() {
       if (error.code === "maxhits_daily") {
-         var client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
-         var client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your client secret from aeris weather.
+          client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
+         client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your client secret from aeris weather.
       }};
    error()
 // This is stuff for the logs.
+
 
    const rainr = (response[0].periods[0].precipRateIN ).toFixed(3)
    document.getElementById('cityname').innerHTML = `<div class="city">Deluge - Weather for ${response[0].place.name}, ${response[0].place.state}</div>`;
@@ -52,7 +53,7 @@ async function getWx() {
    document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,satellite,radar,alerts-warnings-outlines,counties,lightning-strikes-15m-icons,roads,interstates,rivers,admin-cities-dk/1280x878/${city},9/current.png"/>`
    document.getElementById("windgust").innerHTML  = `Gusts to ${response[0].periods[0].windGustMPH} mph`
    // Function to get the UV Value
-   if (response[0].periods[0].uvi < 1) {
+   if (response[0].periods[0].uvi === 0) {
       uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very Low`
    } if (response[0].periods[0].uvi >= 1) {
       uvvalue.innerHTML = `${response[0].periods[0].uvi} - Low`
@@ -64,6 +65,8 @@ async function getWx() {
       uvvalue.innerHTML = `${response[0].periods[0].uvi} - Very High`
    } if (response[0].periods[0].uvi > 11) {
       uvvalue.innerHTML = `${response[0].periods[0].uvi} - Extreme`
+   } if (response[0].periods[0].uvi === null) {
+      uvvalue.innerHTML = "UV Index Unavaliable"
    }
    // Function to get the visibility
    function visibility() {
@@ -106,11 +109,12 @@ getWx();
 
 
 severeweather()
-const severe = `https://data.api.xweather.com/convective/outlook/${city}?client_id=${client_id}&client_secret=${client_secret}`;
+const severe = `https://data.api.xweather.com/convective/outlook/${city}?client_id=${client_id}&client_secret=${client_secret}&radius=1mi`;
 async function severeweather() {
    const responsee = await fetch(severe);
    const data = await responsee.json();
    const {response} = data;
+   console.log(data)
 // Placeholder for if no matches for the if statements. 
 riskphrase = ""
    var risktype = response[0].details.risk.type
@@ -178,61 +182,34 @@ async function getForecast() {
    document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
    document.getElementById('cloudcover6').innerHTML = `${response[0].periods[6].sky}% Cloud Cover`
 
-   // Extra information for ice, rain, snow, or sleet accumulation.
-   accumulation0 = ""
-   chanceof = ""
-   accumulation1 = ""
-   chanceof1 = ""
-   accumulation2 = ""
-   chanceof2 = ""
-   if (response[0].periods[0].iceaccumIN !== 0) {
-      var accumulation0 = `Ice Accumulation around ${response[0].periods[0].iceaccumIN} in.`
-      var chanceof = `Chance of Precipiation ${ response[0].periods[0].sky}%.`
-   } if (response[0].periods[1].iceaccumIN !== 0) {
-      var accumulation1 = `Ice Accumulation around ${response[0].periods[1].iceaccumIN} in.`
-      var chanceof1 = `Chance of Precipiation ${ response[0].periods[0].sky}%.`
-   } if (response[0].periods[0].precipIN !== 0) {
-      var accumulation0 = `Rain Accumulation around ${response[0].periods[0].precipIN} in.`
-      var chanceof = `Chance of Rain ${ response[0].periods[0].sky}%.`
-   } if (response[0].periods[1].precipIN !== 0) {
-      var accumulation1 = `Rain Accumulation around ${response[0].periods[1].precipIN} in.`
-      var chanceof1 = `Chance of Precipiation ${ response[0].periods[1].sky}%.`
-   } if (response[0].periods[0].snowIN !== 0) {
-      accumulation0 = `Snow Accumulation around ${response[0].periods[0].snowIN} in.`
-      var chanceof = `Chance of Snow ${ response[0].periods[0].sky}%.`
-   } if (response[0].periods[1].snowIN !== 0) {
-      var accumulation1 = `Snow Accumulation around ${response[0].periods[1].snowIN} in.`
-      var chanceof1 = `Chance of Snow ${ response[0].periods[1].sky}%.`
-   } if (response[0].periods[2].snowIN !== 0) {
-     var accumulation2 = `Snow Accumulation around ${response[0].periods[2].snowIN} in.`
-      var chanceof2 = `Chance of Snow ${ response[0].periods[2].sky}%.`
-   } 
-   if (response[0].periods[2].iceaccumIN !== 0) {
-      var accumulation2 = `Ice Accumulation around ${response[0].periods[2].iceaccumIN} in.`
-      var chanceof2 = `Chance of Precipiation ${ response[0].periods[2].sky}%.`
-   }
-   if (response[0].periods[2].precipIN !== 0) {
-      var accumulation2 = `Rain Accumulation around ${response[0].periods[2].precipIN} in.`
-      var chanceof2 = `Chance of Rain ${ response[0].periods[2].sky}%.`
-   }
-   if (response[0].periods[2].precipIN !== 0) {
-      var accumulation2 = `Rain Accumulation around ${response[0].periods[2].precipIN} in.`
-      var chanceof2 = `Chance of Precipiation ${ response[0].periods[2].sky}%.`
-   }  
+    // Function Rainfall 
+     if (response[0].periods[0].precipIN !== 0) {
+       rainfall0 = "Rainfall amounts around " + response[0].periods[0].precipIN + " inches."
+     } if (response[0].periods[0].precipIN === 0) {
+      rainfall0 = "No Rainfall Accumulation Expected."
+     } if (response[0].periods[1].precipIN !== 0) {
+      rainfall1 = "Rainfall amounts around " + response[0].periods[1].precipIN + " inches."
+    } if (response[0].periods[1].precipIN === 0) {
+     rainfall1 = "No Rainfall Accumulation Expected."
+    } if (response[0].periods[2].precipIN !== 0) {
+      rainfall2 = "Rainfall amounts around " + response[0].periods[2].precipIN + " inches."
+    } if (response[0].periods[2].precipIN === 0) {
+     rainfall2 = "No Rainfall Accumulation Expected."
+    } 
    // Detailed Information Container 
    // Day 1 (Today/Tonight)
    document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
    document.getElementById('tempmintoday').innerHTML = `Low Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
-      document.getElementById('fullforecast0').innerHTML = `${riskphrase} ${response[0].periods[0].weather}, with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeedMinMPH} to ${response[0].periods[0].windGust80mMPH} mph. ${chanceof}  ${accumulation0}`;
+      document.getElementById('fullforecast0').innerHTML = `${riskphrase} ${response[0].periods[0].weather}, with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeedMinMPH} to ${response[0].periods[0].windGust80mMPH} mph. ${rainfall0}`;
 
    // Day 2 (Tommorow)
    document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
    document.getElementById('tempmintoday1').innerHTML = `Low Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
-   document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weather}, with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeedMinMPH} to ${response[0].periods[1].windGust80mMPH} mph. ${chanceof1} ${accumulation1}`
+   document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weather}, with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeedMinMPH} to ${response[0].periods[1].windGust80mMPH} mph. ${rainfall1}.` 
    // Day 3 (Some day after tommorow).
    document.getElementById('temptoday2').innerHTML = `High Temperature: ${response[0].periods[2].maxTempF}°F (${response[0].periods[2].maxTempC}°C) `;
    document.getElementById('tempmintoday2').innerHTML = `Low Temperature: ${response[0].periods[2].minTempF}°F (${response[0].periods[2].minTempC}°C) `
-   document.getElementById('fullforecast2').innerHTML = `${response[0].periods[2].weather}, with a high of ${response[0].periods[2].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[2].windDir} from ${response[0].periods[2].windSpeedMinMPH} to ${response[0].periods[2].windGust80mMPH} mph. ${chanceof2} ${accumulation2}`
+   document.getElementById('fullforecast2').innerHTML = `${response[0].periods[2].weather}, with a high of ${response[0].periods[2].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[2].windDir} from ${response[0].periods[2].windSpeedMinMPH} to ${response[0].periods[2].windGust80mMPH} mph. ${rainfall2}`
 }
 getForecast();
 setTimeout(getForecast, 1000)
@@ -287,3 +264,4 @@ updateveryminute()
 function extendedforecast() {
    window.location = `./fullextended.html?city=${city}`
 }
+extendedforecast()

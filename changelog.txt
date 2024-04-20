@@ -116,7 +116,12 @@ Improved Weather Map.
 Added another lightning map.
 Added Wind Gusts.
 Removed priority from alerts section.
-V2.3 is the Latest Version.
+V2.3 Build 2 (4-20-2024):
+Added 1 City to Dropdown Results.
+Fixed UV Value displaying as null.
+Fixed Precip Value by simplifying it to rain accumulation. (Snow, and Ice will be added eventually in a future update.).
+Fixed an Error (scriptcc.js, line 28.)
+V2.3 Build 2 is the Latest Version.
  To Be Added:
 Animated Icons
 To be decided:
