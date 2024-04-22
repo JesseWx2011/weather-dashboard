@@ -34,6 +34,7 @@
                         <datalist id="cities"></datalist> 
                         <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
                       </div>
+                      <button class="linkbutton" style="width: 220px;" onclick="browserlocation()" id="browserlocation">Use My Browser Location </button>
                 <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
                 <h1 class="temperature" id="temp">32°F</h3>
                   <div id="icon">
@@ -289,6 +290,21 @@ const searchForm =   document.getElementById('searchInput');
  function helpbutton() {
     window.location = `./help.html?city=${city}`
   }
+</script>
+<script>
+function browserlocation() {
+   if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+         latitude = position.coords.latitude;
+         longitude = position.coords.longitude;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+      });
+   }
+ document.getElementById("browserlocation");
+    window.location = `./index.html?city=${latitude},${longitude}`
+
+}
+browserlocation();
 </script>
 <script>
   var cities = [
@@ -621,7 +637,6 @@ const searchForm =   document.getElementById('searchInput');
     "Monrovia, CA",
     "Los Banos, CA",
     "Martinez, CA",
-    "Fukushima, Japan",
  ];
 
  for (var key in cities) {
