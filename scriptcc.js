@@ -20,7 +20,6 @@ async function getWx() {
    const {response} = data;
    var lat = `${response[0].loc.lat}`;
    var lon = `${response[0].loc.long}`;
-   console.log(data)
     cordinates = {
       "lat": `${lat}`,
       "lon": `${lon}`
@@ -114,7 +113,6 @@ async function severeweather() {
    const responsee = await fetch(severe);
    const data = await responsee.json();
    const {response} = data;
-   console.log(data)
 // Placeholder for if no matches for the if statements. 
 riskphrase = ""
    var risktype = response[0].details.risk.type
@@ -195,21 +193,64 @@ async function getForecast() {
       rainfall2 = "Rainfall amounts around " + response[0].periods[2].precipIN + " inches."
     } if (response[0].periods[2].precipIN === 0) {
      rainfall2 = "No Rainfall Accumulation Expected."
-    } 
+    }
+    // High Temperatures
+    var maxtemp0 = response[0].periods[0].maxTempF
+    var maxtemp1 = response[0].periods[1].maxTempF
+   var maxtemp2 =  response[0].periods[2].maxTempF 
+   // Low Temperatures
+    var mintemp0 = response[0].periods[0].minTempF
+    var mintemp1 = response[0].periods[1].minTempF
+   var mintemp2 =  response[0].periods[2].minTempF 
    // Detailed Information Container 
+   extraphrase = ""
+   extraphrase1 = ""
+   extraphrase2 = ""
+   /* For the Heat Wave phrase, there should be a comma before the phrase, which is why for temperatures greater than or equal to 110, it starts with a lowercase 
+    letter */ 
+    if (maxtemp0 >= 80) {
+      extraphrase = "Warm,"
+   } if (maxtemp0 >= 90) {
+      extraphrase = "Hot,"
+   } if (maxtemp0 >= 100) {
+      extraphrase = "Very Hot,"
+   } if (maxtemp0 >= 110) {
+      extraphrase =  "with a Heat Wave!"
+   } 
+   
+if (maxtemp1 >= 80) {
+      extraphrase1 = "Warm,"
+   } if (maxtemp1 >= 90) {
+      extraphrase1 = "Hot,"
+   } if (maxtemp1 >= 100) {
+      extraphrase1 = "Very Hot,"
+   } if (maxtemp1 >= 110) {
+      extraphrase1 =  "with a Heat Wave!"
+} 
+if (maxtemp2 >= 80) {
+   extraphrase2 = "Warm,"
+} if (maxtemp2 >= 90) {
+   extraphrase2 = "Hot,"
+} if (maxtemp2 >= 100) {
+   extraphrase2 = "Very Hot,"
+} if (maxtemp2 >= 110) {
+   extraphrase2 =  "with a Heat Wave!"
+}
+
    // Day 1 (Today/Tonight)
-   document.getElementById('temptoday').innerHTML = `High Temperature: ${response[0].periods[0].maxTempF}°F (${response[0].periods[0].maxTempC}°C) `;
-   document.getElementById('tempmintoday').innerHTML = `Low Temperature: ${response[0].periods[0].minTempF}°F (${response[0].periods[0].minTempC}°C) `;
-      document.getElementById('fullforecast0').innerHTML = `${riskphrase} ${response[0].periods[0].weather}, with a high of ${response[0].periods[0].maxTempF} and a low of ${response[0].periods[0].minTempF}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeedMinMPH} to ${response[0].periods[0].windGust80mMPH} mph. ${rainfall0}`;
+   document.getElementById('temptoday').innerHTML = `High Temperature: ${maxtemp0}°F (${response[0].periods[0].maxTempC}°C) `;
+   document.getElementById('tempmintoday').innerHTML = `Low Temperature: ${mintemp0}°F (${response[0].periods[0].minTempC}°C) `;
+   document.getElementById('fullforecast0').innerHTML = `${riskphrase} ${response[0].periods[0].weather}, ${extraphrase} with a high of ${maxtemp0} and a low of ${mintemp0}. The Max UV will be ${response[0].periods[0].uvi}. Winds to the ${response[0].periods[0].windDir} from ${response[0].periods[0].windSpeedMinMPH} to ${response[0].periods[0].windGust80mMPH} mph. ${rainfall0}`;
 
    // Day 2 (Tommorow)
-   document.getElementById('temptoday1').innerHTML = `High Temperature: ${response[0].periods[1].maxTempF}°F (${response[0].periods[1].maxTempC}°C) `;
-   document.getElementById('tempmintoday1').innerHTML = `Low Temperature: ${response[0].periods[1].minTempF}°F (${response[0].periods[1].minTempC}°C) `
-   document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weather}, with a high of ${response[0].periods[1].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeedMinMPH} to ${response[0].periods[1].windGust80mMPH} mph. ${rainfall1}.` 
+   document.getElementById('temptoday1').innerHTML = `High Temperature: ${maxtemp1}°F (${response[0].periods[1].maxTempC}°C) `;
+   document.getElementById('tempmintoday1').innerHTML = `Low Temperature: ${mintemp1}°F (${response[0].periods[1].minTempC}°C) `
+   document.getElementById('fullforecast1').innerHTML = `${response[0].periods[1].weather}, ${extraphrase1} with a high of ${maxtemp1} and a low of ${mintemp1}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[1].windDir} from ${response[0].periods[1].windSpeedMinMPH} to ${response[0].periods[1].windGust80mMPH} mph. ${rainfall1}` 
    // Day 3 (Some day after tommorow).
-   document.getElementById('temptoday2').innerHTML = `High Temperature: ${response[0].periods[2].maxTempF}°F (${response[0].periods[2].maxTempC}°C) `;
-   document.getElementById('tempmintoday2').innerHTML = `Low Temperature: ${response[0].periods[2].minTempF}°F (${response[0].periods[2].minTempC}°C) `
-   document.getElementById('fullforecast2').innerHTML = `${response[0].periods[2].weather}, with a high of ${response[0].periods[2].maxTempF} and a low of ${response[0].periods[1].minTempF}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[2].windDir} from ${response[0].periods[2].windSpeedMinMPH} to ${response[0].periods[2].windGust80mMPH} mph. ${rainfall2}`
+   document.getElementById('temptoday2').innerHTML = `High Temperature: ${maxtemp2}°F (${response[0].periods[2].maxTempC}°C) `;
+   document.getElementById('tempmintoday2').innerHTML = `Low Temperature: ${mintemp2}°F (${response[0].periods[2].minTempC}°C) `
+   document.getElementById('fullforecast2').innerHTML = `${response[0].periods[2].weather}, ${extraphrase2} with a high of ${maxtemp2} and a low of ${mintemp2}. The Max UV will be ${response[0].periods[1].uvi}. Winds to the ${response[0].periods[2].windDir} from ${response[0].periods[2].windSpeedMinMPH} to ${response[0].periods[2].windGust80mMPH} mph. ${rainfall2}`
+   console.clear()   
 }
 getForecast();
 setTimeout(getForecast, 1000)
@@ -227,7 +268,7 @@ async function getAlert() {
    } else {
       alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
    }
-
+console.clear()
 }
 getAlert();
 setInterval(getAlert, 60000)
@@ -247,6 +288,7 @@ function getSearch() {
 getSearch();
 function lightningredirect() {
    window.location = `./lightning.html?city=${city}`
+
 }
 lightningredirect()
 document.getElementById('searchInput').onkeyup = searchDropDown;
