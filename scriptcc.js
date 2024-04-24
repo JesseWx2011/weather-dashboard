@@ -236,7 +236,46 @@ if (maxtemp2 >= 80) {
 } if (maxtemp2 >= 110) {
    extraphrase2 =  "with a Heat Wave!"
 }
-
+// Phrases for minimum temperature if it is cold
+if (mintemp0 <= 40) {
+   extraphrase = "Chilly,"
+} if (mintemp0 <= 32) {
+   extraphrase = "Cold,"
+}  if (mintemp0 <= 25) {
+   extraphrase = "Very Cold,"
+} if (mintemp0 <= 8) {
+   extraphrase = "Bittery Cold,"
+} if (mintemp0 <= -5) {
+   extraphrase = "Extreme Cold,"
+} if (mintemp0 <= -17) {
+   extraphrase = "With an Arctic Blast,"
+}
+ if (mintemp1 <= 40) {
+   extraphrase1 = "Chilly,"
+} if (mintemp1 <= 32) {
+   extraphrase1 = "Cold,"
+}  if (mintemp1 <= 25) {
+   extraphrase1 = "Very Cold,"
+} if (mintemp1 <= 8) {
+   extraphrase1 = "Bittery Cold,"
+} if (mintemp1 <= -5) {
+   extraphrase1 = "Extreme Cold,"
+} if (mintemp1 <= -17) {
+   extraphrase1 = "With an Arctic Blast,"
+}  
+if (mintemp2 <= 40) {
+   extraphrase2 = "Chilly,"
+} if (mintemp2 <= 32) {
+   extraphrase2 = "Cold,"
+}  if (mintemp2 <= 25) {
+   extraphrase2 = "Very Cold,"
+} if (mintemp2 <= 8) {
+   extraphrase2 = "Bittery Cold,"
+} if (mintemp2 <= -5) {
+   extraphrase2 = "Extreme Cold,"
+} if (mintemp2 <= -17) {
+   extraphrase2 = "With an Arctic Blast,"
+}
    // Day 1 (Today/Tonight)
    document.getElementById('temptoday').innerHTML = `High Temperature: ${maxtemp0}°F (${response[0].periods[0].maxTempC}°C) `;
    document.getElementById('tempmintoday').innerHTML = `Low Temperature: ${mintemp0}°F (${response[0].periods[0].minTempC}°C) `;
