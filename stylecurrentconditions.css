@@ -323,11 +323,57 @@ a {
 }
 .loadingbox {
     position: absolute;
-    width: 1500px;
-    height: 850px;
+    margin-top: -50px;
+    margin-left: -25px;
     background-color: rgb(182, 182, 243);
 }
 .loadingmessage {
     font-family: Kanit;
-    margin-left: 650px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: 250px;
+}
+/* twitterweathercard.html */
+.weathercard {
+    color: white;
+    width: 640px;
+    height: 480px;
+    background-color: rgb(253, 49, 49);
+    font-family: Kanit;
+    text-align: center;
+}
+.headline {
+    font-size: 30px;
+}
+.Tplace {
+    font-size: 25px;
+}
+.Ttemp {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 150px;
+    font-size: 43px;
+}
+.weathericont img {
+    position: absolute;
+    width: 10%;
+    margin-top: 25px;
+}
+.weathert {
+    text-align: center;
+    margin-top: 150px
+}
+/* spc.html */
+.spccontainer {
+    margin: auto;
+  font-family: Kanit;
+  background-color: #2e7d9a;
+  width: 1000px;
+  text-align: center;
+  height: 900px;
+  padding: 10px;
+}
+.spccategory {
+    text-transform: uppercase;
 }
