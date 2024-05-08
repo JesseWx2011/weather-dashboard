@@ -198,6 +198,7 @@
    <button onclick="lightningredirect()" class="linkbutton" id="lightningbutton" style="display: none; margin-right: 145px; word-wrap: break-word; width: 200px;">Closest Lightning Strike</button>
         <button onclick="hourlycity()" id="hourlybutton" class="linkbutton">Hourly Forecast</button>
        <button class="linkbutton" onclick="extendedforecast()" style="margin-left: 250px;">Full Forecast</button>
+       <button onclick="spcoutlook()" id="spcbutton" class="linkbutton" style="margin-left: 220px; width: 110px;">Convective Outlook (USA Only)</button>
       </div>   
             </div>      
         </div>
@@ -273,6 +274,7 @@ function hourlycity() {
 }
 hourlycity();
 </script>
+
 <script>
     $(function () {
       $(document).keyup(function (e) {
@@ -297,7 +299,6 @@ function browserlocation() {
       navigator.geolocation.getCurrentPosition(function(position) {
          latitude = position.coords.latitude;
          longitude = position.coords.longitude;
-        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       });
    }
  document.getElementById("browserlocation");
@@ -637,7 +638,89 @@ browserlocation();
     "Monrovia, CA",
     "Los Banos, CA",
     "Martinez, CA",
- ];
+    "Key West, FL",
+    "Melbourne, FL",
+    "Tybee Island, GA",
+    "Hilton Head Island, SC",
+    "Kitty Hawk, NC",
+    "Kill Devil Hills, NC",
+    "Beaufort, SC",
+    "Charleston, SC",
+    "Orangeburg, SC",
+    "Harrisburg, PA",
+    "Huntington, WV",
+    "Charlottesville, VA",
+    "Xenia, OH",
+    "Davenport, IA",
+    "Yakima, WA",
+    "Lincoln City, OR",
+    "Nampa, ID",
+    "Buffalo, WY",
+    "Cody, WY",
+    "Spearfish, SD",
+    "Aberdeen, SD",
+    "Dickinson, ND",
+    "Wisconsin Dells, WI",
+    "St. Cloud, MN",
+    "Westhope, ND",
+    "Waco, TX",
+    "San Angelo, TX",
+    "Sweetwater, TX",
+    "Pecos, TX",
+    "Saragosa, TX",
+    "Pyote, TX",
+    "Carlsbrad, NM",
+    "Fort Stockton, TX",
+    "Garden City, TX",
+    "Brady, TX",
+    "Junction, TX",
+    "Mason, TX",
+    "Austin, TX",
+    "Round Rock, TX",
+    "Sidell, LA",
+    "College Station, TX",
+    "Katy, TX",
+    "Sugar Land, TX",
+    "Gavleston, TX",
+    "Lukfin, TX",
+    "Port Arthur, TX",
+    "Jasper, TX",
+    "Kirbyville, TX",
+    "Nashville, TN",
+    "Hendersonville, TN",
+    "Henderson, TX",
+    "Elk City, OK",
+    "Perryton, TX",
+    "Scott City, KS",
+    "Scottsville, TX",
+    "Naperville, IL",
+    "Elgin, IL",
+    "Colorado Springs, CO",
+    "Hattiesburg, MS",
+    "Mary Esther, FL",
+    "Wright, FL",
+    "Mrytle Grove, FL",
+    "Seminole, AL",
+    "Bellview, FL",
+    "Houlton, ME",
+    "Grand Isle, ME",
+    "College Park, MD",
+    "College Park, GA",
+    "Evans, GA",
+    "Johnson City, TN",
+    "Pigeon Forge, TN",
+    "Boone, NC",
+    "San Juan, PR", 
+    "Ponce, PR",
+    "Oakland Park, FL",
+    "Miles City, FL",
+    "Naples, FL",
+    "Kennedy Space Center, FL",
+    "Walt Disney World Resort, FL",
+    "Yosemite National Park, CA",
+    "Lawrence, KS",
+    "St. Joseph, MO",
+  ];
 
  for (var key in cities) {
    var optionElement = document.createElement("option");
@@ -649,5 +732,11 @@ browserlocation();
     cityname.innerHTML = `9/11 Memorial`
   } if (city === "TWC Headquarters, GA") {
     window.location = './index.html?city=Cumberland, GA'
+  } if (city === "Kennedy Space Center, FL") {
+    window.location = './index.html?city=28.574338331629217,-80.65205856161684'
+  } if (city === "Walt Disney World Resort, FL") {
+      window.location = './index.html?city=28.371389580743266,-81.54953982355723'
+  } if (city === "Yosemite National Park, CA") {
+    window.location = './index.html?city=37.86694464157127,-119.53288655690181'
   }
 </script>

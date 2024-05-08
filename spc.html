@@ -1,0 +1,68 @@
+<html>
+    <title id="titlespc">Deluge - Convective Outlook</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylecurrentconditions.css" />
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javscript" src="spc.js"></script>
+    <script type="text/javascript" src="scriptcc.js"></script>
+    <meta name="authors" content="Jesse Hasty">
+    <meta name='viewport' content='width=device-width; content='width = 425; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes; target-densitydpi=160dpi'>
+    <meta name="apple-mobile-web-app-title" content="Weather-Storm">
+<meta name='apple-mobile-web-app-capable' content='yes'>
+<meta name='apple-touch-fullscreen' content='yes'>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<body style="width: 100%; ">
+    <div class="spccontainer">
+         <h1 id="city">Convective Outlook - Invalid City</h1>
+         <h1 class="spccategory" id="spccategoryc">No Risk</h2>
+            <p id="lastupdate">Last Updated at 12:00 AM </p>
+            <div id="map"></div>
+            <h3 class="categoryindicator" id="indicating">No Risk - Expect no Severe Weather Today.</h3>
+               <button class="linkbutton" style="width: 180px;" onclick="homebutton()">Back to Homepage</button>
+    </div>
+</body>
+</html>
+<script>
+    function setcity() {
+        document.getElementById("city").innerHTML = `Convective Outlook - ${city}`
+
+    }
+    setcity()
+    spcoutlookf()
+const spc_outlook = `https://data.api.xweather.com/convective/outlook/${city}?client_id=${client_id}&client_secret=${client_secret}&from=+0day`;
+async function spcoutlookf() {
+  const responsee = await fetch(spc_outlook)
+  const data = await responsee.json()
+  const {response} = data
+  console.log(data)
+
+  spccat = response[0].details.risk.name
+  document.getElementById("city").innerHTML = `Convective Outlook - ${city}`
+  document.getElementById("spccategoryc").innerHTML = `${spccat}`
+  document.getElementById("map").innerHTML = `<img src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,convective,water-depth,interstates,counties,admin-cities-dk/800x400/${city},8/current.png"></img>`
+  
+  
+  if (spccat === "general risk") {
+    indicator = "A General Risk means that there are Thunderstorms, but don't expect any to reach severe strength. (58 mph< or hail 1 in. <)"
+   } if (spccat === "marginal risk") {
+    indicator = "A Marginal Risk indicates that there is a pontential for Severe Storms, but rarely any storms are destructive. Be on the lookout though!"
+   } if (spccat === "slight risk") {
+    indicator = "A Slight Risk means that storms could be more scattered, and a higher potential for them to reach Severe Limits."
+   } if (spccat === "enhanced risk") {
+    indicator = "An Enhanced Risk means that storms are widspread, more likely to be destructive, and the potential for a tornado or two. Be alert!"
+   } if (spccat === "moderate risk") {
+    indicator = "A Moderate Risk is the second highest on the Risk Scale. Large Hail up to softballs, strong winds up to 80-90 MPH, and Strong Tornadoes are likely. Be prepared for dangerous storms!"
+   } if (spccat === "high risk") {
+    indicator = "A High Risk is the highest you can get on a Risk Scale. Large Hail potentially bigger than softballs, winds up to 100 mph or greater, and Violent Tornadoes are possible. Ensure you have all your documents, and important things with you if a tornado ends up striking your house."
+   }
+   document.getElementById("indicating").innerHTML = `${indicator}`
+
+   const lastupdate = response[0].details.issuedDateTimeISO
+
+   const lastupdateformatted = new Date(lastupdate).toLocaleString("en-US", {timeStyle: 'short'})
+document.getElementById("lastupdate").innerHTML = `Last updated at ${lastupdateformatted}`
+}
+spcoutlookf()
+</script>
