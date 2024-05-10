@@ -116,7 +116,7 @@
       const data = await responsee.json();
       const {response} = data;
    // Placeholder for if no matches for the if statements. 
-   riskphrase = ""
+    riskphrase = ""
       var risktype = response[0].details.risk.name
       if (risktype === "general risk") {
          riskphrase = "Isolated Instances of Lightning."
@@ -142,8 +142,8 @@
       const {response} = data;
       console.log(data)
    // Placeholder for if no matches for the if statements. 
-   risktype1 = response[0].details.risk.name
    riskphrase1 = ""
+   risktype1 = response[0].details.risk.name
       // Use "|" instead of ","
       if (risktype1 === "general risk") {
       riskphrase1 = "Isolated Instances of Lightning."
@@ -167,6 +167,7 @@
       const responsee = await fetch(forecast_url);
       const data = await responsee.json();
       const { response } = data;
+      console.log(data)
       // Day 1
       document.getElementById('temp0day').textContent = response[0].periods[0].maxTempF;
       document.getElementById('templow0day').textContent = response[0].periods[0].minTempF;
@@ -330,7 +331,9 @@
       const data = await responsee.json();
       const { response } = data;
       document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
-
+if (response[0].details.emergency === true) {
+   document.getElementById("alerts").innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} (EMERGENCY) in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
+}
       if (response[1].details.name !== "undefined") {
          alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div><div style="background-color: #${response[1].details.color};">Alert: ${response[1].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.</div>`
       } else {
