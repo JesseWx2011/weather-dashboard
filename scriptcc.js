@@ -31,9 +31,13 @@
          }};
       error()
 
+      var state = response[0].place.state
+
+      var formattedstate = state.toUpperCase()
+
 
       const rainr = (response[0].periods[0].precipRateIN ).toFixed(3)
-      document.getElementById('cityname').innerHTML = `<div class="city">Deluge - Weather for ${response[0].place.name}, ${response[0].place.state}</div>`;
+      document.getElementById('cityname').innerHTML = `<div class="city">Deluge - Weather for ${response[0].place.name}, ${formattedstate}</div>`;
       document.getElementById('temp').innerHTML = `${response[0].periods[0].tempF}°F (${response[0].periods[0].tempC}°C)`;
       document.getElementById('title').innerHTML = `Deluge - Weather for ${response[0].place.name}, ${response[0].place.state}`
       document.getElementById('icon').innerHTML = `<img src="${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;

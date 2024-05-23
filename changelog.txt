@@ -132,9 +132,15 @@ V2.4 Build 1 (5-8-2024):
 Fixed Severe Weather Phrase
 Added an Convective Outlook Page. (Only for areas in the United States)
 Text Alignment Fix
-V2.4 Build 1 is the Latest Version.
+V2.4 Build 2 (5-23-2024):
+State on the home screen is capatalized.
+Notifications on Mobile
+
+V2.4 Build 2 is the Latest Version.
  To Be Added:
 Nothing at the moment.
 To be decided:
 Bible Verse of the Day 
+Known Bugs:
+City on SPC Page displays as :auto sometimes. (To be fixed)
 Let me know what else to add :)

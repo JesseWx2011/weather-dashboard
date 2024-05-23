@@ -1,3 +1,4 @@
+navigator.serviceWorker.register("sw.js");
 function notifyMe() {
   if (!("Notification" in window)) {
   } else if (Notification.permission === "granted") {
@@ -19,14 +20,18 @@ function notifyMe() {
         const notification =  new Notification("Lightning Alert:", {
              body: `Lightning struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} of this Location in ${city}.`,
              icon: "lightning.svg",
-             audio: new Audio('lightning.mp3'),
            });
          
          
            alertaudio.innerHTML = `<audio controls autoplay><source src="${liteningaudio}"></audio>` 
            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
-          alert(`Lightning struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} of this Location in ${city}.`)
+
+            registration.showNotification("Vibration Sample", {
+              body: `Lightning struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} of this Location in ${city}.`,
+              icon: "lightning.svg",
+            });
+    
           
         
         }}};  
