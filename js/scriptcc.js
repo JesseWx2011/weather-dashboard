@@ -5,7 +5,7 @@
    const values = window.location.search;
 
    const parameters = new URLSearchParams(values);
-   const newcity = parameters.get('city');
+   const newcity = parameters.get('city');.
    const oldlang = parameters.get('lang')
 
 
@@ -41,7 +41,7 @@ tempC = response[0].periods[0].tempC
       document.getElementById('cityname').innerHTML = `<div class="city">Deluge - Weather for ${response[0].place.name}, ${state}</div>`;
       document.getElementById('temp').innerHTML = `${tempFarenheit}°F (${tempC}°C)`;
       document.getElementById('title').innerHTML = `Deluge - Weather for ${response[0].place.name}, ${response[0].place.state}`
-      document.getElementById('icon').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
+      document.getElementById('icon').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
       document.getElementById('weather').innerHTML = `${response[0].periods[0].weather}`
       document.getElementById('windvalue').innerHTML = ` ${response[0].periods[0].windDir} at ${response[0].periods[0].windSpeedMPH} mph`;
       document.getElementById('uvvalue').innerHTML = `${response[0].periods[0].uvi}`;
@@ -176,43 +176,43 @@ tempC = response[0].periods[0].tempC
       // Day 1
       document.getElementById('temp0day').textContent = response[0].periods[0].maxTempF;
       document.getElementById('templow0day').textContent = response[0].periods[0].minTempF;
-      document.getElementById('wxicon0').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[0].icon}"></img>`;
+      document.getElementById('wxicon0').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[0].icon}"></img>`;
       document.getElementById('weather0').textContent = response[0].periods[0].weatherPrimary;
       document.getElementById('cloudcover0').innerHTML = `${response[0].periods[0].sky}% Cloud Cover`
       // Day 2
       document.getElementById('temp1day').textContent = response[0].periods[1].maxTempF;
       document.getElementById('templow1day').textContent = response[0].periods[1].minTempF;
-      document.getElementById('wxicon1').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[1].icon}"></img>`;
+      document.getElementById('wxicon1').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[1].icon}"></img>`;
       document.getElementById('weather1').textContent = response[0].periods[1].weatherPrimary;
       document.getElementById('cloudcover1').innerHTML = `${response[0].periods[1].sky}% Cloud Cover`
       // Day 3
       document.getElementById('temp2day').textContent = response[0].periods[2].maxTempF;
       document.getElementById('templow2day').textContent = response[0].periods[2].minTempF;
-      document.getElementById('wxicon2').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[2].icon}"></img>`;
+      document.getElementById('wxicon2').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[2].icon}"></img>`;
       document.getElementById('weather2').textContent = response[0].periods[2].weatherPrimary;
       document.getElementById('cloudcover2').innerHTML = `${response[0].periods[2].sky}% Cloud Cover`
       // Day 4
       document.getElementById('temp3day').textContent = response[0].periods[3].maxTempF;
       document.getElementById('templow3day').textContent = response[0].periods[3].minTempF;
-      document.getElementById('wxicon3').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[3].icon}"></img>`;
+      document.getElementById('wxicon3').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[3].icon}"></img>`;
       document.getElementById('weather3').textContent = response[0].periods[3].weatherPrimary;
       document.getElementById('cloudcover3').innerHTML = `${response[0].periods[3].sky}% Cloud Cover`
       // Day 5
       document.getElementById('temp4day').textContent = response[0].periods[4].maxTempF;
       document.getElementById('templow4day').textContent = response[0].periods[4].minTempF;
-      document.getElementById('wxicon4').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[4].icon}"></img>`;
+      document.getElementById('wxicon4').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[4].icon}"></img>`;
       document.getElementById('weather4').textContent = response[0].periods[4].weatherPrimary;
       document.getElementById('cloudcover4').innerHTML = `${response[0].periods[4].sky}% Cloud Cover`
       // Day 6
       document.getElementById('temp5day').textContent = response[0].periods[5].maxTempF;
       document.getElementById('templow5day').textContent = response[0].periods[5].minTempF;
-      document.getElementById('wxicon5').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[5].icon}"></img>`;
+      document.getElementById('wxicon5').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[5].icon}"></img>`;
       document.getElementById('weather5').textContent = response[0].periods[5].weatherPrimary;
       document.getElementById('cloudcover5').innerHTML = `${response[0].periods[5].sky}% Cloud Cover`
       // Day 7
       document.getElementById('temp6day').textContent = response[0].periods[6].maxTempF;
       document.getElementById('templow6day').textContent = response[0].periods[6].minTempF;
-      document.getElementById('wxicon6').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/icons/${response[0].periods[6].icon}"></img>`;
+      document.getElementById('wxicon6').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[6].icon}"></img>`;
       document.getElementById('weather6').textContent = response[0].periods[6].weatherPrimary;
       document.getElementById('cloudcover6').innerHTML = `${response[0].periods[6].sky}% Cloud Cover`
 
