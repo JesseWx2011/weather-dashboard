@@ -42,13 +42,13 @@ var city  = newcity;
 </html>
 <style>
     .alertcard {
+        width: 100%;
         display: flex;
         background-color: grey;
-        width: 820px;
         height: fit-content;
-        margin-left: 255px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         border-color: black;
+        height: 100%;
         border-radius: 11px;
     }
     .contents {
@@ -56,13 +56,10 @@ var city  = newcity;
     }
     .alertname {
         font-weight: 900;
-        text-transform: lowercase;
+        text-transform: none;
     }
     .message {
         font-weight: 900;
-}
-.type {
-    text-transform: capitalize;
 }
 </style>
 <script>
@@ -72,10 +69,10 @@ const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=DZLMGEFxCvf
       const responsee = await fetch(alert_url);
       const data = await responsee.json(); 
       const {response, error} = data;
-      console.log(response, error);  
 
-      document.getElementById('fullmessage').innerHTML = `${response[0].details.body}`;
-      document.getElementById('alerttitle').innerHTML = `${response[0].details.name}`;
+      alertname = response[0].details.name
+      document.getElementById('fullmessage').innerHTML = `${response[0].details.bodyFull}`;
+      document.getElementById('alerttitle').innerHTML = `${alertname}`;
       document.getElementById('alerttype').innerHTML = `Type: ${response[0].details.cat}.`;
       document.getElementById('title').innerHTML = `Alerts for ${response[0].place.name}, ${response[0].place.state}.`;
       document.getElementById('extra').innerHTML = `There may be more alerts active for this spot. Visit <a href="https://forecast.weather.gov/showsigwx.php?warnzone=${response[0].details.loc}&warncounty=${response[0].details.loc}&firewxzone=${response[0].details.loc}&local_place1=${response[0].place.name}%20${response[0].place.state}&product1=all&lat=${response[0].loc.lat}&lon=${response[0].loc.long}">This Website.</a>`

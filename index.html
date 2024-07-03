@@ -1,362 +1,524 @@
-
 <html>
-  <head>
-    <title id="title">Deluge - Unknown Location</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="stylecurrentconditions.css" />
-    <script type="text/javascript" src="config.js"></script>
-    <script type="text/javascript" src="scriptcc.js"></script>
-    <script type="text/javascript" src="notification.js"></script>
-    <script type="text/javascript" src="lightning.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <meta name="authors" content="Jesse Hasty">
-    <meta name='viewport' content='width=device-width; content='width = 425; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes; target-densitydpi=160dpi'>
-    <meta name="apple-mobile-web-app-title" content="Weather-Storm">
-<meta name='apple-mobile-web-app-capable' content='yes'>
-<meta name='apple-touch-fullscreen' content='yes'>
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  </head>
-    <body>
-        <div class="fullpage" align="center">
-        <div class="container">
-            <div class="currentconditions">
-                <div class="weatherinfo">
-                  <div align="center">
-                    <!-- The Time of the observation -->
-                    <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
-                    <button onclick="updateveryminute()" class="linkbutton" id="linkd" style="width: 250px;">Real-Time Updates</button>
-                    <noscript>You need to enable JavaScript for this web page to work.</noscript>
-                      <!-- Current Conditions Section -->
-                      <div class="search-container">
-                        <input list="cities" class="inputcontainer" placeholder="Press the Search button or press enter" id="searchInput">
-                        <datalist id="cities"></datalist> 
-                        <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
-                      </div>
-                      <button class="linkbutton" style="width: 220px;" onclick="browserlocation()" id="browserlocation">Use My Browser Location </button>
-                <h1 class="city" id="cityname">The Location your searched for is invalid.</h1></div>
-                <h1 class="temperature" id="temp">32°F</h3>
-                  <div id="icon">
-<img src="loading.svg"></img>
-</div>
-                <h3 class="weathercond" style="color: black;" id="weather">Sunny</h3>
-                <button class="linkbutton" style="width: 250px;" onclick="helpbutton()">Need Help? Click Here.</button>
-                <div class="cards-container" id="cardr1">
-                <div class="card" id="windcard">
-                  <div class="cardtitle" id="windtitle">Wind</div>
-                  <div class="value" style="margin-top: 50px;" id="windvalue">0 mph</div>
-                  <div class="valuet" style="margin-top: 30px;" id="windgust">Gusts to 0 mph</div>
-                  <div class="valuet" style="margin-top: 10px;" id="windmetric">0 km/h<div>
-                  <div class="valuet" style="margin-top: 25px; display: block;" id="feelslike"></div>
-                </div>
-                </div>
-                </div>
-                <div class="card" id="uvcard">
-                  <div class="cardtitle" id="uvtitle">UV Index</div>
-                  <div class="value" id="uvvalue">0</div>
-                  <div class="value" style="margin-top: -2px;font-size: small;" id="uvvaluedesc"></div>
-                </div>
-                <div class="card" id="humiditycard">
-                  <div class="cardtitle" id="humtitle">Humidity</div>
-                  <div class="value" id="humvalue">100%</div>
+
+<head>
+  <title id="title">Deluge - Unknown Location</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/stylecurrentconditions.css" />
+  <script type="text/javascript" src="./js/config.js"></script>
+  <script type="text/javascript" src="./js/scriptcc.js"></script>
+  <script type="text/javascript" src="./js/notification.js"></script>
+  <script type="text/javascript" src="./js/lightning.js"></script>
+  <script type="text/javascript" src="./js/lang.es.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <meta name="authors" content="Jesse Hasty">
+  <meta name='viewport' content='width=device-width; content=' width=425; initial-scale=1.0; maximum-scale=1.0;
+    user-scalable=yes; target-densitydpi=160dpi'>
+  <meta name="apple-mobile-web-app-title" content="Weather-Storm">
+  <meta name='apple-mobile-web-app-capable' content='yes'>
+  <meta name='apple-touch-fullscreen' content='yes'>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+</head>
+<body>
+  <div class="LoadingScreen" id="LoadingScreen">
+        <h1 class="loadingMessage">Loading..</h1>
+  </div>
+  <div class="fullpage" id="weatherpage">
+    <!-- Container -->
+    <div class="container">
+      <div class="currentconditions" id="WeatherContianer2">
+        <div class="darkmode" id="lightmodeenabled">
+          <div class="circlething" id="togglecircle" onclick="darkmode()">OFF</div>
+        </div>
+        <div class="weatherinfo">
+          <div id="WeatherContianer">
+            <!-- The Time of the observation -->
+            <h3 class="time" id="time">Dec 31 1969 11:59 PM</h3>
+            <button onclick="updateveryminute()" class="linkbutton" id="linkd" style="width: 250px;">Real-Time
+              Updates</button>
+            <noscript>You need to enable JavaScript for this web page to work.</noscript>
+            <!-- Current Conditions Section -->
+            <div class="search-container">
+              <input list="cities" class="inputcontainer" placeholder="Press the Search button or press enter"
+                id="searchInput">
+              <datalist id="cities"></datalist>
+              <button id="searchButton" class="searchb" onclick="getSearch()">Search</button>
+            </div>
+            <button class="linkbutton" style="width: 220px;" onclick="browserlocation()" id="browserlocation">Use My
+              Browser Location </button>
+            <h1 class="city" id="cityname">The Location your searched for is invalid.</h1>
+          </div>
+          <h1 class="temperature" id="temp">32°F</h3>
+            <div id="icon">
+              <img src="loading.svg"></img>
+            </div>
+            <h3 class="weathercond" style="color: black;" id="weather">Sunny</h3>
+            <button class="linkbutton" style="width: 250px;" onclick="helpbutton()">Need Help? Click Here.</button>
+            <div class="cards-container" id="cardr1">
+              <div class="card" id="windcard">
+                <div class="cardtitle" id="windtitle">Wind</div>
+                <div class="value" style="margin-top: 50px;" id="windvalue">0 mph</div>
+                <div class="valuet" style="margin-top: 30px;" id="windgust">Gusts to 0 mph</div>
+                <div class="valuet" style="margin-top: 10px;" id="windmetric">0 km/h<div>
+                    <div class="valuet" style="margin-top: 25px; display: block;" id="feelslike"></div>
+                  </div>
                 </div>
               </div>
-              <div class="cards-container" id="cardr2">
-                <div class="card">
-                  <div class="cardtitle" id="pressuretitle">Pressure</div>
-                  <div class="value" id="pressurevalue">0 mph</div>
-                </div>
-                <div class="card">
-                  <div class="cardtitle" id="dewtitle">Dew Point</div>
-                  <div class="value" id="dewvalue">0 mph</div>
-                </div>
-                <div class="card">
-                  <div class="cardtitle" id="visbilitytitle">Visibility</div>
-                  <div class="valuevis" style="margin-bottom: 50px;" id="visibilityvalue">10 mi</div>
+              <div class="card" id="uvcard">
+                <div class="cardtitle" id="uvtitle">UV Index</div>
+                <div class="value" id="uvvalue">0</div>
+                <div class="value" style="margin-top: -2px;font-size: small;" id="uvvaluedesc"></div>
+              </div>
+              <div class="card" id="humiditycard">
+                <div class="cardtitle" id="humtitle">Humidity</div>
+                <div class="value" id="humvalue">100%</div>
+              </div>
+            </div>
+            <div class="cards-container" id="cardr2">
+              <div class="card">
+                <div class="cardtitle" id="pressuretitle">Pressure</div>
+                <div class="value" id="pressurevalue">0 mph</div>
+              </div>
+              <div class="card" id="dewcard">
+                <div class="cardtitle" id="dewtitle">Dew Point</div>
+                <div class="value" id="dewvalue">0 mph</div>
+              </div>
+              <div class="card" id="viscard">
+                <div class="cardtitle" id="visbilitytitle">Visibility</div>
+                <div class="valuevis" style="margin-bottom: 50px;" id="visibilityvalue">10 mi</div>
                 <div class="valuet" id="visibilitytext">Clear Skies</div>
               </div>
-              </div>
-              <div class="cards-container" id="cardr3">
-                <div class="card">
-                  <div class="cardtitle" id="rainrtitle">Rain Rate</div>
-                  <div class="value" id="rainrvalue">0 in./hr</div>
-                </div>
-                <div class="card">
-                  <div class="cardtitle" id="snowdtitle">Snow Depth</div>
-                  <div class="value" id="snowdepthvalue">0 in</div>
-                </div>
-                <div class="card">
-                  <div class="cardtitle" id="solartitle">Solar Radiation</div>
-                  <div class="value" id="solarvalue">0 watts/m²</div>
-                </div>
-              </div>
-              </div>
-              <div id="alerts" class="alerts">No Alerts, Enjoy your day :)</div>
-              <div class="radarcontainer" id="radarimage">
-             <h1 style="position: absolute; margin-top: 78px; margin-left: 550px;">Radar Unavaliable</h1>
-              </div>
-              <div class="daycontainer">
-                <div class="daycard">
-                  <!-- Day 1 -->
-                  <div class="daycardname" id="dayname0">Day 1</div>
-                  <div class="weathericon" id="wxicon0">
-                    <img src="sunny.png"></img>
-                  </div>
-                  <div class="weathername" id="weather0">Sunny</div>
-                  <div class="daycardtemp" id="temp0day">32</div>
-                  <div class="daycardlow" id="templow0day">32</div>
-                  <div class="cloudcover" id="cloudcover0">0% Cloud Cover</div>
-                </div>
-                                    <!-- Day 2 -->
-            <div class="daycard">
-              <div class="daycardname" id="dayname1">Day 2</div>
-              <div class="weathericon" id="wxicon1">
-                <img src="sunny.png"></img>
-              </div>
-              <div class="weathername" id="weather1">Sunny</div>
-              <div class="daycardtemp" id="temp1day">32</div>
-              <div class="daycardlow" id="templow1day">32</div>
-              <div class="cloudcover" id="cloudcover1">0% Cloud Cover</div>
             </div>
-                                <!-- Day 3 -->
-        <div class="daycard">
-          <div class="daycardname" id="dayname2">Day 3</div>
-          <div class="weathericon" id="wxicon2">
-            <img src="sunny.png"></img>
-          </div>
-          <div class="weathername" id="weather2">Sunny</div>
-          <div class="daycardtemp" id="temp2day">32</div>
-          <div class="daycardlow" id="templow2day">32</div>
-          <div class="cloudcover" id="cloudcover2">0% Cloud Cover</div>
+            <div class="cards-container" id="cardr3">
+              <div class="card" id="raincard">
+                <div class="cardtitle" id="rainrtitle">Rain Rate</div>
+                <div class="value" id="rainrvalue">0 in./hr</div>
+              </div>
+              <div class="card" id="snowcard">
+                <div class="cardtitle" id="snowdtitle">Snow Depth</div>
+                <div class="value" id="snowdepthvalue">0 in</div>
+              </div>
+              <div class="card" id="radicard">
+                <div class="cardtitle" id="solartitle">Solar Radiation</div>
+                <div class="value" id="solarvalue">0 watts/m²</div>
+              </div>
+            </div>
         </div>
-                            <!-- Day 4 -->
+        <div id="alerts" class="alerts">No Alerts, Enjoy your day :)</div>
+        <div class="radarcontainer" id="radarimage">
+          <h1 style="position: absolute; margin-top: 78px; margin-left: 550px;">Radar Unavaliable</h1>
+        </div>
+        <div class="daycontainer">
+          <div class="daycard">
+            <!-- Day 1 -->
+            <div class="daycardname" id="dayname0">Day 1</div>
+            <div class="weathericon" id="wxicon0">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather0">Sunny</div>
+            <div class="daycardtemp" id="temp0day">32</div>
+            <div class="daycardlow" id="templow0day">32</div>
+            <div class="cloudcover" id="cloudcover0">0% Cloud Cover</div>
+          </div>
+          <!-- Day 2 -->
+          <div class="daycard">
+            <div class="daycardname" id="dayname1">Day 2</div>
+            <div class="weathericon" id="wxicon1">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather1">Sunny</div>
+            <div class="daycardtemp" id="temp1day">32</div>
+            <div class="daycardlow" id="templow1day">32</div>
+            <div class="cloudcover" id="cloudcover1">0% Cloud Cover</div>
+          </div>
+          <!-- Day 3 -->
+          <div class="daycard">
+            <div class="daycardname" id="dayname2">Day 3</div>
+            <div class="weathericon" id="wxicon2">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather2">Sunny</div>
+            <div class="daycardtemp" id="temp2day">32</div>
+            <div class="daycardlow" id="templow2day">32</div>
+            <div class="cloudcover" id="cloudcover2">0% Cloud Cover</div>
+          </div>
+          <!-- Day 4 -->
           <div class="daycard">
             <div class="daycardname" id="dayname3">Day 4</div>
             <div class="weathericon" id="wxicon3">
               <img src="sunny.png"></img>
             </div>
             <div class="weathername" id="weather3">Sunny</div>
-            <div class="daycardtemp" id="temp3day">32</div>                
+            <div class="daycardtemp" id="temp3day">32</div>
             <div class="daycardlow" id="templow3day">32</div>
             <div class="cloudcover" id="cloudcover3">0% Cloud Cover</div>
           </div>
-                                        <!-- Day 5 -->
-            <div class="daycard">
-              <div class="daycardname" id="dayname4">Day 5</div>
-              <div class="weathericon" id="wxicon4">
-                <img src="sunny.png"></img>
-              </div>
-              <div class="weathername" id="weather4">Sunny</div>
-              <div class="daycardtemp" id="temp4day">32</div>                  
-              <div class="daycardlow" id="templow4day">32</div>
-              <div class="cloudcover" id="cloudcover4">0% Cloud Cover</div>
-            </div>        
-              <div class="daycard">
-                   <!-- Day 5 -->
-                <div class="daycardname" id="dayname5">Day 6</div>
-                <div class="weathericon" id="wxicon5">
-                  <img src="sunny.png"></img>
-                </div>
-                <div class="weathername" id="weather5">Sunny</div>
-                <div class="daycardtemp" id="temp5day">32</div>
-                <div class="daycardlow" id="templow5day">32</div>
-                <div class="cloudcover" id="cloudcover5">0% Cloud Cover</div>
-              </div>
-                                            <!-- Day 6 -->
-                <div class="daycard">
-                  <div class="daycardname" id="dayname6">Day 7</div>
-                  <div class="weathericon" id="wxicon6">
-                    <img src="sunny.png"></img>
-                  </div>
-                  <div class="weathername" id="weather6">Sunny</div>
-                  <div class="daycardtemp" id="temp6day">32</div>
-                  <div class="daycardlow" id="templow6day">32</div>
-                  <div class="cloudcover" id="cloudcover6">0% Cloud Cover</div>
-                </div>
-    </div>             
-    <div class="detailedinformationcontainer">
-      <div class="informationintro" id="infointro0">Detailed Information for Today/Tonight:</div>
-      <div class="deatiledinformation-today" id="temptoday">High Temperature: 32°F (0°C)</div>
-      <div class="deatiledinformation-mintoday" id="tempmintoday">Low Temperature: 32°F (0°C)</div>
-      <div class="deatiledinformation-detailed" id="fullforecast0">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
-      <div class="informationintro" id="infointro1">Detailed Information for Day 2:</div>
-      <div class="deatiledinformation-today" id="temptoday1">High Temperature: 32°F (0°C)</div>
-      <div class="deatiledinformation-mintoday" id="tempmintoday1">Low Temperature: 32°F (0°C)</div>
-      <div class="deatiledinformation-detailed" id="fullforecast1">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
-      <div class="informationintro" id="infointro2">Detailed Information for Day 3:</div>
-      <div class="deatiledinformation-today" id="temptoday2">High Temperature: 32°F (0°C)</div>
-      <div class="deatiledinformation-mintoday" id="tempmintoday2">Low Temperature: 32°F (0°C)</div>
-      <div class="deatiledinformation-detailed" id="fullforecast2">It will be Sunny Today (or Tonight) with a High of 32 and a Low of 32.</div>
-    </div>
-    <p class="note">Made by Jesse Hasty, Weather Data from <a href="https://www.xweather.com/docs" style="color: blue"> Aeris Weather/Vaisala Xweather</a></p>
-    <div style="display: none;" id="alertaudio">
-      </audio>  
-     </div>
-      </div>
-      <div class="bottomnavbar" id="bottombar">
-   <button onclick="lightningredirect()" class="linkbutton" id="lightningbutton" style="display: none; margin-right: 145px; word-wrap: break-word; width: 200px;">Closest Lightning Strike</button>
-        <button onclick="hourlycity()" id="hourlybutton" class="linkbutton">Hourly Forecast</button>
-       <button class="linkbutton" onclick="extendedforecast()" style="margin-left: 250px;">Full Forecast</button>
-       <button onclick="spcoutlook()" id="spcbutton" class="linkbutton" style="margin-left: 220px; width: 110px;">Convective Outlook (USA Only)</button>
-      </div>   
-            </div>      
+          <!-- Day 5 -->
+          <div class="daycard">
+            <div class="daycardname" id="dayname4">Day 5</div>
+            <div class="weathericon" id="wxicon4">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather4">Sunny</div>
+            <div class="daycardtemp" id="temp4day">32</div>
+            <div class="daycardlow" id="templow4day">32</div>
+            <div class="cloudcover" id="cloudcover4">0% Cloud Cover</div>
+          </div>
+          <div class="daycard">
+            <!-- Day 5 -->
+            <div class="daycardname" id="dayname5">Day 6</div>
+            <div class="weathericon" id="wxicon5">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather5">Sunny</div>
+            <div class="daycardtemp" id="temp5day">32</div>
+            <div class="daycardlow" id="templow5day">32</div>
+            <div class="cloudcover" id="cloudcover5">0% Cloud Cover</div>
+          </div>
+          <!-- Day 6 -->
+          <div class="daycard">
+            <div class="daycardname" id="dayname6">Day 7</div>
+            <div class="weathericon" id="wxicon6">
+              <img src="sunny.png"></img>
+            </div>
+            <div class="weathername" id="weather6">Sunny</div>
+            <div class="daycardtemp" id="temp6day">32</div>
+            <div class="daycardlow" id="templow6day">32</div>
+            <div class="cloudcover" id="cloudcover6">0% Cloud Cover</div>
+          </div>
+        </div>
+        <div class="detailedinformationcontainer">
+          <div class="informationintro" id="infointro0">Detailed Information for Today/Tonight:</div>
+          <div class="deatiledinformation-today" id="temptoday">High Temperature: 32°F (0°C)</div>
+          <div class="deatiledinformation-mintoday" id="tempmintoday">Low Temperature: 32°F (0°C)</div>
+          <div class="deatiledinformation-detailed" id="fullforecast0">It will be Sunny Today (or Tonight) with a High
+            of 32 and a Low of 32.</div>
+          <div class="informationintro" id="infointro1">Detailed Information for Day 2:</div>
+          <div class="deatiledinformation-today" id="temptoday1">High Temperature: 32°F (0°C)</div>
+          <div class="deatiledinformation-mintoday" id="tempmintoday1">Low Temperature: 32°F (0°C)</div>
+          <div class="deatiledinformation-detailed" id="fullforecast1">It will be Sunny Today (or Tonight) with a High
+            of 32 and a Low of 32.</div>
+          <div class="informationintro" id="infointro2">Detailed Information for Day 3:</div>
+          <div class="deatiledinformation-today" id="temptoday2">High Temperature: 32°F (0°C)</div>
+          <div class="deatiledinformation-mintoday" id="tempmintoday2">Low Temperature: 32°F (0°C)</div>
+          <div class="deatiledinformation-detailed" id="fullforecast2">It will be Sunny Today (or Tonight) with a High
+            of 32 and a Low of 32.</div>
+        </div>
+        <p class="note">Made by Jesse Hasty, Weather Data from <a href="https://www.xweather.com/docs"
+            style="color: blue"> Aeris Weather/Vaisala Xweather</a></p>
+        <div style="display: none;" id="alertaudio">
+          </audio>
         </div>
       </div>
+      <div class="bottomnavbar" id="bottombar">
+        <button onclick="lightningredirect()" class="lightningbutton" id="lightningbutton">Closest Lightning Strike</button>
+        <button onclick="hourlycity()" id="hourlybutton" class="linkbutton">Hourly Forecast</button>
+        <button class="linkbutton" onclick="extendedforecast()" style="margin-left: 250px;">Full Forecast</button>
+        <button onclick="spcoutlook()" id="spcbutton" class="linkbutton"
+          style="margin-left: 220px; width: 110px;">Convective Outlook (USA Only)</button>
+      </div>
     </div>
-    </body>
-    </html>
-  <!-- dates.js -->
-  <script>
-    getDate() 
-async function getDate() {
-  const d = new Date();
-  var hour = d.getHours();
-  var minute = d.getMinutes();
-  var day = d.getDate();
-  var month = d.getMonth() + 1;
-  var dayofweek = d.getDay();
-  var year  = d.getFullYear()
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var newmonth = months[d.getDate()];
-var currentweekday = weekdays[d.getDay()];
+  </div>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-var day1 = weekdays[d.getDay()];
-var day2 = weekdays[d.getDay() + 1];
-var day3 = weekdays[d.getDay() + 2];
-var day4 = weekdays[d.getDay() + 3];
-var day5 = weekdays[d.getDay() + 4];
-var day6 = weekdays[d.getDay() + 5];
-var day7 = weekdays[d.getDay() + 6];
+</body>
 
-if (minute <10) {
-  var minute = `0${minute}`;
-}
-document.getElementById('time').innerHTML = `${month}/${day}/${year} ${hour}:${minute}`;
-// Day Names
-document.getElementById('dayname0').innerHTML = `${day1}`;
-document.getElementById('dayname1').innerHTML = `${day2}`;
-document.getElementById('dayname2').innerHTML = `${day3}`;
-document.getElementById('dayname3').innerHTML = `${day4}`;
-document.getElementById('dayname4').innerHTML = `${day5}`;
-document.getElementById('dayname5').innerHTML = `${day6}`;
-document.getElementById('dayname6').innerHTML = `${day7}`;
-// Forecast Intros
-document.getElementById('infointro0').innerHTML = `Forecast for ${day1}`;
-document.getElementById('infointro1').innerHTML = `Forecast for ${day2}`
-document.getElementById("infointro2").innerHTML = `Forecast for ${day3}`
+</html>
+<!-- dates.js -->
+<script>
+  getDate()
+  async function getDate() {
+    const d = new Date();
+    var hour = d.getHours();
+    var minute = d.getMinutes();
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+    var dayofweek = d.getDay();
+    var year = d.getFullYear()
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    weekdays_es = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+
+    var newmonth = months[d.getDate()];
+    var currentweekday = weekdays[d.getDay()];
+    var currentweekdayes = weekdays_es[dayofweek];
 
 
+    var day1 = weekdays[d.getDay()];
+    var day2 = weekdays[d.getDay() + 1];
+    var day3 = weekdays[d.getDay() + 2];
+    var day4 = weekdays[d.getDay() + 3];
+    var day5 = weekdays[d.getDay() + 4];
+    var day6 = weekdays[d.getDay() + 5];
+    var day7 = weekdays[d.getDay() + 6];
 
-}
-getDate();
-async function ChangeWidth() {
-   var dimension = screen.width
-const row1 = document.getElementById('cardr2')
-const row2 = document.getElementById('cardr3')
-const nav = document.getElementById('bottombar')
-    if (dimension <=425) {
-     row1.remove()
-     row2.remove()
-     nav.remove()
+    var day1es = weekdays_es[d.getDay()];
+    var day2es = weekdays_es[d.getDay() + 1];
+    var daythres = weekdays_es[d.getDay() + 1 + 1]
+    var day4es = weekdays_es[d.getDay() + 3];
+    var day5es = weekdays_es[d.getDay() + 4];
+    var day6es = weekdays_es[d.getDay() + 5];
+    var day7es = weekdays_es[d.getDay() + 6];
+    console.log(day1es)
+
+    if (minute < 10) {
+      var minute = `0${minute}`;
     }
-}
-ChangeWidth()
-setInterval(getTime, 5000)
+    document.getElementById('time').innerHTML = `${month}/${day}/${year} ${hour}:${minute}`;
+    // Day Names
+    document.getElementById('dayname0').innerHTML = `${day1}`;
+    document.getElementById('dayname1').innerHTML = `${day2}`;
+    document.getElementById('dayname2').innerHTML = `${day3}`;
+    document.getElementById('dayname3').innerHTML = `${day4}`;
+    document.getElementById('dayname4').innerHTML = `${day5}`;
+    document.getElementById('dayname5').innerHTML = `${day6}`;
+    document.getElementById('dayname6').innerHTML = `${day7}`;
+    // Forecast Intros
+    document.getElementById('infointro0').innerHTML = `Forecast for ${day1}`;
+    document.getElementById('infointro1').innerHTML = `Forecast for ${day2}`;
+    document.getElementById("infointro2").innerHTML = `Forecast for ${day3}`;
+
+    if (window.location.hash === "#es") {
+      document.getElementById("infointro0").innerHTML = `Pronóstico para ${day1es}`
+      document.getElementById("infointro1").innerHTML = `Pronóstico para ${day2es}`
+      document.getElementById("infointro2").innerText = `Pronóstico para ${daythres}`
+    }
+
+
+  }
+  getDate();
+  async function ChangeWidth() {
+    var dimension = screen.width
+  }
+  ChangeWidth()
+  setInterval(getTime, 5000)
 </script>
 <script>
-function hourlycity() {
- const hbutton = document.getElementById("hourlybutton") 
- hbutton.addEventListener("click", function() {
-  location.replace(`./hourly.html?city=${city}`)
- })
-}
-hourlycity();
+  function hourlycity() {
+    const hbutton = document.getElementById("hourlybutton")
+    hbutton.addEventListener("click", function () {
+      location.replace(`./hourly.html?city=${city}`)
+    })
+  }
+  hourlycity();
 </script>
 
 <script>
-    $(function () {
-      $(document).keyup(function (e) {
+  $(function () {
+    $(document).keyup(function (e) {
       const key = e.keyCode
       if (key === 13) {
-const searchForm =   document.getElementById('searchInput');
-   window.location = `./index.html?city=${searchInput.value}`
+        const searchForm = document.getElementById('searchInput');
+        window.location = `./index.html?city=${searchInput.value}`
 
-    
-  }
-})
-})
+
+      }
+    })
+  })
 </script>
 <script>
- function helpbutton() {
+  function helpbutton() {
     window.location = `./help.html?city=${city}`
   }
 </script>
 <script>
-function browserlocation() {
-   if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-         latitude = position.coords.latitude;
-         longitude = position.coords.longitude;
+  function browserlocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
       });
-   }
- document.getElementById("browserlocation");
+    }
+    document.getElementById("browserlocation");
     window.location = `./index.html?city=${latitude},${longitude}`
 
-}
-browserlocation();
+  }
+  browserlocation();
+</script>
+<script>
+  function darkmode() {
+    document.getElementById("togglecircle").addEventListener("click", function () {
+      document.getElementById("togglecircle").innerHTML = "ON"
+      document.getElementById("togglecircle").style.animation = "darkmodetransition"
+      document.getElementById("togglecircle").style.animationDuration = "3s"
+      document.getElementById("togglecircle").style.marginLeft = "67px"
+      document.getElementById("togglecircle").id = 'togglecircleon'
+
+      document.getElementById("cardr1").getElementsByTagName("div")[0].style = "background-color: black; color: white;"
+      document.getElementById("cardr2").getElementsByTagName("div")[0].style = "background-color: black; color: white;"
+      document.getElementById("cardr3").getElementsByTagName("div")[0].style = "background-color: black; color: white;"
+      document.getElementById("humiditycard").style = "background-color: black; color: white;"
+      document.getElementById("uvcard").style = "background-color: black; color: white;"
+      document.getElementById("dewcard").style = "background-color: black; color: white;"
+      document.getElementById("snowcard").style = "background-color: black; color: white;"
+      document.getElementById("radicard").style = "background-color: black; color: white;"
+      document.getElementById("viscard").style = "background-color: black; color: white;"
+
+    });
+  }
+  darkmode()
+</script>
+<script>
+  function lang() {
+    const lang = {
+      // Current Conditions
+      "currentconditions": {
+        "Sunny": "Soleada",
+        "Cloudy": "Nublada",
+        "Partly Cloudy": "Parcialmente nublado",
+        "Mostly Cloudy": "Mayormente nublado",
+        "Mostly Sunny": "Mayormente soleado",
+        "Rain Showers": "Duchas de lluvia",
+        "Thunderstorms": "Tormentas eléctricas",
+        "Heavy Thunderstorms": "Tormentas eléctricas pesadas",
+        "Heavy Rain": "Lluvia Pesada",
+
+      },
+      // Forecast Phrases 
+      "forecastphrases": {
+        "Cloud Cover": "Cobertura de nubes",
+        "No Rainfall Accumulation Expected.": "No se espera acumulación de lluvia.",
+        "The Max UV will be": "La máxima ultravioleta será",
+        "Clear Skies": "Cielos Despejados",
+        "Light Haze, Patchy Clouds": "Neblina Ligera, Nubes Irregulares",
+        "Haze": "Bruma",
+        "Thin Fog": "Niebla Fina",
+        "Light Fog": "Niebla Ligera",
+        "Moderate Fog": "Niebla Moderada",
+        "Thick Fog": "Espesa Niebla",
+        "Extremely Dense Fog": "Niebla Densa Extrema",
+      },
+      // UV Values
+      "uvphrases": {
+        "Very Low": "Muy baja",
+        "Low": "Baja",
+        "Medium": "Medio",
+        "High": "Alto",
+        "Very High": "Muy alto",
+        "Extreme": "Extrema",
+        "UV Index Unavaliable": "Índice UV no disponible",
+        "Put on Sunscreen when outdoors.": "Póngase protector solar cuando esté al aire libre."
+      },
+      "extraphrases": {
+        "Warm,": "Cálida,",
+        "Hot,": "Caliente,",
+        "Very Hot,": "Muy caliente,",
+        "with a Heat Wave!": "con una ola de calor!",
+        "Chilly,": "Fría,",
+        "Cold,": "Frío,",
+        "Very Cold": "Muy frío,",
+        "Bitterly Cold": "Amargamente frío,",
+        "Extreme Cold": "Extremadamente frio,",
+        "With an Arctic Blast,": "Con una explosión ártica,"
+      },
+      "titles": {
+        "Weather for": "El tiempo en",
+        "Real-Time Updates": "Actualizaciones en-tiempo real",
+        "Use My Browser Location": "Usar la ubicación de mi navegador",
+        "Wind": "Viento",
+        "Humidity": "Humedad",
+        "UVIndex": "Índice UV",
+        "Pressure": "Presión barométrica",
+        "Snow Depth": "Profundidad de la nieve",
+        "Solar Radiation": "Radiación solar",
+        "Visibility": "Visibilidad",
+        "Gusts to": "Ráfagas de hasta",
+        "Rain Rate": "Tasa de lluvia",
+        "No Alerts, Enjoy your day :)": "Sin alertas, disfruta tu día",
+      },
+      "units": {
+        /* Miles */ "mi": "millas",
+        "N": "N",
+        "NNE": "NNE",
+        "NE": "NE",
+        "E": "E",
+        "ESE": "ESE",
+        "SE": "SE",
+        "S": "S",
+        "SSW": "SSO",
+        "SW": "SO",
+        "W": "O",
+        "WNW": "ONO",
+        "NW": "NO",
+      },
+      "alerts": {
+        "Tornado Warning": "Tornado Advertencia",
+        "Severe Thunderstorm Warning": "Severa Tormenta Advertencia",
+        "Tornado Watch": "Alerta de Tornado",
+        "Severe Thunderstorm Watch": "Alerta de Tormenta Severa",
+        "Flood Warning": "Inundación Advertencia",
+        "Flash Flood Warning": "Inundación Repentina Advertencia",
+        "Flash Flood Watch": "Alerta Inundación Repentina",
+        "Rip Current Statement": "Declaración actual de Rip",
+        "ALERT:": "ALERTA:"
+      }
+    }
+    if (window.location.hash) {
+      if (window.location.hash === "#es") {
+
+        document.getElementById("windtitle").innerHTML = `${lang.titles.Wind}`
+        document.getElementById("uvtitle").innerHTML = `${lang.titles.UVIndex}`
+        document.getElementById("humtitle").innerHTML = `${lang.titles.Humidity}`
+
+
+      }
+    }
+  }
+  lang()
 </script>
 <script>
   var cities = [
-   "New York, NY",
-   "Washington, DC",
-   "Crystal City, VA",
-   "Paris, FR",
-   "Miami, FL",
-   "Moscow, RU",
-   "Pensacola, FL",
-   "Sydney, AU",
-   "Mobile, AL",
-   "Hattiesburg, MS",
-   "Jacksonville, FL",
-   "Savannah, GA",
-   "Columbus, GA",
-   "Oxford, MS",
-   "Las Vegas, NV",
-   "Boston, MA",
-   "Portland, OR",
-   "Oklahoma City, OK",
-   "Everglades City, FL",
-   "Navarre, FL",
-   "Seattle, WA",
-   "Tampa, FL",
-   "Sarasota, FL",
-   "Dayton, OH",
-   "El Reno, OK",
-   "Bismarck, ND",
-   "Lansing, MI",
-   "Reno, NV",
-   "Ely, NV",
-   "Topeka, KS",
-   "Kansas City, KS",
-   "Columbia, MO",
-   "Liberty, MO",
-   "Thomson, GA",
-   "Baltimore, MD",
-   "Bangor, ME",
-   "Buffalo, NY",
-   "Harrisburg, PA",
-   "Dover, DE",
-   "Salisbury, MD",
-   "Norfolk, VA",
-   "Raleigh, NC",
-   "Asheville, NC",
-   "Paducah, KY",
-   "Louisville, KY",
-   "Jackson, MS",
-   "Lincoln, NE",
-   "Omaha, NE",
+    "New York, NY",
+    "Washington, DC",
+    "Crystal City, VA",
+    "Paris, FR",
+    "Miami, FL",
+    "Moscow, RU",
+    "Pensacola, FL",
+    "Sydney, AU",
+    "Mobile, AL",
+    "Hattiesburg, MS",
+    "Jacksonville, FL",
+    "Savannah, GA",
+    "Columbus, GA",
+    "Oxford, MS",
+    "Las Vegas, NV",
+    "Boston, MA",
+    "Portland, OR",
+    "Oklahoma City, OK",
+    "Everglades City, FL",
+    "Navarre, FL",
+    "Seattle, WA",
+    "Tampa, FL",
+    "Sarasota, FL",
+    "Dayton, OH",
+    "El Reno, OK",
+    "Bismarck, ND",
+    "Lansing, MI",
+    "Reno, NV",
+    "Ely, NV",
+    "Topeka, KS",
+    "Kansas City, KS",
+    "Columbia, MO",
+    "Liberty, MO",
+    "Thomson, GA",
+    "Baltimore, MD",
+    "Bangor, ME",
+    "Buffalo, NY",
+    "Harrisburg, PA",
+    "Dover, DE",
+    "Salisbury, MD",
+    "Norfolk, VA",
+    "Raleigh, NC",
+    "Asheville, NC",
+    "Paducah, KY",
+    "Louisville, KY",
+    "Jackson, MS",
+    "Lincoln, NE",
+    "Omaha, NE",
     "Des Moines, IA",
     "Rolling Fork, MS",
     "Smithville, MS",
@@ -710,7 +872,7 @@ browserlocation();
     "Johnson City, TN",
     "Pigeon Forge, TN",
     "Boone, NC",
-    "San Juan, PR", 
+    "San Juan, PR",
     "Ponce, PR",
     "Oakland Park, FL",
     "Miles City, FL",
@@ -722,11 +884,11 @@ browserlocation();
     "St. Joseph, MO",
   ];
 
- for (var key in cities) {
-   var optionElement = document.createElement("option");
-   optionElement.value = cities[key];
-   document.getElementById("cities").appendChild(optionElement);
- }
+  for (var key in cities) {
+    var optionElement = document.createElement("option");
+    optionElement.value = cities[key];
+    document.getElementById("cities").appendChild(optionElement);
+  }
   if (city === "9/11 Memorial, NY") {
     window.location = './index.html?city=40.71158535262827,-74.01331599219237'
     cityname.innerHTML = `9/11 Memorial`
@@ -735,8 +897,14 @@ browserlocation();
   } if (city === "Kennedy Space Center, FL") {
     window.location = './index.html?city=28.574338331629217,-80.65205856161684'
   } if (city === "Walt Disney World Resort, FL") {
-      window.location = './index.html?city=28.371389580743266,-81.54953982355723'
+    window.location = './index.html?city=28.371389580743266,-81.54953982355723'
   } if (city === "Yosemite National Park, CA") {
     window.location = './index.html?city=37.86694464157127,-119.53288655690181'
   }
+</script>
+<script>
+setTimeout(() => {
+      document.getElementById("LoadingScreen").style.display = "none"
+    document.getElementById("weatherpage").style.display = "block"
+}, 6000);
 </script>

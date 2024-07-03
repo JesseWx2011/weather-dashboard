@@ -116,31 +116,9 @@ Improved Weather Map.
 Added another lightning map.
 Added Wind Gusts.
 Removed priority from alerts section.
-V2.3 Build 2 (4-20-2024):
-Added 1 City to Dropdown Results.
-Fixed UV Value displaying as null.
-Fixed Precip Value by simplifying it to rain accumulation. (Snow, and Ice will be added eventually in a future update.).
-Fixed an Error (scriptcc.js, line 28.)
-V2.3 Build 3 (Minor Update, 4-23-2024):
-Added A phrase for when it is warm
-V2.3 Build 4 (4-24-2024):
-Added phrase for when it gets cold! (For Low Temperature)
-Updated Help Page.
-V2.3 Build 5 (5-3-2024):
-Fixed Loading Screen on Lightning Page.
-V2.4 Build 1 (5-8-2024):
-Fixed Severe Weather Phrase
-Added an Convective Outlook Page. (Only for areas in the United States)
-Text Alignment Fix
-V2.4 Build 2 (5-23-2024):
-State on the home screen is capatalized.
-Notifications on Mobile
-
-V2.4 Build 2 is the Latest Version.
+V2.3 is the Latest Version.
  To Be Added:
-Nothing at the moment.
+Animated Icons
 To be decided:
 Bible Verse of the Day 
-Known Bugs:
-City on SPC Page displays as :auto sometimes. (To be fixed)
 Let me know what else to add :)

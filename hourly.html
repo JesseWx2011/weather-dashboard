@@ -17,7 +17,7 @@ console.log(newcity);
 
 var city  = newcity;
 getHourly();  
-const api_url = `https://api.aerisapi.com/forecasts/${city}?format=json&filter=1hr&limit=3&fields=&client_id=wgE96YE3scTQLKjnqiMsv&client_secret=sFA4Gfz8s8brxUUHoZTQ3iZIRy6YSwLhf1wJQzDi`;
+const api_url = `https://api.aerisapi.com/forecasts/${city}?format=json&filter=1hr&limit=3&fields=&client_id=wgE96YE3scTQLKjnqiMsv&client_secret=${client_secret}`;
   async function getHourly() {   
       const responsee = await fetch(api_url);
       const data = await responsee.json(); 
@@ -40,7 +40,7 @@ document.getElementById('title').innerHTML = `Hourly Forecast for ${response[0].
       // Hour 3
       document.getElementById('temp2').innerHTML = `${response[0].periods[2].avgTempF}`;
       document.getElementById('wind2').innerHTML = `${response[0].periods[2].windDir} ${response[0].periods[2].windSpeedMinMPH}mph`
-      document.getElementById('icon2').innerHTML = `<img src="${response[0].periods[2].icon}"></img>`
+      document.getElementById('icon2').innerHTML = `<img src="../icons/${response[0].periods[2].icon}"></img>`
       const d = new Date();
        let hour0 = d.getHours();
 
@@ -87,7 +87,7 @@ if (hour0 <=11) {
         <meta name="authors" content="Jesse Hasty">
         <title id="title">Hourly Forecast for .</title>
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <script src="config.js"></script>
+        <script src="./js/config.js "></script>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     </head>

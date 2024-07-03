@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+@font-face {
+    font-family: 'interstateboldcondensed';
+    src: url('interstate-condensed-bold-webfont.woff2') format('woff2'),
+        url('interstate-condensed-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    width: 1500px;
+    height: 1400px;
+    background-color: beige;
+}
+.LoadingScreen {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+.fullpage {
+    display: none;
+}
+.container {
+    background-image: url("https://images.unsplash.com/photo-1593539651148-13fb61a49325?w=1280&h=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3VubnklMjBtb3VudGFpbnxlbnwwfHwwfHx8MA%3D%3D");
+    opacity: 87%;
+    width: 1288px;
+    height: 1528px;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: auto;
+}
+.weatherinfo {
+    float: center;
+}
+.darkmode {
+    background-color: white;
+    width: 100px;
+    margin-top: 31px;
+    margin-left: 115px;
+    height: 30px;
+    border-radius: 10px;
+    position: absolute;
+}
+.darkmode:hover {
+  animation: darkmodehover;
+  animation-duration: s;
+  background-color: white;
+  animation-iteration-count: infinite;
+}
+@keyframes darkmodehover {
+    0% {background-color: white;}
+    50% {background-color: grey;}
+    100% {background-color: white;}
+}
+@keyframes darkmodetransition {
+    0% {margin-left: 0px;};
+    25% {margin-left: 16.75px;}
+    50% {margin-left: 33.5px;};
+    75% {margin-left: 50.25px;}
+    100% {margin-left: 67px;};
+}
+.lightningbutton {
+    display: none; 
+    margin-right: 145px; 
+    word-wrap: break-word; 
+    width: 200px;
+    background-color: grey;
+    height: fit-content;
+    width: 80px;
+    border-radius: 8px;
+    font-weight: 900;
+}
+.circlething {
+    border-radius: 10px;
+    width: 30px;
+    height: 25px;
+    margin-top: 2px;    
+    margin-left: 5px;
+    background-color: #495057;
+}
+.currentconditions {
+    width: 1280px;
+    text-align: center;
+    font-family: interstateboldcondensed;
+    height: 878px;
+}
+
+.searchbar {
+    width: 550px;
+}
+option {
+    font-family: Kanit;
+    background-color: wheat;
+}
+.temperature {
+    font-size: 44px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+}
+
+.city {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.cityn {
+    padding-left: 5px;
+    text-transform: capitalize;
+}
+
+.state {
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+
+.country {
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+
+.cards-container {
+    display: flex;
+}
+
+.card {
+    background-color: white;
+    width: 300px;
+    border-radius: 10px;
+    border-color: black;
+    margin-left: 80px;
+    margin-top: 20px;
+    height: 200px;
+    color: black;
+}
+
+.cardtitle {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    display: block;
+    text-align: center;
+}
+
+.value {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    word-wrap: break-word;
+    margin-top: 73px;
+}
+
+.valuevis {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    margin-top: 33px;
+}
+
+.valuet {
+    font-weight: 800;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.alerts {
+    color: rgb(25, 9, 9);
+    background-color: bisque;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+}
+
+.daycontainer {
+    align-content: center;
+    margin-top: 50px;
+    width: 100%;
+    height: fit-content;
+    background-color: skyblue;
+    display: flex;
+}
+
+.daycard {
+    width: 120px;
+    word-wrap: break-word;
+    margin-top: 22px;
+    border-radius: 10px;
+    margin-left: 50px;
+    height: fit-content;
+    min-height: 150px;
+    background-color: white;
+}
+
+.daycardname {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+}
+
+.weathername {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+}
+
+.daycardtemp {
+    color: red;
+    font-size: 23px;
+}
+
+.daycardlow {
+    color: blue;
+}
+
+.detailedinformationcontainer {
+    background-color: yellowgreen;
+    width: 1280px;
+    height: fit-content;
+    font-weight: 800;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.deatiledinformation-today {
+    color: red;
+}
+
+.deatiledinformation-mintoday {
+    color: blue;
+}
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .search input {
+    width: 250px;
+    height: 40px;
+    position: relative;
+    border: 1px solid #ced4da;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #495057;
+  }
+  .search input:focus {
+    outline: none;
+    border: 1px solid var(--primary-color);
+  }
+  .search button {
+    min-width: 40px;
+    height: 40px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .search ul {
+    max-height: 300px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .search ul li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+  .search ul li:last-child {
+    border-bottom: none;
+  }
+  .search ul li:hover {
+    background-color: #f1f1f1;
+  }
+  .search ul li.active {
+    background-color: #f1f1f1;
+  }
+
+.bottomnavbar {
+    position: relative;
+    width: 1280px;
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 650px;
+    height: 130px;
+}
+
+.linkbutton {
+    background-color: grey;
+    height: fit-content;
+    width: 80px;
+    border-radius: 8px;
+    font-weight: 900;
+}
+
+.inputcontainer {
+    width: 259px;
+    text-align: center;
+    border-radius: 9px;
+    background-color: rgb(17, 3, 122);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    color: white;
+}
+
+.searchb {
+    border-radius: 9px;
+    cursor: auto;
+    font-family: Kanit;
+    text-transform: uppercase;
+}
+
+.list {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
+}
+
+.cloudcover {
+    color: grey;
+}
+
+a {
+    text-underline-offset: 999px;
+    color: white;
+}
+/* Lightning.html */
+.mapbox {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 813px;
+    height: 1100px;
+    display: none;
+    background-color: white;
+    margin-left: 312px;
+}
+.lightningoverlay {
+    position: absolute;
+    margin-top: -274px;
+    width: 107px;
+    margin-left: -171px;
+}
+/* help.html */
+.helpbody {
+    text-align: center;
+    font-family: Kanit;
+}
+  .helpheader {
+    text-align: center;
+    font-family: Kanit;
+  }
+/* fullextended.html */
+.extended-forecast-title {
+    text-align: center;
+    font-family: Poppins;
+}
+.daycontainer-extended {
+    align-content: center;
+    margin-top: 123px;
+    width: 1300px;
+    height: fit-content;
+    font-family: Kanit, bold;
+    text-align: center;
+    display: flex;
+}
+.wind {
+    color: black;
+    word-wrap: normal;
+    font-weight: 700;
+}
+.loadingbox {
+    position: absolute;
+    margin-top: -50px;
+    margin-left: -25px;
+    background-color: rgb(182, 182, 243);
+}
+.loadingmessage {
+    font-family: Kanit;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: 250px;
+}
+/* twitterweathercard.html */
+.weathercard {
+    color: white;
+    width: 640px;
+    height: 480px;
+    background-color: rgb(253, 49, 49);
+    font-family: Kanit;
+    text-align: center;
+}
+.headline {
+    font-size: 30px;
+}
+.Tplace {
+    font-size: 25px;
+}
+.Ttemp {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 150px;
+    font-size: 43px;
+}
+.weathericont img {
+    position: absolute;
+    width: 10%;
+    margin-top: 25px;
+}
+.weathert {
+    text-align: center;
+    margin-top: 150px
+}
+/* spc.html */
+.spccontainer {
+    margin: auto;
+  font-family: Kanit;
+  background-color: #2e7d9a;
+  width: 1000px;
+  text-align: center;
+  height: 900px;
+  padding: 10px;
+}
+.spccategory {
+    text-transform: uppercase;
+}
