@@ -1,74 +1,74 @@
-V1.0 (1-18-2024):
+v1.0 (1-18-2024):
 Added Sidebar
 Added Image Vector
 Added CSS File
-V1.0.0.1 (1-19-2024):
+v1.0.0.1 (1-19-2024):
 Complete Redesign with current conditions
 Added Script File
 Added API that automatically detects current location
 Added Icons
 Added Interstate-Condensed Font
 Added Weather Cards
-V1.1 (1-20-2024):
+v1.1 (1-20-2024):
 Updated Current Conditions
 Background Image Updated
 Added Forecast (Beta)
 Added Metric Units (Incomplete as of 1-20-2024)
-V1.1.2 (1-20-2024):
+v1.1.2 (1-20-2024):
 Updated Forecast Including Deatiled Information
 Updated Metric Units for Forecast
-V1.2 (1-20-2024):
+v1.2 (1-20-2024):
 Added Search Bar (Incomplete)
-V1.2.1 (1-21-2024):
+v1.2.1 (1-21-2024):
 Removed Search Bar
 Added a Configuration in scriptcc.js at the top. Go to README.md for more information and setup.
-V1.2.4 (1-22-2024):
+v1.2.4 (1-22-2024):
 Added New Weather Cards
 Increase Height of Background Image
-V1.2.4.0.1 (1-23-2024):
+v1.2.4.0.1 (1-23-2024):
 Added Missing Icon
-V1.2.4.1 (1-23-2024):
+v1.2.4.1 (1-23-2024):
 Added Webpage Icon
-V1.3 (1-23-2024):
+v1.3 (1-23-2024):
 Add Alerts Function (In progress)
-V1.3.1 (1-24-2024):
+v1.3.1 (1-24-2024):
 Added Loading Image
 Added Multiple Alerts Function.
 Added Wind Direction
-V1.3.5 (1-24-2024):
+v1.3.5 (1-24-2024):
 Added Radar.
 Increased the width of the cards.
-V1.4  (1-25-2024):
+v1.4  (1-25-2024):
 Added Alerts Page.
 Removed Multiple Alerts Function.
 Added Linking Page in conjunction to an active
-V1.4.1 (1-26-2024):
+v1.4.1 (1-26-2024):
 Added Low Temp
-V1.4.8 (1-28-2024):
+v1.4.8 (1-28-2024):
 Added Hourly Forecast
 Extra Pages setout on homepage
-V1.5 (1-29-2024):
+v1.5 (1-29-2024):
 Search Bar Function (example: lansing,mi or moscow,ru)
 Button and Search Bar have deceration
 v1.5.6 (Created 1-31-2024, Modified 2-2-2024):
 Added city list, so you can quickly find cities.
-V1.5.8 (2-05-2024):
+v1.5.8 (2-05-2024):
 Updated the alerts link, so if an alert is issued, it goes directly to the alert with the city.
 Slight bug fixes.
-V1.5.9 (2-06-2024):
+v1.5.9 (2-06-2024):
 City Text is in the center.
 Increased zoom of radar.
-V1.6 (2-09-2024):
+v1.6 (2-09-2024):
 Day Names (Monday, Wednesday, etc.) added.
 Minor Bug fixes.
-V1.6.1 (2-11-2024):
+v1.6.1 (2-11-2024):
 Multiple Alerts Function Returned, with an improved alert function (At the moment, it only functions for 2 alerts, and only works for the main page.)
 v1.6.7 (2-13-2024):
 Remove Elements based off of device width
-V1.6.9 (2-29-2024):
+v1.6.9 (2-29-2024):
 Added Cloud Cover
 Fixed Alert Priority Level.
-V1.7 (3-12-2024, Major Update.):
+v1.7 (3-12-2024, Major Update.):
 Added another day to the forecast section.
 Fixed redirect to the homepage, so that it's the same city.
 Added more metric units.
@@ -76,49 +76,74 @@ Radar Removed. (There were multiple issues with the radar, so it had to be remov
 Fixed wind range.
 Icon Fix.
 City List Removed.
-V2.0 (3-16-2024):
+v2.0 (3-16-2024):
 Radar Added Back In (With Improvements)
 Extra Metric Units
 Push Notifications Added
 Bug Fixes
-V2.1 Build 1 (3-27-2024)
+v2.1 Build 1 (3-27-2024)
 Removed Function on mobile to where it says that web notifications are not supported.
 Added Lightning Map to where the closest strike was.
 Removed Peak Gusts on Forecasts. (Becuase it was sometimes saying this for example: Winds E at 11 to 24 mph with peak gusts around 21 mph.)
 Fixed Visibility Caption
 Unusual Rain Rate Feature Fixed to where it stays in the box.
 UV Feature (This feature is when if the UV is greater than 5, it will tell you to put on sunscreen when outdoors.)
-V2.1 Build 2 (3-28-2024):
+v2.1 Build 2 (3-28-2024):
 Added A guide for the website just below the weather info
 Added Weather Alerts for mobile.
 Edited the placeholder for the search bar.
 You can now press enter to search for a city.
 Fixed Positioning of the lightning icon on the closest lightning strike page.
 Minor Fixes for the Visibility Caption.
-V2.2 Build 1 (3-29-2024):
+v2.2 Build 1 (3-29-2024):
 The city displays diffrently on homepage.
 Notifications now appear on mobile.
 Fixed Rainrate issue.
 Fixed Positioning of Extended Forecast Section on homepage.
 Nearest Lightning Strike Button now only appears when lightning struck within 25 miles of the queried location.
 Added Realtime Updates Button (Updates Every Minute.)
-V2.2 Build 2 (4-1-2024): No, this is not an April Fools Joke.
+v2.2 Build 2 (4-1-2024): No, this is not an April Fools Joke.
 Fixed Lightning Button Not Showing.
 Severe Weather Note shows when Severe Weather is Forecast.
 Added Precipitation forecast to Day 3 (Mainly the chance and accumulation.)
 Fixed Weather Condition on Cards going over the card itself.
 Adjusteded the lightning icon on the lightning page (again..)
 Dropdown Results! (Just don't press enter twice.)
-V2.3 (4-2-2024), Major Update:
+v2.3 (4-2-2024), Major Update:
 More Dropdown Results, about 300 more.
 Notifications send when browser is closed (Updates every 2 minutes, and sends for the last selected location.)
 Improved Weather Map.
 Added another lightning map.
 Added Wind Gusts.
 Removed priority from alerts section.
-V2.3 is the Latest Version.
+v2.3 Build 2 (4-20-2024):
+Added 1 City to Dropdown Results.
+Fixed UV Value displaying as null.
+Fixed Precip Value by simplifying it to rain accumulation. (Snow, and Ice will be added eventually in a future update.).
+Fixed an Error (scriptcc.js, line 28.)
+v2.3 Build 3 (Minor Update, 4-23-2024):
+Added A phrase for when it is warm
+v2.3 Build 4 (4-24-2024):
+Added phrase for when it gets cold! (For Low Temperature)
+Updated Help Page.
+v2.3 Build 5 (5-3-2024):
+Fixed Loading Screen on Lightning Page.
+v2.4 Build 1 (5-8-2024):
+Fixed Severe Weather Phrase
+Added an Convective Outlook Page. (Only for areas in the United States)
+Text Alignment Fix
+v2.4 Build 2 (5-23-2024):
+State on the home screen is capitalized.
+Notifications on Mobile
+v2.5 Build 1 (7-3-2024):
+Move Icons and other files to separate directory
+Loading Screen
+
+v2.5 Build 1 is the Latest Version.
  To Be Added:
-Animated Icons
+Nothing at the moment.
 To be decided:
 Bible Verse of the Day 
+Known Bugs:
+City on SPC Page displays as :auto sometimes. (To be fixed)
 Let me know what else to add :)
