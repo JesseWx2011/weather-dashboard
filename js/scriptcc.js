@@ -117,7 +117,7 @@ tempC = response[0].periods[0].tempC
       const data = await responsee.json();
       const {response} = data;
    // Placeholder for if no matches for the if statements. 
-  let riskphrase = ""
+   riskphrase = ""
       var risktype = response[0].details.risk.name
       if (risktype === "general risk") {
          riskphrase = "Isolated Instances of Lightning."
@@ -132,6 +132,7 @@ tempC = response[0].periods[0].tempC
          }  if (risktype1 === "high risk") {
             riskphrase = "Dangerous Thunderstorms Likely."
          } 
+
 
    }
    severeweather() 
@@ -345,7 +346,7 @@ tempC = response[0].periods[0].tempC
          alerts.innerHTML = `<div style="background-color: #${details.color};">Alert: ${details.name} in effect for ${place.name} ${place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
       }
    }
-   
+
    getAlert();
    setInterval(getAlert, 60000)
 
