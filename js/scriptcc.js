@@ -19,9 +19,6 @@
       const responsee = await fetch(api_url);
       const data = await responsee.json();
       const {response} = data;
-      if (!response.length) {
-          return;
-      }
       var lat = `${response[0].loc.lat}`;
       var lon = `${response[0].loc.long}`;
       cordinates = {
