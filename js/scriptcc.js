@@ -27,7 +27,7 @@
       }
  state = response[0].place.state
  tempFarenheit = response[0].periods[0].tempF
-tempC = response[0].periods[0].tempC
+tempC = response[0].perioFds[0].tempC
       const rainr = (response[0].periods[0].precipRateIN ).toFixed(3)
       document.getElementById('cityname').innerHTML = `<div class="city">Deluge - Weather for ${response[0].place.name}, ${state}</div>`;
       document.getElementById('temp').innerHTML = `${tempFarenheit}°F (${tempC}°C)`;
@@ -48,8 +48,6 @@ tempC = response[0].periods[0].tempC
       document.getElementById("windgust").innerHTML  = `Gusts to ${response[0].periods[0].windGustMPH} mph`
     
     
-    document.getElementById("LoadingScreen").style.display = "none"
-    document.getElementById("weatherpage").style.display = "block"
 
       // Twitter Card
       // Function to get the UV Value
@@ -92,6 +90,10 @@ tempC = response[0].periods[0].tempC
       visibility()
 
       // Just get city name if it is set to :auto
+
+      document.getElementById("LoadingScreen").style.display = "none"
+      document.getElementById("weatherpage").style.display = "block"
+  
    function correctcity() {
    if (city === `:auto`) {
       document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${response[0].place.name}, ${response[0].place.state}</div>`;
