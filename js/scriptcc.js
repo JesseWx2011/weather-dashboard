@@ -27,7 +27,7 @@
       }
  state = response[0].place.state
  tempFarenheit = response[0].periods[0].tempF
-tempC = response[0].perioFds[0].tempC
+tempC = response[0].periods[0].tempC
       const rainr = (response[0].periods[0].precipRateIN ).toFixed(3)
       document.getElementById('cityname').innerHTML = `<div class="city">Deluge - Weather for ${response[0].place.name}, ${state}</div>`;
       document.getElementById('temp').innerHTML = `${tempFarenheit}°F (${tempC}°C)`;
