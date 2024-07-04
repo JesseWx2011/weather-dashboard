@@ -10,7 +10,7 @@
 
 
    var city = newcity
-   var language = oldlang
+   var language = oldlang 
    
 // Get Weather
    getWx();
