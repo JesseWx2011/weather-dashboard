@@ -10,7 +10,7 @@
 Go to <a href="https://drive.google.com/file/d/1Wft1JEjsMZ_UdUvqw4yiDK1jXy4fm_-/view">here</a> for a demo. 
 <h2 align="center">Any Questions? Create an issue on the "Issues" page.</h2>
 <h1>Previews, Taken as of v2.5 Build 1, Released July 3rd, 2024<h1>
-<div align="center">I
+<div align="center">
 Apple iPad
 <img src="iPad.png"></img>
 Apple iPhone (iPhone 14, 6.7")
