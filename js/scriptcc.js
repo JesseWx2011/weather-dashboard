@@ -49,6 +49,8 @@ tempC = response[0].periods[0].tempC
     
     
     document.getElementById("LoadingScreen").style.display = "none"
+    document.getElementById("weatherpage").style.display = "block"
+
       // Twitter Card
       // Function to get the UV Value
       if (response[0].periods[0].uvi === 0) {
