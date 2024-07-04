@@ -117,7 +117,7 @@ tempC = response[0].periods[0].tempC
       const data = await responsee.json();
       const {response} = data;
    // Placeholder for if no matches for the if statements. 
-    riskphrase = ""
+  let riskphrase = ""
       var risktype = response[0].details.risk.name
       if (risktype === "general risk") {
          riskphrase = "Isolated Instances of Lightning."
@@ -328,19 +328,24 @@ tempC = response[0].periods[0].tempC
    getAlert();
    const alert_url = `https://api.aerisapi.com/alerts/${city}?client_id=${client_id}&client_secret=${client_secret}`;
    async function getAlert() {
-      const responsee = await fetch(alert_url);
-      const data = await responsee.json();
+      const results = await fetch(alert_url);
+      const data = await results.json();
       const { response } = data;
-      document.getElementById('alerts').innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
-if (response[0].details.emergency === true) {
-   document.getElementById("alerts").innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} (EMERGENCY) in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
-}
-      if (response[1].details.name !== "undefined") {
-         alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div><div style="background-color: #${response[1].details.color};">Alert: ${response[1].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.</div>`
-      } else {
-         alerts.innerHTML = `<div style="background-color: #${response[0].details.color};">Alert: ${response[0].details.name} in effect for ${response[0].place.name} ${response[0].place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
+      
+      alerts.innerHTML = "";
+
+      if (response?.length > 0) {
+         return;
+      }
+
+      const details = response[0].details;
+      const place = response[0].place;
+
+      if (details?.name) {
+         alerts.innerHTML = `<div style="background-color: #${details.color};">Alert: ${details.name} in effect for ${place.name} ${place.state}.<a href="alertdetail.html?city=${city}">Click Here for more information on alerts</a></div>`
       }
    }
+   
    getAlert();
    setInterval(getAlert, 60000)
 

@@ -14,7 +14,7 @@ function notifyMe() {
      const {response} = data
      console.log(data)
      var liteningaudio = "lightning.mp3"
-     if (response[0].relativeTo.distanceMI !== null) {
+     if (response[0]?.relativeTo?.distanceMI !== null) {
       document.getElementById("lightningbutton").style.display = "block"
         const notification =  new Notification("Lightning Alert:", {
              body: `Lightning struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} of this Location in ${city}.`,
