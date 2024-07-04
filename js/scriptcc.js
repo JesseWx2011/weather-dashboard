@@ -47,7 +47,8 @@ tempC = response[0].perioFds[0].tempC
       document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,satellite,radar,alerts-warnings-outlines,counties,lightning-strikes-15m-icons,roads,interstates,rivers,admin-cities-dk/1280x878/${city},9/current.png"/>`
       document.getElementById("windgust").innerHTML  = `Gusts to ${response[0].periods[0].windGustMPH} mph`
     
-    
+          document.getElementById("LoadingScreen").style.display = "none"
+      document.getElementById("weatherpage").style.display = "block"
 
       // Twitter Card
       // Function to get the UV Value
@@ -90,9 +91,6 @@ tempC = response[0].perioFds[0].tempC
       visibility()
 
       // Just get city name if it is set to :auto
-
-      document.getElementById("LoadingScreen").style.display = "none"
-      document.getElementById("weatherpage").style.display = "block"
   
    function correctcity() {
    if (city === `:auto`) {
