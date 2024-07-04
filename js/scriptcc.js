@@ -46,6 +46,9 @@ tempC = response[0].periods[0].tempC
       document.getElementById("windmetric").innerHTML = `${response[0].periods[0].windSpeedKPH} km/h</div>`;
       document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,satellite,radar,alerts-warnings-outlines,counties,lightning-strikes-15m-icons,roads,interstates,rivers,admin-cities-dk/1280x878/${city},9/current.png"/>`
       document.getElementById("windgust").innerHTML  = `Gusts to ${response[0].periods[0].windGustMPH} mph`
+    
+    
+    document.getElementById("LoadingScreen").style.display = "none"
       // Twitter Card
       // Function to get the UV Value
       if (response[0].periods[0].uvi === 0) {
