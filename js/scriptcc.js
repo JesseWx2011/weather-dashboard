@@ -5,7 +5,7 @@
    const values = window.location.search;
 
    const parameters = new URLSearchParams(values);
-   const newcity = parameters.get('city');.
+   const newcity = parameters.get('city');
    const oldlang = parameters.get('lang')
 
 
@@ -25,12 +25,6 @@
          "lat": `${lat}`,
          "lon": `${lon}`
       }
-      function error() {
-         if (error.code === "maxhits_daily") {
-            client_id = `wgE96YE3scTQLKjnqiMsv`; // This is your client id from aeris weather. 
-            client_secret = `SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY` // This is your client secret from aeris weather.
-         }};
-      error()
  state = response[0].place.state
  tempFarenheit = response[0].periods[0].tempF
 tempC = response[0].periods[0].tempC
