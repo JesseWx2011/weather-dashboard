@@ -296,16 +296,6 @@
   setInterval(getTime, 5000)
 </script>
 <script>
-  function hourlycity() {
-    const hbutton = document.getElementById("hourlybutton")
-    hbutton.addEventListener("click", function () {
-      location.replace(`./hourly.html?city=${city}`)
-    })
-  }
-  hourlycity();
-</script>
-
-<script>
   $(function () {
     $(document).keyup(function (e) {
       const key = e.keyCode
