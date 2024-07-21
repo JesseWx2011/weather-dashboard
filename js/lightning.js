@@ -14,7 +14,6 @@ async function litening() {
   const responsee = await fetch(alerts)
   const data = await responsee.json()
   const {response} = data
-  console.log(data)
   var locs = {
     lat: response[0].loc.lat,
     lon: response[0].loc.long

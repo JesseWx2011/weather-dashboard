@@ -213,7 +213,6 @@
       </div>
       <div class="bottomnavbar" id="bottombar">
         <button onclick="lightningredirect()" class="lightningbutton" id="lightningbutton">Closest Lightning Strike</button>
-        <button onclick="hourlycity()" id="hourlybutton" class="linkbutton">Hourly Forecast</button>
         <button class="linkbutton" onclick="extendedforecast()" style="margin-left: 250px;">Full Forecast</button>
         <button onclick="spcoutlook()" id="spcbutton" class="linkbutton"
           style="margin-left: 220px; width: 110px;">Convective Outlook (USA Only)</button>
@@ -222,7 +221,6 @@
   </div>
   </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 
@@ -296,16 +294,6 @@
   ChangeWidth()
   setInterval(getTime, 5000)
 </script>
-<script>
-  function hourlycity() {
-    const hbutton = document.getElementById("hourlybutton")
-    hbutton.addEventListener("click", function () {
-      location.replace(`./hourly.html?city=${city}`)
-    })
-  }
-  hourlycity();
-</script>
-
 <script>
   $(function () {
     $(document).keyup(function (e) {

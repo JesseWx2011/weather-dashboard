@@ -1,4 +1,5 @@
 function notifyMe() {
+  // Request acess to show notifications
   if (!("Notification" in window)) {
   } else if (Notification.permission === "granted") {
   } else if (Notification.permission !== "denied") {
@@ -12,9 +13,9 @@ function notifyMe() {
      const responsee = await fetch(alerts)
      const data = await responsee.json()
      const {response} = data
-     console.log(data)
+     
      var liteningaudio = "lightning.mp3"
-     if (response[0].relativeTo.distanceMI !== null) {
+     if (response[0]?.relativeTo?.distanceMI !== null) {
       document.getElementById("lightningbutton").style.display = "block"
         const notification =  new Notification("Lightning Alert:", {
              body: `Lightning struck ${response[0].relativeTo.distanceMI} miles (${response[0].relativeTo.distanceKM} km) ${response[0].relativeTo.bearingENG} of this Location in ${city}.`,
@@ -34,18 +35,23 @@ function notifyMe() {
 }
 notifyMe()
 alerts();
+// Get Alerts
 const wxalerts = `https://data.api.xweather.com/alerts/${city}?client_id=${client_id}&client_secret=${client_secret}`
 async function alerts() {
  const responsee = await fetch(wxalerts)
  const data = await responsee.json()
  const {response} = data;
- console.log(data)
-
+ 
+// JSON returns as ISO-8601
   alert = response[0].details.name
-  starttimeold = response[0].timestamps.beginsISO
-  endtimeold = response[0].timestamps.expiresISO
-  tz = response[0].profile.tz
- starttime = new Date(starttimeold).toLocaleString("en-US", {timeStyle: "short", timeZone: tz, });
+  starttimeold = response[0].timestamps.beginsISO // When Alert Started
+  endtimeold = response[0].timestamps.expiresISO // When Alert Expires
+  tz = response[0].profile.tz // Timezone
+  /* Convert it to a string we are more familiar with
+    Example: 2021-10-04T17:08:09.000Z
+    String Conversion: October 4th, 2021 17:08:09 UTC
+  */
+ starttime = new Date(starttimeold).toLocaleString("en-US", {timeStyle: "short", timeZone: tz, }); //
  endtime = new Date(endtimeold).toLocaleString("en-US", {timeStyle: "short", timeZone: tz, });
   console.log(starttime)
   if (alert !== null) {
