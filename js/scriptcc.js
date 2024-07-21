@@ -44,11 +44,12 @@ tempC = response[0].periods[0].tempC
       document.getElementById('rainrvalue').innerHTML = `${rainr} in./hr`;
       document.getElementById('solarvalue').innerHTML = `${response[0].periods[0].solradWM2} watts/m²`;
       document.getElementById("windmetric").innerHTML = `${response[0].periods[0].windSpeedKPH} km/h</div>`;
-      document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,satellite,radar,alerts-warnings-outlines,counties,lightning-strikes-15m-icons,roads,interstates,rivers,admin-cities-dk/1280x878/${city},9/current.png"/>`
+    radar = document.getElementById("radarimage").innerHTML = `<img style="width: 617px;" src="https://maps.aerisapi.com/${client_id}_${client_secret}/flat-dk,water-depth,satellite,radar,alerts-warnings-outlines,counties,lightning-strikes-15m-icons,roads,interstates,rivers,admin-cities-dk/1280x878/${city},9/current.png"/>`      
+
+         document.getElementById("LoadingScreen").style.display = "none"
+         document.getElementById("weatherpage").style.display = "block" 
       document.getElementById("windgust").innerHTML  = `Gusts to ${response[0].periods[0].windGustMPH} mph`
     
-          document.getElementById("LoadingScreen").style.display = "none"
-      document.getElementById("weatherpage").style.display = "block"
 
       // Twitter Card
       // Function to get the UV Value
