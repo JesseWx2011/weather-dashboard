@@ -6,6 +6,8 @@
   <div class="info">This uses an api made by Aeris Weather.</div>
   <div class="info">This Project was last updated 8/2/24.</div>
   <div class="info">To see the latest updates, go to "changelog.txt".</div>
+
+  
 <img align="center" src="https://github-readme-stats.vercel.app/api?username=JesseWx2011&include_all_commits=true&count_private=true&show_icons=true&line_height=20&title_color=2B5BBD&icon_color=1124BB&text_color=A1A1A1&bg_color=0,000001,130F40" alt="my Github Stats"/>
 Go to <a href="https://drive.google.com/file/d/1Wft1JEjsMZ_UdUvqw4yiDK1jXy4fm_-/view">here</a> for a demo. 
 <h2 align="center">Any Questions? Create an issue on the "Issues" page.</h2>
