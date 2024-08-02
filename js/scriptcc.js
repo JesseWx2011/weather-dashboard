@@ -12,6 +12,29 @@
    var city = newcity
    var language = oldlang 
    
+const url = `https://data.api.xweather.com/places/${city}?format=json&limit=10&client_id=${client_id}&client_secret=${client_secret}`
+  async function placename() {
+      const responsee = await fetch(url)
+      const data = await responsee.json()
+      const {response} = data;
+      console.log(data) 
+
+
+      mainroot = response
+country = mainroot.place.country
+state = mainroot.place.state.toUpperCase()
+
+// Default to USA if country string is "US"
+ if (country === "US") {
+   country = "USA"
+ } else {
+ }
+
+      city = `${mainroot.loc.lat},${mainroot.loc.long}`
+      document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${mainroot.place.name}, ${state}, ${country} </div>`;
+
+   }
+   placename();
 // Get Weather
    getWx();
    const api_url = `https://api.aerisapi.com/conditions/${city}?format=json&plimit=1&filter=1min&client_id=${client_id}&client_secret=${client_secret}&limit=5`;
@@ -29,7 +52,6 @@
  tempFarenheit = response[0].periods[0].tempF
 tempC = response[0].periods[0].tempC
       const rainr = (response[0].periods[0].precipRateIN ).toFixed(3)
-      document.getElementById('cityname').innerHTML = `<div class="city">Deluge - Weather for ${response[0].place.name}, ${state}</div>`;
       document.getElementById('temp').innerHTML = `${tempFarenheit}°F (${tempC}°C)`;
       document.getElementById('title').innerHTML = `Deluge - Weather for ${response[0].place.name}, ${response[0].place.state}`
       document.getElementById('icon').innerHTML = `<img src="https://raw.githubusercontent.com/JesseWx2011/weather-dashboard/main/icons/${response[0].periods[0].icon}" style="width: 10%; padding-left: 590px; display: flex;"></img>`;
@@ -90,16 +112,6 @@ tempC = response[0].periods[0].tempC
             visibilitytext.innerHTML = `Extremely Dense Fog`
          };}
       visibility()
-
-      // Just get city name if it is set to :auto
-  
-   function correctcity() {
-   if (city === `:auto`) {
-      document.getElementById('cityname').innerHTML = `<div class="city">Weather for ${response[0].place.name}, ${response[0].place.state}</div>`;
-   } else {
-      document.getElementById('cityname').innerHTML = `<div class="city" style="position: relative;">Weather for ${response[0].place.name}, ${response[0].place.state}</div>`;
-   }};
-   correctcity()
       // Function for UV
       if (response[0].periods[0].uvi >= 5) {
          uvvaluedesc.innerHTML = "Put on Sunscreen when outdoors."
