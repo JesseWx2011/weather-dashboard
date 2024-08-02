@@ -138,8 +138,12 @@ Notifications on Mobile
 v2.5 Build 1 (7-3-2024):
 Move Icons and other files to separate directory
 Loading Screen
+v2.6 Build 1 (8-2-2024):
+Closest Lightning Strikes Adjusteded
+Places capitalized on the main page
+Full Extended Forecast Page fixed.
 
-v2.5 Build 1 is the Latest Version.
+v2.6 Build 1 is the Latest Version.
  To Be Added:
 Nothing at the moment.
 To be decided:
