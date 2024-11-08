@@ -1,4 +1,4 @@
-<h1>This Project is now moving on! A New Version of weather-dashboard is coming. The sky awaits</h1>
+<h1>This project has a new home. Visit <a href="https://github.com/JesseWx2011/weatherDashboard-Revised">here</a>!</h1>
 <h1 class="title">About this respitory</h1>
   <div class="info">This is a fully-designed weather website created by Jesse Hasty.</div>
   <div class="contibutors">
